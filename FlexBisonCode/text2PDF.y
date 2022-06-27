@@ -19,57 +19,60 @@ extern char *yytext;
 /* Tokens*/
 %token <ival> NUM
 %token <str> PDFDECLARATION CREATIONDATE ENDOBJ PRODUCER TITLE TYPECATALOG PAGES TYPEFONT SUBTYPE NAME FONE BASEFONT FONT PROCSET PDFSTRING TEXTSTRING 
-%token <str> ARRAYOPEN ARRAYCLOSE LESSTHAN GREATERTHAN NUMBERLOOP KIDSLOOP
+%token <str> ARRAYOPEN ARRAYCLOSE LESSTHAN GREATERTHAN NUMBERLOOP KIDSLOOP STREAMENDSTREAM
 %token <str> OBJ SPACE EMPTY NEWLINE STRING TYPEPAGE TYPEPAGES PARENT RESOURCES CONTENTS LENGTH COUNT KIDS MEDIABOX XREF TRAILER SIZE ROOT INFO STARTXREF
 
-%type main writeheader writeRest startobj endobj string obj stringR numStringType num numR
+%type main writeheader writeRest startobj endobj string stringR numString num numR
 
 %start main
 
 %%
-writeheader:PDFDECLARATION NEWLINE obj 
+writeheader:PDFDECLARATION NEWLINE startobj 
             NEWLINE CREATIONDATE string 
             NEWLINE PRODUCER string 
             NEWLINE TITLE string
-            NEWLINE obj 
+            NEWLINE endobj 
+            NEWLINE startobj
             NEWLINE TYPECATALOG
             NEWLINE stringR 
-            NEWLINE obj 
+            NEWLINE endobj
+            NEWLINE startobj 
             NEWLINE TYPEFONT 
             NEWLINE SUBTYPE 
             NEWLINE NAME SPACE FONE
             NEWLINE BASEFONT 
-            NEWLINE obj
+            NEWLINE endobj
+            NEWLINE startobj 
             NEWLINE FONT SPACE LESSTHAN SPACE FONE SPACE numR SPACE GREATERTHAN
             NEWLINE PROCSET SPACE ARRAYOPEN SPACE PDFSTRING SPACE TEXTSTRING SPACE ARRAYCLOSE
-            NEWLINE obj
+            NEWLINE endobj
+            writePages
+
+writePages: pageobjs
             writeRest
                   
-writeRest:  NEWLINE TYPEPAGE
+pageobjs:   pages | pageobjs pages
+
+pages:      NEWLINE startobj
+            NEWLINE TYPEPAGE
             NEWLINE stringR //PARENT
             NEWLINE stringR //RESOURCES
             NEWLINE stringR //CONTENTS
-            NEWLINE obj
+            NEWLINE endobj
+            NEWLINE startobj 
             NEWLINE stringR //LENGTH
-            NEWLINE obj
-            NEWLINE obj
+            NEWLINE STREAMENDSTREAM
+            NEWLINE pageObj  
+
+writeRest:  NEWLINE startobj 
             NEWLINE TYPEPAGES
             NEWLINE COUNT num
             NEWLINE MEDIABOX SPACE ARRAYOPEN SPACE num SPACE num SPACE ARRAYCLOSE
             NEWLINE KIDS SPACE KIDSLOOP
-            NEWLINE obj
+            NEWLINE endobj
             NEWLINE XREF
             NEWLINE num
             NEWLINE NUMBERLOOP
-            /*NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE
-            NEWLINE numR SPACE*/
             TRAILER
             NEWLINE LESSTHAN
             NEWLINE SIZE SPACE NUM
@@ -80,39 +83,37 @@ writeRest:  NEWLINE TYPEPAGE
             NEWLINE NUM
             NEWLINE
 
-string: STRING | SPACE STRING
-        
+string:     STRING | SPACE STRING
 
-num: NUM | SPACE NUM | NUM SPACE NUM
+num:        NUM | SPACE NUM | NUM SPACE NUM
 
-startobj: num SPACE OBJ NEWLINE LESSTHAN |
-          num SPACE OBJ NEWLINE num
+objReuse:   num SPACE OBJ NEWLINE
 
-endobj: GREATERTHAN NEWLINE ENDOBJ |
-        ENDOBJ
+startobj:   objReuse LESSTHAN
 
-obj: obj NEWLINE startobj |
-     startobj |
-     endobj 
+endobj:     GREATERTHAN NEWLINE ENDOBJ |
+            ENDOBJ
 
-numStringType: PAGES | RESOURCES | PARENT | CONTENTS | LENGTH
+pageObj:    objReuse num NEWLINE endobj
 
-stringR: numStringType SPACE numR 
+numString:  PAGES | RESOURCES | PARENT | CONTENTS | LENGTH
 
-numR: num SPACE string
+stringR:    numString SPACE numR 
 
-main: writeheader {}
+numR:       num SPACE string
+
+main:       writeheader {}
 %%
 
 
-int main() {
+int main(int argc, char ** argv) {
      /* #ifdef YYDEBUG
         yydebug = 1;
     #endif   */
     // add -t to bison and -d to flex in makefile
-    yyin = fopen("text2PDFExample.pdf","r");
+    yyin = fopen(argv[1],"r");
     if (yyin == NULL) {
-        fprintf(stderr, "Could not open 'text2PDFExample.pdf': %s\n", strerror(errno));
+        fprintf(stderr, "Could not open '%s': %s\n", argv[1] , strerror(errno));
         exit(1);
     }
     yyparse();

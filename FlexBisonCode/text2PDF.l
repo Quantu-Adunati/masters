@@ -52,8 +52,9 @@
 <<EOF>>              { yyterminate(); return 0; }
 \n                   { return NEWLINE; }
 "//".*[ \t]          { }
-([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+        { return NUMBERLOOP; }
-(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+  { return KIDSLOOP; }
+(\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
+([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }
+(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+                      { return KIDSLOOP; }
 .	printf("bad input character '%s' at line %d\n", yytext, yylineno);
 %%
 
@@ -61,4 +62,3 @@ void yyerror (char const *s) {
    fprintf (stderr, "Error | Line: %d\n%s\n",yylineno,s);
 }
 /* C functions( like the main)*/
-/*tr -dc [:print:]'\n' |
