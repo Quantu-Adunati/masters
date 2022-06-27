@@ -4,7 +4,7 @@ text2PDF: text2PDF.l text2PDF.y
 	gcc -Wall lex.yy.c text2PDF.tab.c -o text2PDF
 	
 run:	
-	./text2PDF ../text2Full.pdf
+	./text2PDF ../multiPage.pdf
 
 clean:
 	rm -f text2PDF lex.yy.c text2PDF.tab.c text2PDF.tab.h

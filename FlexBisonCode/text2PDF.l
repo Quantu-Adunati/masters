@@ -48,7 +48,7 @@
 \((.*)\)             { return STRING; }
 [a-zA-Z]+            { return STRING; }
 [0-9]+	            { return NUM; }
-"%%EOF"              { yyterminate(); return 0; }
+"%%"                 { return STRING;}
 <<EOF>>              { yyterminate(); return 0; }
 \n                   { return NEWLINE; }
 "//".*[ \t]          { }

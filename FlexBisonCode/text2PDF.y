@@ -81,6 +81,7 @@ writeRest:  NEWLINE startobj
             NEWLINE GREATERTHAN
             NEWLINE STARTXREF
             NEWLINE NUM
+            NEWLINE STRING STRING
             NEWLINE
 
 string:     STRING | SPACE STRING
