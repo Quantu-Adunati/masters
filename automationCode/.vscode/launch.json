@@ -6,7 +6,8 @@
     "configurations": [
         {
             "args": [
-                "text2PDF.l"
+                "text2PDF.l",
+                "text2pdf.c"
             ],
             "name": "Python: Current File",
             "type": "python",
