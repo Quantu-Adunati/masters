@@ -40,6 +40,8 @@ int main(int argc, char ** argv) {
 nonMethodKeywords = 'if while switch else'
 keywordsToLookFor = 'printf putchar'
 tokenDictionary = dict([])
+methodDictionary = dict([])
+
 
 def main():
     print('Starting Main')
@@ -47,15 +49,19 @@ def main():
     readFlexFile(sys.argv[1])
     readCodeFile(sys.argv[2])
     extractTokens()
+    extractAllMethods()
     createBisonFile()
-    
+
+
 def readFlexFile(flexFileName):
-    global flexFileString 
+    global flexFileString
     flexFileString = readFile(flexFileName)
 
-def readCodeFile(codeFileName):    
-    global codeFileString 
+
+def readCodeFile(codeFileName):
+    global codeFileString
     codeFileString = readFile(codeFileName)
+
 
 def readFile(fileName):
     print('Reading File With Name: ' + fileName)
@@ -67,54 +73,77 @@ def readFile(fileName):
 
     return fileString
 
+
 def extractTokens():
     print('\nExtracting All Tokens')
     print('\n=====================')
     patternToFindAllTokens = '/\* Token Specifications start \*/[\n]((.*\n)*)/\* Token Specifications End \*/'
     allTokens = re.findall(patternToFindAllTokens, flexFileString)
-   
+
     print('\nExtracting Individual Tokens')
     print('\n============================')
-    tokenList = allTokens[0][0].replace('\t','').split('\n')
-    setDictionary(tokenList)
+    tokenList = allTokens[0][0].replace('\t', '').split('\n')
+    setTokenDictionary(tokenList)
 
-def setDictionary(tokenList):
+
+def setTokenDictionary(tokenList):
     global tokenDictionary
     for token in tokenList:
         if "yyterminate" not in str(token) and "return" in str(token):
             splitToken = re.split('[ \t]*\{ return ', token)
             splitToken[0] = splitToken[0].replace('"', '')
-            splitToken[1] = splitToken[1].replace('; }','')
+            splitToken[1] = splitToken[1].replace('; }', '')
             tokenDictionary[splitToken[0]] = splitToken[1]
-    
+
     print('\nThe token dictionary is =>'+str(tokenDictionary))
 
 
-def createGrammarRules():
-    grammarRules ='%start main\n\n%%'
+def setMethodDictionary(methodName, method):
+    global methodDictionary
+    methodDictionary[methodName] = method
 
-    grammarRules +='\n%%\n'
+
+def createGrammarRules():
+    grammarRules = '%start main\n\n%%'
+
+    grammarRules += '\n%%\n'
     return grammarRules
 
+
 def createTypeDeclarations():
-    #Writes to whiteSpace created by the tokenDeclaration() method
-    #TODO figure out how to do. This will be the last step
+    # Writes to whiteSpace created by the tokenDeclaration() method
+    # TODO figure out how to do. This will be the last step
     typeDeclaration = '%type main'
     print(":")
+
 
 def createTokenDeclaration():
     tokenDeclaration = '/* Tokens*/'
     strList = set()
     for tokenValue in tokenDictionary.values():
-        if(str(tokenValue)=='NUM'):
+        if(str(tokenValue) == 'NUM'):
             tokenDeclaration += '\n%token <ival> NUM'
         else:
             strList.add(tokenValue + ' ')
-    
+
     tokenDeclaration += '\n%token <str> ' + ''.join(strList)
     tokenDeclaration += '\n\n\n'
     return tokenDeclaration
+
+
+def extractAllMethods():
+    global codeFileString
+    methodRegex = r"^(int|char|long|void)\s+(\w+)\s*\(.*\)[\S\s]*?\{(?:.*\n(?!}))*.*\n}$"
+    # allTokens = re.findall(methodRegex, codeFileString)
+    matches = re.finditer(methodRegex, codeFileString, re.MULTILINE)
+    for matchNum, match in enumerate(matches, start=1):
+
+        print("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum=matchNum, start=match.start(), end=match.end(), match=match.group()))
         
+        methodNameRegex = r"(int|char|long|void)[\s]+(\w+)"
+        methodName = re.findall(methodNameRegex, match.group())
+        setMethodDictionary(methodName[0][1], str(match.group()))
+
 
 def createBisonFile():
     with open('test.y', 'w') as f:
