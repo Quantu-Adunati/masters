@@ -51,6 +51,7 @@ def main():
     extractTokens()
     extractAllMethods()
     createBisonFile()
+    visitEachMethod()
 
 
 def readFlexFile(flexFileName):
@@ -134,15 +135,34 @@ def createTokenDeclaration():
 def extractAllMethods():
     global codeFileString
     methodRegex = r"^(int|char|long|void)\s+(\w+)\s*\(.*\)[\S\s]*?\{(?:.*\n(?!}))*.*\n}$"
-    # allTokens = re.findall(methodRegex, codeFileString)
     matches = re.finditer(methodRegex, codeFileString, re.MULTILINE)
     for matchNum, match in enumerate(matches, start=1):
+        # print("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum=matchNum, start=match.start(), end=match.end(), match=match.group()))
 
-        print("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum=matchNum, start=match.start(), end=match.end(), match=match.group()))
-        
         methodNameRegex = r"(int|char|long|void)[\s]+(\w+)"
         methodName = re.findall(methodNameRegex, match.group())
         setMethodDictionary(methodName[0][1], str(match.group()))
+
+
+def visitEachMethod():
+    # Thinking of making this a recursive thing. Will need to see how this plays out.
+    # Idea is to go from writeHeader to writeStr, realize it does a putChar(keywordToLookFor)
+    # then backtrack to find the actual string, use that to determine the token(findTokenValue)
+    # Then add to the grammar.
+    global methodDictionary
+    # The next line is a test. Remove when actualyl coding
+    print(str(findTokenValue("%PDF-1.1\n")))
+    
+
+def findTokenValue(stringToBePrinted):
+    global tokenDictionary
+    matchedTokens = []
+    for tokenRegex in tokenDictionary:
+        # Need to figure out how to handle the proper regex strings in tokens. It gets escaped and then another escape.
+        match = re.findall(re.escape(tokenRegex), stringToBePrinted)
+        if(len(match) > 0):
+            matchedTokens.append(tokenDictionary[tokenRegex])
+    return matchedTokens
 
 
 def createBisonFile():
