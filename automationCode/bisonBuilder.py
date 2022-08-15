@@ -1,3 +1,4 @@
+from operator import eq
 import re
 import sys
 
@@ -26,22 +27,23 @@ bisonMainString = '''
 int main(int argc, char ** argv) {
     yyin = fopen(argv[1],"r");
     if (yyin == NULL) {
-        fprintf(stderr, "Could not open '%s': %s\n", argv[1] , strerror(errno));
+        fprintf(stderr, "Could not open '%s': %s\\n", argv[1] , strerror(errno));
         exit(1);
     }
     yyparse();
     int token;
     while ((token = yylex()) != 0) {
-        printf("Token: %d (%s)\n", token, yytext);
+        printf("Token: %d (%s)\\n", token, yytext);
     }
     return 0;
 }'''
 
 nonMethodKeywords = 'if while switch else'
-keywordsToLookFor = 'printf putchar'
+keywordsToLookFor = 'writestr sprintf'
+formatingTokens = '%s %d' #Todo might need to split this.
 tokenDictionary = dict([])
 methodDictionary = dict([])
-
+visitedMethods = []
 
 def main():
     print('Starting Main')
@@ -51,7 +53,6 @@ def main():
     extractTokens()
     extractAllMethods()
     createBisonFile()
-    visitEachMethod()
 
 
 def readFlexFile(flexFileName):
@@ -143,22 +144,44 @@ def extractAllMethods():
         methodName = re.findall(methodNameRegex, match.group())
         setMethodDictionary(methodName[0][1], str(match.group()))
 
+def extractMethodParam(methodCall):
+    regexPattern = '\((.*?)\)'
+    return re.findall(regexPattern, methodCall)[0][0].replace('(', '').replace(')','')
 
-def visitEachMethod():
-    # Thinking of making this a recursive thing. Will need to see how this plays out.
-    # Idea is to go from writeHeader to writeStr, realize it does a putChar(keywordToLookFor)
-    # then backtrack to find the actual string, use that to determine the token(findTokenValue)
-    # Then add to the grammar.
+def visitEachMethod(methodToVisit):
     global methodDictionary
-    # The next line is a test. Remove when actualyl coding
-    print(str(findTokenValue("%PDF-1.1\n")))
+    innerGrammarCount = 1
+    if(hasMethodBeenVisited(methodToVisit) is False):
+        grammar = ''.join(methodToVisit).join(':')#Todo check, Not sure
+        for line in methodDictionary.get(methodToVisit):
+            #Need to check loops and conditional statements
+            #Use grammarCount(as key) to create the subgrammars and
+            #as reference in caller grammar
+            if(keywordsToLookFor.split() in line):
+                params = extractMethodParam(line)
+                
+#How to add following grammar(like writePages) at end of writeHeader?
     
+def visitMainMethod():
+    global methodDictionary
+    mainMethod = methodDictionary.get('main')
+    
+    for word in mainMethod.split():
+        if(word in methodDictionary):
+            visitEachMethod(word)
+
+
+def hasMethodBeenVisited(methodName):
+    if(visitedMethods.get(methodName) is None):
+        visitedMethods.append(methodName)
+        return False
+    return True  
 
 def findTokenValue(stringToBePrinted):
     global tokenDictionary
     matchedTokens = []
     for tokenRegex in tokenDictionary:
-        # Need to figure out how to handle the proper regex strings in tokens. It gets escaped and then another escape.
+        # TODO: Change declaration of regex in flex file. Else it gets double escaped here.
         match = re.findall(re.escape(tokenRegex), stringToBePrinted)
         if(len(match) > 0):
             matchedTokens.append(tokenDictionary[tokenRegex])
@@ -171,6 +194,7 @@ def createBisonFile():
         f.write(createTokenDeclaration())
         f.write(createGrammarRules())
         f.write(bisonMainString)
+        f.write(visitMainMethod())
 
 
 if __name__ == '__main__':

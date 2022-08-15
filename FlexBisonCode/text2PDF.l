@@ -44,7 +44,6 @@
 " "                  { return SPACE; }
 "<<"                 { return LESSTHAN; }
 ">>"                 { return GREATERTHAN; }
-""                   { return EMPTY; }
 \((.*)\)             { return STRING; }
 [a-zA-Z]+            { return STRING; }
 [0-9]+	            { return NUM; }

@@ -373,8 +373,8 @@ static void yynoreturn yy_fatal_error ( const char* msg  );
 	(yy_hold_char) = *yy_cp; \
 	*yy_cp = '\0'; \
 	(yy_c_buf_p) = yy_cp;
-#define YY_NUM_RULES 49
-#define YY_END_OF_BUFFER 50
+#define YY_NUM_RULES 48
+#define YY_END_OF_BUFFER 49
 /* This struct is not used in this scanner,
    but its presence is necessary. */
 struct yy_trans_info
@@ -384,27 +384,27 @@ struct yy_trans_info
 	};
 static const flex_int16_t yy_accept[270] =
     {   0,
-       38,   38,   50,   48,   43,   35,   48,   48,   48,   41,
-       48,   48,   40,   30,   31,   40,   40,   40,   40,   40,
-        0,   42,    0,    0,   39,    0,    0,    0,    0,    0,
-        0,    0,    0,    0,    0,    0,    0,    0,    0,   41,
-       36,   37,   40,    0,   40,   40,   40,   40,   40,    0,
-        0,    0,   44,    0,    0,    0,   25,    0,    0,    0,
+        0,    0,   49,   47,   42,   35,   47,   47,   47,   40,
+       47,   47,   39,   30,   31,   39,   39,   39,   39,   39,
+        0,   41,    0,    0,   38,    0,    0,    0,    0,    0,
+        0,    0,    0,    0,    0,    0,    0,    0,    0,   40,
+       36,   37,   39,    0,   39,   39,   39,   39,   39,    0,
+        0,    0,   43,    0,    0,    0,   25,    0,    0,    0,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0,    0,    0,   40,   33,   40,   40,   40,
+        0,    0,    0,    0,    0,   39,   33,   39,   39,   39,
         0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
         0,    0,   29,    0,    0,    0,    0,    0,    0,    0,
 
-        0,    0,    0,    0,    0,    0,   40,   40,   40,   18,
+        0,    0,    0,    0,    0,    0,   39,   39,   39,   18,
         0,    0,    0,    0,    0,    0,    0,   23,   17,    0,
         0,   20,    0,    0,    0,    0,   22,   21,    0,   32,
-        0,    0,    0,    0,    0,   40,   40,   40,    0,    0,
+        0,    0,    0,    0,    0,   39,   39,   39,    0,    0,
         0,    0,    0,   15,    0,    0,    0,    6,    0,    0,
-        0,    0,    4,    0,   46,    0,    0,   34,   40,   40,
+        0,    0,    4,    0,   45,    0,    0,   34,   39,   39,
        27,    0,    0,    0,    0,    0,   14,    0,   11,    0,
-        0,    0,    0,   46,    0,    0,    0,   40,   19,    0,
+        0,    0,    0,   45,    0,    0,    0,   39,   19,    0,
         1,    0,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0,   47,   40,    0,    0,   13,    0,   16,
+        0,    0,    0,   46,   39,    0,    0,   13,    0,   16,
 
         3,    0,    0,    0,    0,    0,    0,    0,   24,   28,
         0,    0,   12,    0,    0,    0,    0,    0,    0,    0,
@@ -412,7 +412,7 @@ static const flex_int16_t yy_accept[270] =
         0,    0,    2,    0,    0,    0,    0,    0,    5,    0,
         0,    0,    0,    0,    8,    0,    0,    0,    0,    0,
         0,   26,    0,    0,    0,    0,    0,    0,    0,    0,
-        0,    0,    0,    0,    0,    0,    0,   45,    0
+        0,    0,    0,    0,    0,    0,    0,   44,    0
     } ;
 
 static const YY_CHAR yy_ec[256] =
@@ -656,11 +656,11 @@ static const flex_int16_t yy_chk[555] =
     } ;
 
 /* Table of booleans, true if rule could match eol. */
-static const flex_int32_t yy_rule_can_match_eol[50] =
+static const flex_int32_t yy_rule_can_match_eol[49] =
     {   0,
 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0, 0, 0, 1, 0, 1, 1, 0, 0, 0,     };
+    0, 0, 1, 0, 1, 1, 0, 0, 0,     };
 
 static yy_state_type yy_last_accepting_state;
 static char *yy_last_accepting_cpos;
@@ -1158,7 +1158,7 @@ YY_RULE_SETUP
 case 38:
 YY_RULE_SETUP
 #line 48 "text2PDF.l"
-{ return EMPTY; }
+{ return STRING; }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
@@ -1168,61 +1168,56 @@ YY_RULE_SETUP
 case 40:
 YY_RULE_SETUP
 #line 50 "text2PDF.l"
-{ return STRING; }
+{ return NUM; }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
 #line 51 "text2PDF.l"
-{ return NUM; }
-	YY_BREAK
-case 42:
-YY_RULE_SETUP
-#line 52 "text2PDF.l"
 { return STRING;}
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 53 "text2PDF.l"
+#line 52 "text2PDF.l"
 { yyterminate(); return 0; }
 	YY_BREAK
-case 43:
-/* rule 43 can match eol */
+case 42:
+/* rule 42 can match eol */
 YY_RULE_SETUP
-#line 54 "text2PDF.l"
+#line 53 "text2PDF.l"
 { return NEWLINE; }
 	YY_BREAK
+case 43:
+YY_RULE_SETUP
+#line 54 "text2PDF.l"
+{ }
+	YY_BREAK
 case 44:
+/* rule 44 can match eol */
 YY_RULE_SETUP
 #line 55 "text2PDF.l"
-{ }
+{ return STREAMENDSTREAM; }
 	YY_BREAK
 case 45:
 /* rule 45 can match eol */
 YY_RULE_SETUP
 #line 56 "text2PDF.l"
-{ return STREAMENDSTREAM; }
+{ return NUMBERLOOP; }
 	YY_BREAK
 case 46:
-/* rule 46 can match eol */
 YY_RULE_SETUP
 #line 57 "text2PDF.l"
-{ return NUMBERLOOP; }
+{ return KIDSLOOP; }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
 #line 58 "text2PDF.l"
-{ return KIDSLOOP; }
+printf("bad input character '%s' at line %d\n", yytext, yylineno);
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
 #line 59 "text2PDF.l"
-printf("bad input character '%s' at line %d\n", yytext, yylineno);
-	YY_BREAK
-case 49:
-YY_RULE_SETUP
-#line 60 "text2PDF.l"
 YY_FATAL_ERROR( "flex scanner jammed" );
 	YY_BREAK
-#line 1226 "lex.yy.c"
+#line 1221 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2237,7 +2232,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 60 "text2PDF.l"
+#line 59 "text2PDF.l"
 
 
 void yyerror (char const *s) {

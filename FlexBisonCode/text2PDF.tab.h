@@ -75,24 +75,23 @@ extern int yydebug;
     STREAMENDSTREAM = 281,
     OBJ = 282,
     SPACE = 283,
-    EMPTY = 284,
-    NEWLINE = 285,
-    STRING = 286,
-    TYPEPAGE = 287,
-    TYPEPAGES = 288,
-    PARENT = 289,
-    RESOURCES = 290,
-    CONTENTS = 291,
-    LENGTH = 292,
-    COUNT = 293,
-    KIDS = 294,
-    MEDIABOX = 295,
-    XREF = 296,
-    TRAILER = 297,
-    SIZE = 298,
-    ROOT = 299,
-    INFO = 300,
-    STARTXREF = 301
+    NEWLINE = 284,
+    STRING = 285,
+    TYPEPAGE = 286,
+    TYPEPAGES = 287,
+    PARENT = 288,
+    RESOURCES = 289,
+    CONTENTS = 290,
+    LENGTH = 291,
+    COUNT = 292,
+    KIDS = 293,
+    MEDIABOX = 294,
+    XREF = 295,
+    TRAILER = 296,
+    SIZE = 297,
+    ROOT = 298,
+    INFO = 299,
+    STARTXREF = 300
   };
 #endif
 
@@ -105,7 +104,7 @@ union YYSTYPE
     int ival;
     char* str;
 
-#line 109 "text2PDF.tab.h"
+#line 108 "text2PDF.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

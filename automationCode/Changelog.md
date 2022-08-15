@@ -6,6 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 15 August 2022
+- Started From scratch with grammar auto generation
+- Added methods for auto generation
+
+
 ## 21 July 2022
 - Removed EMPTY token. Current findToken implementation with regex causes empty to always be found.
 - Was a lot more difficult to extract the methods from the c program string file. The regex is difficult and will most probably fail when used on other programming languages.
