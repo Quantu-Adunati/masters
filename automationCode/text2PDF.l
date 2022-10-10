@@ -45,11 +45,11 @@
 "<<"                 { return LESSTHAN; }
 ">>"                 { return GREATERTHAN; }
 \((.*)\)             { return STRING; }
-[a-zA-Z]+            { return STRING; }
-[0-9]+	            { return NUM; }
+"[a-zA-Z]+"           { return STRING; }
+"[0-9]+"	            { return NUM; }
 "%%"                 { return STRING; }
 <<EOF>>              { yyterminate(); return 0; }
-\n                   { return NEWLINE; }
+"\n"                  { return NEWLINE; }
 "//".*[ \t]          { }
 (\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
 ([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }

@@ -6,10 +6,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 10 October 2022
+- Improved findTokenValue method
+- Improved retrieving params from writeStr
+- Need to look into sprintf and how to make it work
+
 ## 15 August 2022
 - Started From scratch with grammar auto generation
 - Added methods for auto generation
-
 
 ## 21 July 2022
 - Removed EMPTY token. Current findToken implementation with regex causes empty to always be found.

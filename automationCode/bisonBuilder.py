@@ -1,3 +1,4 @@
+from lib2to3.pgen2 import grammar
 from operator import eq
 import re
 import sys
@@ -40,10 +41,11 @@ int main(int argc, char ** argv) {
 
 nonMethodKeywords = 'if while switch else'
 keywordsToLookFor = 'writestr sprintf'
-formatingTokens = '%s %d' #Todo might need to split this.
+formatingTokens = '%s %d'  # Todo: might need to split this.
 tokenDictionary = dict([])
 methodDictionary = dict([])
 visitedMethods = []
+
 
 def main():
     print('Starting Main')
@@ -95,7 +97,8 @@ def setTokenDictionary(tokenList):
             splitToken = re.split('[ \t]*\{ return ', token)
             splitToken[0] = splitToken[0].replace('"', '')
             splitToken[1] = splitToken[1].replace('; }', '')
-            tokenDictionary[splitToken[0]] = splitToken[1]
+            tokenKey = splitToken[0].encode().decode('unicode_escape')
+            tokenDictionary[tokenKey] = splitToken[1]
 
     print('\nThe token dictionary is =>'+str(tokenDictionary))
 
@@ -105,11 +108,15 @@ def setMethodDictionary(methodName, method):
     methodDictionary[methodName] = method
 
 
-def createGrammarRules():
+def createGrammarRulesStart():
     grammarRules = '%start main\n\n%%'
 
     grammarRules += '\n%%\n'
     return grammarRules
+
+
+def createGrammarRulesEnd():
+    return '\n%%\n'
 
 
 def createTypeDeclarations():
@@ -142,59 +149,95 @@ def extractAllMethods():
 
         methodNameRegex = r"(int|char|long|void)[\s]+(\w+)"
         methodName = re.findall(methodNameRegex, match.group())
-        setMethodDictionary(methodName[0][1], str(match.group()))
+        if(methodName[0][1] != 'ShowHelp'):
+            setMethodDictionary(methodName[0][1], str(match.group()))
 
-def extractMethodParam(methodCall):
-    regexPattern = '\((.*?)\)'
-    return re.findall(regexPattern, methodCall)[0][0].replace('(', '').replace(')','')
+
+def extractSprintFMethodParam(methodCall):
+    regexPattern = r"\((.*?)\)"
+    return "TODO FIGURE THIS ONE OUT"
+
+
+def extractWriteStrMethodParam(methodCall):
+    regexPattern = r"\((.*?)\)"
+    return cleanStringUp(re.search(regexPattern, methodCall).group())
+
+
+def cleanStringUp(regexMatch):
+    cleanerRegexMatch = regexMatch.translate({ord(ch): '' for ch in '()"'})
+    return cleanerRegexMatch.encode().decode('unicode-escape')
+
 
 def visitEachMethod(methodToVisit):
     global methodDictionary
     innerGrammarCount = 1
     if(hasMethodBeenVisited(methodToVisit) is False):
-        grammar = ''.join(methodToVisit).join(':')#Todo check, Not sure
-        for line in methodDictionary.get(methodToVisit):
-            #Need to check loops and conditional statements
-            #Use grammarCount(as key) to create the subgrammars and
-            #as reference in caller grammar
-            if(keywordsToLookFor.split() in line):
-                params = extractMethodParam(line)
-                
-#How to add following grammar(like writePages) at end of writeHeader?
-    
+        grammar = methodToVisit + ':'
+        for line in methodDictionary.get(methodToVisit).split(';'):
+            # Need to check loops and conditional statements
+            # Use grammarCount(as key) to create the subgrammars and
+            # reference in caller grammar
+            params = ''
+            if('writestr' in line):
+                params = extractWriteStrMethodParam(line)
+            elif('sprintf' in line):
+                params = extractSprintFMethodParam(line)
+
+            if(params):
+                grammar += findTokenValue(params)
+        # TODO: Current placeholder. Not sure if this is returned
+        return grammar
+
+
 def visitMainMethod():
     global methodDictionary
     mainMethod = methodDictionary.get('main')
-    
-    for word in mainMethod.split():
-        if(word in methodDictionary):
-            visitEachMethod(word)
+    grammarRules = ''
+    for word in mainMethod.split('\n'):
+        methodName = word.strip().split('(')[0]
+        if(methodName in methodDictionary):
+            grammarRules += visitEachMethod(methodName)
+            if(not (not grammarRules)):
+                grammarRules += '\n' + methodName
+            # TODO add following grammar(like writePages) at end of writeHeader?
+
+    return grammarRules
 
 
 def hasMethodBeenVisited(methodName):
-    if(visitedMethods.get(methodName) is None):
+    if(methodName not in visitedMethods):
         visitedMethods.append(methodName)
         return False
-    return True  
+    return True
+
 
 def findTokenValue(stringToBePrinted):
     global tokenDictionary
     matchedTokens = []
-    for tokenRegex in tokenDictionary:
-        # TODO: Change declaration of regex in flex file. Else it gets double escaped here.
-        match = re.findall(re.escape(tokenRegex), stringToBePrinted)
-        if(len(match) > 0):
-            matchedTokens.append(tokenDictionary[tokenRegex])
-    return matchedTokens
+    if(stringToBePrinted):
+        stringToBePrintedSplit = stringToBePrinted.split(' ')
+        for index, character in enumerate(stringToBePrintedSplit):
+            for tokenRegex in tokenDictionary:
+                regexPattern = re.escape(tokenRegex) if len(tokenRegex) == 1 else tokenRegex
+#TODO currently it finds PDFDECLARATION string num and newline on %PDF-1.1\n
+#It should only be PDFDECLARATION newline
+#think easy fix when splitting by newline and break if it went into 226 if
+                match = re.findall(regexPattern, character)
+                if(len(match) > 0):
+                    matchedTokens.append(tokenDictionary[tokenRegex])
+                    if(index < (len(stringToBePrintedSplit)-1)):
+                        matchedTokens.append("SPACE")
+    return ' '.join(matchedTokens)
 
 
 def createBisonFile():
     with open('test.y', 'w') as f:
         f.write(bisonStartString)
         f.write(createTokenDeclaration())
-        f.write(createGrammarRules())
+        f.write(createGrammarRulesStart())
         f.write(bisonMainString)
         f.write(visitMainMethod())
+        f.write(createGrammarRulesEnd())
 
 
 if __name__ == '__main__':
