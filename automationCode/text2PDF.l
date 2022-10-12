@@ -11,12 +11,13 @@
 "/CreationDate"      { return CREATIONDATE; }
 "/Producer"	         { return PRODUCER; }
 "/Title"	            { return TITLE; }
-"/Type /Catalog"  	{ return TYPECATALOG; }
+"/Type"  	         { return TYPE; }
+"/Catalog"  	      { return CATALOG; }
 "/Pages"	            { return PAGES; }
-"/Type /Font"	      { return TYPEFONT; }
-"/Subtype /Type1"	   { return SUBTYPE; }
-"/Type /Page"	      { return TYPEPAGE; }
-"/Type /Pages"	      { return TYPEPAGES; }
+"/Font"	            { return FONT; }
+"/Type1"	            { return TYPEONE; }
+"/Subtype"	         { return SUBTYPE; }
+"/Page"	            { return TYPEPAGE; }
 "/Parent"	         { return PARENT; }
 "/Resources"	      { return RESOURCES; }
 "/Contents"	         { return CONTENTS; }
@@ -32,9 +33,9 @@
 "/Info"	            { return INFO; }
 "startxref"	         { return STARTXREF; }
 "/F1"	               { return FONE; }
-"/BaseFont /Courier" { return BASEFONT; }
-"  /Font"	         { return FONT; }
-"  /ProcSet"	      { return PROCSET; }
+"/BaseFont"          { return BASEFONT; }
+"/Courier"           { return COURIER; }
+"/ProcSet"	         { return PROCSET; }
 "/PDF"	            { return PDFSTRING; }
 "["	               { return ARRAYOPEN; }
 "]"	               { return ARRAYCLOSE; }
@@ -45,11 +46,11 @@
 "<<"                 { return LESSTHAN; }
 ">>"                 { return GREATERTHAN; }
 \((.*)\)             { return STRING; }
-"[a-zA-Z]+"           { return STRING; }
+"[a-zA-Z]+"          { return STRING; }
 "[0-9]+"	            { return NUM; }
 "%%"                 { return STRING; }
 <<EOF>>              { yyterminate(); return 0; }
-"\n"                  { return NEWLINE; }
+"\n"                 { return NEWLINE; }
 "//".*[ \t]          { }
 (\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
 ([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }

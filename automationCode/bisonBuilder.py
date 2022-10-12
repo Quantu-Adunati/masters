@@ -110,8 +110,7 @@ def setMethodDictionary(methodName, method):
 
 def createGrammarRulesStart():
     grammarRules = '%start main\n\n%%'
-
-    grammarRules += '\n%%\n'
+    grammarRules += '\nmain: '
     return grammarRules
 
 
@@ -154,17 +153,22 @@ def extractAllMethods():
 
 
 def extractSprintFMethodParam(methodCall):
-    regexPattern = r"\((.*?)\)"
-    return "TODO FIGURE THIS ONE OUT"
+    regexPattern = r"\,(.*?)\"\,"
+    param = re.search(regexPattern, methodCall).group()
+    param = param.translate({ord(ch): '' for ch in '",'}).strip()
+    return param.encode().decode('unicode-escape')
 
 
 def extractWriteStrMethodParam(methodCall):
-    regexPattern = r"\((.*?)\)"
+    regexPattern = r"writestr\(\"(.*?)\"\)"
+    if('buf' in methodCall):
+        return ''
     return cleanStringUp(re.search(regexPattern, methodCall).group())
 
 
 def cleanStringUp(regexMatch):
     cleanerRegexMatch = regexMatch.translate({ord(ch): '' for ch in '()"'})
+    cleanerRegexMatch = cleanerRegexMatch.replace('writestr', '')
     return cleanerRegexMatch.encode().decode('unicode-escape')
 
 
@@ -172,7 +176,7 @@ def visitEachMethod(methodToVisit):
     global methodDictionary
     innerGrammarCount = 1
     if(hasMethodBeenVisited(methodToVisit) is False):
-        grammar = methodToVisit + ':'
+        grammar = ' {}\n{}:'.format(methodToVisit, methodToVisit)
         for line in methodDictionary.get(methodToVisit).split(';'):
             # Need to check loops and conditional statements
             # Use grammarCount(as key) to create the subgrammars and
@@ -185,7 +189,6 @@ def visitEachMethod(methodToVisit):
 
             if(params):
                 grammar += findTokenValue(params)
-        # TODO: Current placeholder. Not sure if this is returned
         return grammar
 
 
@@ -197,10 +200,6 @@ def visitMainMethod():
         methodName = word.strip().split('(')[0]
         if(methodName in methodDictionary):
             grammarRules += visitEachMethod(methodName)
-            if(not (not grammarRules)):
-                grammarRules += '\n' + methodName
-            # TODO add following grammar(like writePages) at end of writeHeader?
-
     return grammarRules
 
 
@@ -218,16 +217,17 @@ def findTokenValue(stringToBePrinted):
         stringToBePrintedSplit = stringToBePrinted.split(' ')
         for index, character in enumerate(stringToBePrintedSplit):
             for tokenRegex in tokenDictionary:
-                regexPattern = re.escape(tokenRegex) if len(tokenRegex) == 1 else tokenRegex
-#TODO currently it finds PDFDECLARATION string num and newline on %PDF-1.1\n
-#It should only be PDFDECLARATION newline
-#think easy fix when splitting by newline and break if it went into 226 if
+                regexPattern = re.escape(tokenRegex) if len(
+                    tokenRegex) == 1 else tokenRegex
                 match = re.findall(regexPattern, character)
                 if(len(match) > 0):
                     matchedTokens.append(tokenDictionary[tokenRegex])
+                    if("\n" in character):
+                        matchedTokens.append(tokenDictionary['\n'])
                     if(index < (len(stringToBePrintedSplit)-1)):
                         matchedTokens.append("SPACE")
-    return ' '.join(matchedTokens)
+                    break
+    return '{} '.format(' '.join(matchedTokens))
 
 
 def createBisonFile():
@@ -235,9 +235,9 @@ def createBisonFile():
         f.write(bisonStartString)
         f.write(createTokenDeclaration())
         f.write(createGrammarRulesStart())
-        f.write(bisonMainString)
         f.write(visitMainMethod())
         f.write(createGrammarRulesEnd())
+        f.write(bisonMainString)
 
 
 if __name__ == '__main__':
