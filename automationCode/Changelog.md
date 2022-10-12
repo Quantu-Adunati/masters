@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Made changes to output layout of the bison file
 - Made changes to flex file regex to support new way of creating the grammar rules
 - Some changes to extract Param regex methods
+- Continued by adding new files to separate items from main builder class
 
 ## 10 October 2022
 - Improved findTokenValue method

@@ -1,7 +1,6 @@
-from lib2to3.pgen2 import grammar
-from operator import eq
 import re
 import sys
+from fileLoader import readFile
 
 flexFileString = ''
 codeFileString = ''
@@ -41,7 +40,6 @@ int main(int argc, char ** argv) {
 
 nonMethodKeywords = 'if while switch else'
 keywordsToLookFor = 'writestr sprintf'
-formatingTokens = '%s %d'  # Todo: might need to split this.
 tokenDictionary = dict([])
 methodDictionary = dict([])
 visitedMethods = []
@@ -50,32 +48,11 @@ visitedMethods = []
 def main():
     print('Starting Main')
     print('\n=============')
-    readFlexFile(sys.argv[1])
-    readCodeFile(sys.argv[2])
+    flexFileString = readFile(sys.argv[1])
+    codeFileString = readFile(sys.argv[2])
     extractTokens()
     extractAllMethods()
     createBisonFile()
-
-
-def readFlexFile(flexFileName):
-    global flexFileString
-    flexFileString = readFile(flexFileName)
-
-
-def readCodeFile(codeFileName):
-    global codeFileString
-    codeFileString = readFile(codeFileName)
-
-
-def readFile(fileName):
-    print('Reading File With Name: ' + fileName)
-    file = open(fileName, "rt")
-
-    fileString = file.read()
-    print('\File Contents => ' + fileString)
-    file.close()
-
-    return fileString
 
 
 def extractTokens():
@@ -217,8 +194,7 @@ def findTokenValue(stringToBePrinted):
         stringToBePrintedSplit = stringToBePrinted.split(' ')
         for index, character in enumerate(stringToBePrintedSplit):
             for tokenRegex in tokenDictionary:
-                regexPattern = re.escape(tokenRegex) if len(
-                    tokenRegex) == 1 else tokenRegex
+                regexPattern = re.escape(tokenRegex) if len(tokenRegex) == 1 else tokenRegex
                 match = re.findall(regexPattern, character)
                 if(len(match) > 0):
                     matchedTokens.append(tokenDictionary[tokenRegex])
