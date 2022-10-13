@@ -3,8 +3,8 @@ import re
 
 tokenDictionary = dict([])
 methodDictionary = dict([])
-#TODO refactoring needed here
-def extractTokens():
+
+def extractTokens(flexFileString):
     print('\nExtracting All Tokens')
     print('\n=====================')
     patternToFindAllTokens = '/\* Token Specifications start \*/[\n]((.*\n)*)/\* Token Specifications End \*/'
@@ -14,10 +14,6 @@ def extractTokens():
     print('\n============================')
     tokenList = allTokens[0][0].replace('\t', '').split('\n')
     setTokenDictionary(tokenList)
-
-def setMethodDictionary(methodName, method):
-    global methodDictionary
-    methodDictionary[methodName] = method
 
 def setTokenDictionary(tokenList):
     global tokenDictionary
@@ -32,8 +28,13 @@ def setTokenDictionary(tokenList):
     print('\nThe token dictionary is =>'+str(tokenDictionary))
 
 
-def extractAllMethods():
-    global codeFileString
+
+def setMethodDictionary(methodName, method):
+    global methodDictionary
+    methodDictionary[methodName] = method
+
+
+def extractAllMethods(codeFileString):
     methodRegex = r"^(int|char|long|void)\s+(\w+)\s*\(.*\)[\S\s]*?\{(?:.*\n(?!}))*.*\n}$"
     matches = re.finditer(methodRegex, codeFileString, re.MULTILINE)
     for matchNum, match in enumerate(matches, start=1):

@@ -1,132 +1,19 @@
 import re
 import sys
 from fileLoader import readFile
+from dictionaryBuilder import *
+from createBisonDeclarations import *
+from num2words import num2words
 
-flexFileString = ''
-codeFileString = ''
-bisonStartString = '''%defines
-%locations
-%define parse.error verbose
-
-%{
-#include <stdio.h>
-#include <stddef.h>
-#include <errno.h>
-#include <stdlib.h>
-extern FILE *yyin;
-extern char *yytext;
-%}
-
-%union {
-    int ival;
-    char* str;
-}
-
-'''
-bisonMainString = '''
-int main(int argc, char ** argv) {
-    yyin = fopen(argv[1],"r");
-    if (yyin == NULL) {
-        fprintf(stderr, "Could not open '%s': %s\\n", argv[1] , strerror(errno));
-        exit(1);
-    }
-    yyparse();
-    int token;
-    while ((token = yylex()) != 0) {
-        printf("Token: %d (%s)\\n", token, yytext);
-    }
-    return 0;
-}'''
-
-nonMethodKeywords = 'if while switch else'
-keywordsToLookFor = 'writestr sprintf'
-tokenDictionary = dict([])
-methodDictionary = dict([])
 visitedMethods = []
 
 
 def main():
     print('Starting Main')
     print('\n=============')
-    flexFileString = readFile(sys.argv[1])
-    codeFileString = readFile(sys.argv[2])
-    extractTokens()
-    extractAllMethods()
+    extractTokens(readFile(sys.argv[1]))
+    extractAllMethods(readFile(sys.argv[2]))
     createBisonFile()
-
-
-def extractTokens():
-    print('\nExtracting All Tokens')
-    print('\n=====================')
-    patternToFindAllTokens = '/\* Token Specifications start \*/[\n]((.*\n)*)/\* Token Specifications End \*/'
-    allTokens = re.findall(patternToFindAllTokens, flexFileString)
-
-    print('\nExtracting Individual Tokens')
-    print('\n============================')
-    tokenList = allTokens[0][0].replace('\t', '').split('\n')
-    setTokenDictionary(tokenList)
-
-
-def setTokenDictionary(tokenList):
-    global tokenDictionary
-    for token in tokenList:
-        if "yyterminate" not in str(token) and "return" in str(token):
-            splitToken = re.split('[ \t]*\{ return ', token)
-            splitToken[0] = splitToken[0].replace('"', '')
-            splitToken[1] = splitToken[1].replace('; }', '')
-            tokenKey = splitToken[0].encode().decode('unicode_escape')
-            tokenDictionary[tokenKey] = splitToken[1]
-
-    print('\nThe token dictionary is =>'+str(tokenDictionary))
-
-
-def setMethodDictionary(methodName, method):
-    global methodDictionary
-    methodDictionary[methodName] = method
-
-
-def createGrammarRulesStart():
-    grammarRules = '%start main\n\n%%'
-    grammarRules += '\nmain: '
-    return grammarRules
-
-
-def createGrammarRulesEnd():
-    return '\n%%\n'
-
-
-def createTypeDeclarations():
-    # Writes to whiteSpace created by the tokenDeclaration() method
-    # TODO figure out how to do. This will be the last step
-    typeDeclaration = '%type main'
-    print(":")
-
-
-def createTokenDeclaration():
-    tokenDeclaration = '/* Tokens*/'
-    strList = set()
-    for tokenValue in tokenDictionary.values():
-        if(str(tokenValue) == 'NUM'):
-            tokenDeclaration += '\n%token <ival> NUM'
-        else:
-            strList.add(tokenValue + ' ')
-
-    tokenDeclaration += '\n%token <str> ' + ''.join(strList)
-    tokenDeclaration += '\n\n\n'
-    return tokenDeclaration
-
-
-def extractAllMethods():
-    global codeFileString
-    methodRegex = r"^(int|char|long|void)\s+(\w+)\s*\(.*\)[\S\s]*?\{(?:.*\n(?!}))*.*\n}$"
-    matches = re.finditer(methodRegex, codeFileString, re.MULTILINE)
-    for matchNum, match in enumerate(matches, start=1):
-        # print("Match {matchNum} was found at {start}-{end}: {match}".format(matchNum=matchNum, start=match.start(), end=match.end(), match=match.group()))
-
-        methodNameRegex = r"(int|char|long|void)[\s]+(\w+)"
-        methodName = re.findall(methodNameRegex, match.group())
-        if(methodName[0][1] != 'ShowHelp'):
-            setMethodDictionary(methodName[0][1], str(match.group()))
 
 
 def extractSprintFMethodParam(methodCall):
@@ -149,35 +36,70 @@ def cleanStringUp(regexMatch):
     return cleanerRegexMatch.encode().decode('unicode-escape')
 
 
-def visitEachMethod(methodToVisit):
-    global methodDictionary
-    innerGrammarCount = 1
+def visitEachMethod(methodToVisit, grammarReferenceCount):
+    conditionalGrammar = ''
+    ifStopCondition = '}'
+    grammarRuleForIf = '\n{}: /* empty */ | {}\n'
+    referenceCountAsWord = 'yy{}yy'.format(num2words(grammarReferenceCount))
+
     if(hasMethodBeenVisited(methodToVisit) is False):
         grammar = ' {}\n{}:'.format(methodToVisit, methodToVisit)
+
         for line in methodDictionary.get(methodToVisit).split(';'):
             # Need to check loops and conditional statements
             # Use grammarCount(as key) to create the subgrammars and
             # reference in caller grammar
             params = ''
-            if('writestr' in line):
-                params = extractWriteStrMethodParam(line)
-            elif('sprintf' in line):
-                params = extractSprintFMethodParam(line)
+            # TODO Check whether another method is mentioned here, then go inside and recuresively do it
+            # if(methodName in methodDictionary):
+            #     result, conditionalResult = visitEachMethod(grammarReferenceCount+10)
+            if("}" in line): ifStopCondition = '}'
+            if(ifStopCondition != "}" and not "if " in line):
+                # We are still in the if object
+                conditionalParam = getMethodParamsFromLine(line)
+                if(conditionalParam):
+                    conditionalGrammar += findTokenValue(conditionalParam)
+            elif("if " in line):
+                ifStopCondition = '' # Change stopCondition
+                conditionalParam = getMethodParamsFromLine(line)
+                if(conditionalParam):
+                    params += referenceCountAsWord
+                    conditionalGrammar += ' | ' if not(
+                        not conditionalGrammar) else ''
+                    conditionalGrammar += findTokenValue(conditionalParam)
+            else:
+                params += getMethodParamsFromLine(line)
 
             if(params):
                 grammar += findTokenValue(params)
-        return grammar
+
+        return grammar, grammarRuleForIf.format(referenceCountAsWord, conditionalGrammar)
+
+
+def getMethodParamsFromLine(line):
+    if('writestr' in line):
+        return extractWriteStrMethodParam(line)
+    elif('sprintf' in line):
+        return extractSprintFMethodParam(line)
+    return ''
 
 
 def visitMainMethod():
-    global methodDictionary
     mainMethod = methodDictionary.get('main')
-    grammarRules = ''
+    grammarRules, conditionalGrammarRules = ''
+    grammarReferenceCount = 1
+
     for word in mainMethod.split('\n'):
         methodName = word.strip().split('(')[0]
         if(methodName in methodDictionary):
-            grammarRules += visitEachMethod(methodName)
-    return grammarRules
+            rules, conditionalRules = visitEachMethod(
+                methodName, grammarReferenceCount)
+
+            grammarRules += rules
+            conditionalGrammarRules += conditionalRules
+            grammarReferenceCount += 1
+
+    return grammarRules + '\n' + conditionalGrammarRules
 
 
 def hasMethodBeenVisited(methodName):
@@ -188,15 +110,15 @@ def hasMethodBeenVisited(methodName):
 
 
 def findTokenValue(stringToBePrinted):
-    global tokenDictionary
     matchedTokens = []
     if(stringToBePrinted):
         stringToBePrintedSplit = stringToBePrinted.split(' ')
         for index, character in enumerate(stringToBePrintedSplit):
             for tokenRegex in tokenDictionary:
-                regexPattern = re.escape(tokenRegex) if len(tokenRegex) == 1 else tokenRegex
-                match = re.findall(regexPattern, character)
-                if(len(match) > 0):
+                if('yy' in character):
+                    matchedTokens.append(character)
+                    break
+                if(len(regexFindAll(tokenRegex, character)) > 0):
                     matchedTokens.append(tokenDictionary[tokenRegex])
                     if("\n" in character):
                         matchedTokens.append(tokenDictionary['\n'])
@@ -204,6 +126,12 @@ def findTokenValue(stringToBePrinted):
                         matchedTokens.append("SPACE")
                     break
     return '{} '.format(' '.join(matchedTokens))
+
+
+def regexFindAll(tokenRegex, character):
+    regexPattern = re.escape(tokenRegex) if len(
+        tokenRegex) == 1 else tokenRegex
+    return re.findall(regexPattern, character)
 
 
 def createBisonFile():

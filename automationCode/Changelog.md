@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [Upcoming]
+- Finishing if statement implementation.
+- While and for condition implementation. Might need some changes on the if statement code
+- recursive method calling
+- Rethink the referenceNumber
+
+## 13 October 2022
+- Extracted some methods to make it more reusable and improve reading.
+- Started making changes to accomodate conditional(if) statements
+- Moved grammar rules and declarations to its own file
+
 ## 12 October 2022
 - Made changes to output layout of the bison file
 - Made changes to flex file regex to support new way of creating the grammar rules

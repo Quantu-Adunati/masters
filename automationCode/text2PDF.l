@@ -13,6 +13,8 @@
 "/Title"	            { return TITLE; }
 "/Type"  	         { return TYPE; }
 "/Catalog"  	      { return CATALOG; }
+"/Encoding"  	      { return ENCODING; }
+"/Differences"  	   { return DIFFERENCES; }
 "/Pages"	            { return PAGES; }
 "/Font"	            { return FONT; }
 "/Type1"	            { return TYPEONE; }
@@ -49,6 +51,8 @@
 "[a-zA-Z]+"          { return STRING; }
 "[0-9]+"	            { return NUM; }
 "%%"                 { return STRING; }
+"/\.(.*)"	         { return NOTDEF; }
+"/([a-zA-Z]*)*"	   { return SLASHWORD; }
 <<EOF>>              { yyterminate(); return 0; }
 "\n"                 { return NEWLINE; }
 "//".*[ \t]          { }
