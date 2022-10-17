@@ -1,12 +1,11 @@
-import re
 import sys
 from fileLoader import readFile
 from dictionaryBuilder import *
 from createBisonDeclarations import *
 from num2words import num2words
+from regexQueries import *
 
 visitedMethods = []
-
 
 def main():
     print('Starting Main')
@@ -16,64 +15,46 @@ def main():
     createBisonFile()
 
 
-def extractSprintFMethodParam(methodCall):
-    regexPattern = r"\,(.*?)\"\,"
-    param = re.search(regexPattern, methodCall).group()
-    param = param.translate({ord(ch): '' for ch in '",'}).strip()
-    return param.encode().decode('unicode-escape')
-
-
-def extractWriteStrMethodParam(methodCall):
-    regexPattern = r"writestr\(\"(.*?)\"\)"
-    if('buf' in methodCall):
-        return ''
-    return cleanStringUp(re.search(regexPattern, methodCall).group())
-
-
-def cleanStringUp(regexMatch):
-    cleanerRegexMatch = regexMatch.translate({ord(ch): '' for ch in '()"'})
-    cleanerRegexMatch = cleanerRegexMatch.replace('writestr', '')
-    return cleanerRegexMatch.encode().decode('unicode-escape')
-
-
 def visitEachMethod(methodToVisit, grammarReferenceCount):
-    conditionalGrammar = ''
+    conditionalGrammar = recursiveResult = conditionalGrammarAfterFormat =' '
     ifStopCondition = '}'
-    grammarRuleForIf = '\n{}: /* empty */ | {}\n'
+    conditionalGrammarRulesFormat = '\n{}: /* empty */ | {}\n'
     referenceCountAsWord = 'yy{}yy'.format(num2words(grammarReferenceCount))
+    grammar = '{}\n{}:'.format(methodToVisit, methodToVisit)
 
-    if(hasMethodBeenVisited(methodToVisit) is False):
-        grammar = ' {}\n{}:'.format(methodToVisit, methodToVisit)
+    for line in methodDictionary.get(methodToVisit).split(';'):
+        params = ''
+        #TODO implement logic for while/for loops
 
-        for line in methodDictionary.get(methodToVisit).split(';'):
-            # Need to check loops and conditional statements
-            # Use grammarCount(as key) to create the subgrammars and
-            # reference in caller grammar
-            params = ''
-            # TODO Check whether another method is mentioned here, then go inside and recuresively do it
-            # if(methodName in methodDictionary):
-            #     result, conditionalResult = visitEachMethod(grammarReferenceCount+10)
-            if("}" in line): ifStopCondition = '}'
-            if(ifStopCondition != "}" and not "if " in line):
-                # We are still in the if object
-                conditionalParam = getMethodParamsFromLine(line)
-                if(conditionalParam):
-                    conditionalGrammar += findTokenValue(conditionalParam)
-            elif("if " in line):
-                ifStopCondition = '' # Change stopCondition
-                conditionalParam = getMethodParamsFromLine(line)
-                if(conditionalParam):
-                    params += referenceCountAsWord
-                    conditionalGrammar += ' | ' if not(
-                        not conditionalGrammar) else ''
-                    conditionalGrammar += findTokenValue(conditionalParam)
-            else:
-                params += getMethodParamsFromLine(line)
+        methodCallLine = getMethodCallLine(line)
+        if(methodCallLine != methodToVisit and methodCallLine in methodDictionary):
+            result, conditionalResult = visitEachMethod(methodCallLine, grammarReferenceCount+10)
+            recursiveResult += result
+            conditionalGrammarAfterFormat += conditionalResult
 
-            if(params):
-                grammar += findTokenValue(params)
+        if("}" in line): ifStopCondition = '}'
 
-        return grammar, grammarRuleForIf.format(referenceCountAsWord, conditionalGrammar)
+        if(ifStopCondition != "}" and not "if " in line and not "else " in line):
+            # We are still in the if/else object
+            conditionalParam = getMethodParamsFromLine(line)
+            if(conditionalParam):
+                conditionalGrammar += findTokenValue(conditionalParam)
+        elif("if " in line or "else " in line):
+            ifStopCondition = '' # Change stopCondition
+            conditionalParam = getMethodParamsFromLine(line)
+            if(conditionalParam):
+                params += referenceCountAsWord
+                conditionalGrammar += ' \n| ' if not(not conditionalGrammar) else ''
+                conditionalGrammar += findTokenValue(conditionalParam)
+        else:
+            params += getMethodParamsFromLine(line)
+
+        if(params):
+            grammar += findTokenValue(params)
+        if(conditionalGrammar):
+            conditionalGrammarAfterFormat = conditionalGrammarRulesFormat.format(referenceCountAsWord, conditionalGrammar)
+    
+    return '{}{}'.format(grammar, recursiveResult), conditionalGrammarAfterFormat 
 
 
 def getMethodParamsFromLine(line):
@@ -86,12 +67,12 @@ def getMethodParamsFromLine(line):
 
 def visitMainMethod():
     mainMethod = methodDictionary.get('main')
-    grammarRules, conditionalGrammarRules = ''
+    grammarRules = conditionalGrammarRules = ''
     grammarReferenceCount = 1
 
     for word in mainMethod.split('\n'):
         methodName = word.strip().split('(')[0]
-        if(methodName in methodDictionary):
+        if(methodName in methodDictionary and hasMethodBeenVisited(methodName) is False ):
             rules, conditionalRules = visitEachMethod(
                 methodName, grammarReferenceCount)
 
@@ -126,12 +107,6 @@ def findTokenValue(stringToBePrinted):
                         matchedTokens.append("SPACE")
                     break
     return '{} '.format(' '.join(matchedTokens))
-
-
-def regexFindAll(tokenRegex, character):
-    regexPattern = re.escape(tokenRegex) if len(
-        tokenRegex) == 1 else tokenRegex
-    return re.findall(regexPattern, character)
 
 
 def createBisonFile():

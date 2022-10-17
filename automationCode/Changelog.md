@@ -7,10 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [Upcoming]
-- Finishing if statement implementation.
+- Finishing if statement implementation. Need to look into else methods as well
 - While and for condition implementation. Might need some changes on the if statement code
 - recursive method calling
 - Rethink the referenceNumber
+
+## 17 October 2022
+- Moved regex queries to its own file, since it was becoming more and more
+- Started doing recursive call logic
+- Added else statement logic
 
 ## 13 October 2022
 - Extracted some methods to make it more reusable and improve reading.
