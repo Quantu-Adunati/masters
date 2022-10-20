@@ -1,5 +1,5 @@
-import sys
 import re
+from regexQueries import *
 
 tokenDictionary = dict([])
 methodDictionary = dict([])
@@ -44,3 +44,22 @@ def extractAllMethods(codeFileString):
         methodName = re.findall(methodNameRegex, match.group())
         if(methodName[0][1] != 'ShowHelp'):
             setMethodDictionary(methodName[0][1], str(match.group()))
+
+def findTokenValue(stringToBePrinted):
+    matchedTokens = []
+    global tokenDictionary
+    if(stringToBePrinted):
+        stringToBePrintedSplit = stringToBePrinted.split(' ')
+        for index, character in enumerate(stringToBePrintedSplit):
+            for tokenRegex in tokenDictionary:
+                if('yy' in character):
+                    matchedTokens.append(character)
+                    break
+                if(len(regexFindAll(tokenRegex, character)) > 0):
+                    matchedTokens.append(tokenDictionary[tokenRegex])
+                    if("\n" in character):
+                        matchedTokens.append(tokenDictionary['\n'])
+                    if(index < (len(stringToBePrintedSplit)-1)):
+                        matchedTokens.append("SPACE")
+                    break
+    return '{} '.format(' '.join(matchedTokens))

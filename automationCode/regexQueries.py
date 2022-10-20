@@ -28,3 +28,10 @@ def cleanStringUp(regexMatch, translatePattern):
     cleanerRegexMatch = regexMatch.translate({ord(ch): '' for ch in translatePattern})
     cleanerRegexMatch = cleanerRegexMatch.replace('writestr', '')
     return cleanerRegexMatch.encode().decode('unicode-escape')
+
+def getMethodParamsFromLine(line):
+    if('writestr' in line):
+        return extractWriteStrMethodParam(line)
+    elif('sprintf' in line):
+        return extractSprintFMethodParam(line)
+    return ''

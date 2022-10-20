@@ -11,6 +11,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - While and for condition implementation. Might need some changes on the if statement code
 - recursive method calling
 - Rethink the referenceNumber
+- Moving dictionaryHandler regex code to regexQueries file
+## 20 October 2022
+- Renamed dictionaryBuilder to dictionaryHandler
+- Started doing while loops
+    - Need to do some refactoring to incorporate with if's without repeating myself.
+- Added new file called loopsAndConditionalHandling
+    - Trying to separate concerns and class is good for keeping context and so forth.
 
 ## 17 October 2022
 - Moved regex queries to its own file, since it was becoming more and more

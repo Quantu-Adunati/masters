@@ -1,6 +1,6 @@
 import sys
 from fileLoader import readFile
-from dictionaryBuilder import *
+from dictionaryHandler import *
 from createBisonDeclarations import *
 from num2words import num2words
 from regexQueries import *
@@ -16,24 +16,33 @@ def main():
 
 
 def visitEachMethod(methodToVisit, grammarReferenceCount):
-    conditionalGrammar = recursiveResult = conditionalGrammarAfterFormat =' '
-    ifStopCondition = '}'
+    loopGrammar = conditionalGrammar = recursiveResult = loopGrammarAfterFormat = conditionalGrammarAfterFormat = ''
+    ifStopCondition = whileStopCondition = '}'
     conditionalGrammarRulesFormat = '\n{}: /* empty */ | {}\n'
+    loopGrammarRulesFormat = '\n{}: /* empty */ | {}\n|{}\n'
     referenceCountAsWord = 'yy{}yy'.format(num2words(grammarReferenceCount))
     grammar = '{}\n{}:'.format(methodToVisit, methodToVisit)
 
     for line in methodDictionary.get(methodToVisit).split(';'):
         params = ''
         #TODO implement logic for while/for loops
+        # if('while ' in line or 'for ' in line):
+        #     whileStopCondition = '' # Change stopCondition
+        #     loopParam = getMethodParamsFromLine(line)
+        #     if(loopParam):
+        #         params += referenceCountAsWord
+        #         loopGrammar += ' \n| ' if not(not loopGrammar) else ''
+        #         loopGrammar += findTokenValue(loopParam)
 
         methodCallLine = getMethodCallLine(line)
         if(methodCallLine != methodToVisit and methodCallLine in methodDictionary):
-            result, conditionalResult = visitEachMethod(methodCallLine, grammarReferenceCount+10)
+            result, conditionalResult, loopResult = visitEachMethod(methodCallLine, grammarReferenceCount+10)
             recursiveResult += result
             conditionalGrammarAfterFormat += conditionalResult
+            loopGrammarAfterFormat += loopResult
 
-        if("}" in line): ifStopCondition = '}'
-
+        if("}" in line): 
+                ifStopCondition = '}'
         if(ifStopCondition != "}" and not "if " in line and not "else " in line):
             # We are still in the if/else object
             conditionalParam = getMethodParamsFromLine(line)
@@ -54,33 +63,25 @@ def visitEachMethod(methodToVisit, grammarReferenceCount):
         if(conditionalGrammar):
             conditionalGrammarAfterFormat = conditionalGrammarRulesFormat.format(referenceCountAsWord, conditionalGrammar)
     
-    return '{}{}'.format(grammar, recursiveResult), conditionalGrammarAfterFormat 
-
-
-def getMethodParamsFromLine(line):
-    if('writestr' in line):
-        return extractWriteStrMethodParam(line)
-    elif('sprintf' in line):
-        return extractSprintFMethodParam(line)
-    return ''
+    return '{}{}'.format(grammar, recursiveResult), conditionalGrammarAfterFormat, loopGrammarAfterFormat
 
 
 def visitMainMethod():
     mainMethod = methodDictionary.get('main')
-    grammarRules = conditionalGrammarRules = ''
+    grammarRules = conditionalGrammarRules = loopGrammarRules = ''
     grammarReferenceCount = 1
 
     for word in mainMethod.split('\n'):
         methodName = word.strip().split('(')[0]
         if(methodName in methodDictionary and hasMethodBeenVisited(methodName) is False ):
-            rules, conditionalRules = visitEachMethod(
+            rules, conditionalRules, loopGrammarRules = visitEachMethod(
                 methodName, grammarReferenceCount)
 
             grammarRules += rules
             conditionalGrammarRules += conditionalRules
             grammarReferenceCount += 1
 
-    return grammarRules + '\n' + conditionalGrammarRules
+    return '{}\n{}\n{}'.format(grammarRules, conditionalGrammarRules, loopGrammarRules)
 
 
 def hasMethodBeenVisited(methodName):
@@ -88,25 +89,6 @@ def hasMethodBeenVisited(methodName):
         visitedMethods.append(methodName)
         return False
     return True
-
-
-def findTokenValue(stringToBePrinted):
-    matchedTokens = []
-    if(stringToBePrinted):
-        stringToBePrintedSplit = stringToBePrinted.split(' ')
-        for index, character in enumerate(stringToBePrintedSplit):
-            for tokenRegex in tokenDictionary:
-                if('yy' in character):
-                    matchedTokens.append(character)
-                    break
-                if(len(regexFindAll(tokenRegex, character)) > 0):
-                    matchedTokens.append(tokenDictionary[tokenRegex])
-                    if("\n" in character):
-                        matchedTokens.append(tokenDictionary['\n'])
-                    if(index < (len(stringToBePrintedSplit)-1)):
-                        matchedTokens.append("SPACE")
-                    break
-    return '{} '.format(' '.join(matchedTokens))
 
 
 def createBisonFile():
