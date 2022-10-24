@@ -5,13 +5,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
+- Get an AST of c code in python. Might that be the better option?
 ## [Upcoming]
-- Finishing if statement implementation. Need to look into else methods as well
-- While and for condition implementation. Might need some changes on the if statement code
-- recursive method calling
-- Rethink the referenceNumber
 - Moving dictionaryHandler regex code to regexQueries file
+## 24 October 2022
+- Enhanced loopAndConditionalHandling as a class
+- Experimenting with stacks to handling if and whiles as well as nested if and whiles
+
 ## 20 October 2022
 - Renamed dictionaryBuilder to dictionaryHandler
 - Started doing while loops
