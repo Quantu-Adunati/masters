@@ -1,4 +1,4 @@
-from dictionaryBuilder import tokenDictionary
+from dictionaryHandler import tokenDictionary
 
 bisonStartString = '''%defines
 %locations
