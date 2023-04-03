@@ -26,75 +26,31 @@ def visitEachMethod(method_to_visit, method_declaration):
     for line in methodDictionary.get(method_to_visit).split(';'):
         method_call_line = getMethodCallLine(line)
         params = ''
-        number_of_closing_brackets = line.count('}')
+       
 
         if 'while ' in line or 'for ' in line:
-            random_word_while = random_word_object.get_random_word()
+            if(len(conditional_stack > 0)):
+                handling_object = conditional_stack.pop()
+                handling_object.handleCondition(line)
+                conditional_stack.append(handling_object)
+            else:
+                 random_word_while = random_word_object.get_random_word()
             conditional_stack.append(createHandlingObject(
                 line, 'while', random_word_while))
             params += f' {getReferenceCountAsWord(random_word_while)} '
+           
 
         if 'if ' in line or 'else ' in line or 'else if' in line:
             if(len(conditional_stack > 0)):
-                
-            random_word = random_word_object.get_random_word()
-            number_of_conditional = line.count('if ')
-            if '{' not in line:
-                # It means it is an inline if or else
-                handling_object = createHandlingObject(line, 'if', random_word)
+                handling_object = conditional_stack.pop()
                 handling_object.handleCondition(line)
-                conditional_grammar_after_format += handleEndOfConditional(
-                    handling_object)
-            elif '}' in line and 'else ' in line and 'if ' in line:
-                # First handle the end of "IF" then create else
-                random_word_for_new_if = random_word_object.get_random_word()
-                conditional_grammar_after_format += handleEndOfConditional(
-                    conditional_stack.pop())
-                # Remove from here so later if statement does not also
-                number_of_closing_brackets -= 1
-                # hit and unnecessarily remove another element from stack.
-                conditional_stack.append(
-                    createHandlingObject(line, 'if', random_word))
-                conditional_stack.append(
-                    createHandlingObject(line, 'if', random_word_for_new_if))
-                # Only append first object
-                params += f' {getReferenceCountAsWord(random_word)} '
-            elif '}' in line and 'else ' in line:
-                # First handle the end of "IF" then create else
-                conditional_grammar_after_format += handleEndOfConditional(
-                    conditional_stack.pop())
-                # Remove from here so later if statement does not also
-                number_of_closing_brackets -= 1
-                # hit and unnecessarily remove another element from stack.
-                conditional_stack.append(
-                    createHandlingObject(line, 'if', random_word))
-                # Only append first object
-                params += f' {getReferenceCountAsWord(random_word)} '
-            elif 'if ' in line and 'else ' in line:
-                random_word_for_nested = random_word_object.get_random_word()
-                conditional_stack.append(
-                    createHandlingObject(line, 'if', random_word))
-                conditional_stack.append(createHandlingObject(
-                    line, 'if', random_word_for_nested))
-                params += f' {getReferenceCountAsWord(random_word)} '
-            elif number_of_conditional > 1:
-                for _ in range(number_of_conditional):
-                    random_word_for_fors = random_word_object.get_random_word()
-                    conditional_stack.append(
-                        createHandlingObject(line, 'if', random_word_for_fors))
+                conditional_stack.append(handling_object)
             else:
+                random_word = random_word_object.get_random_word()
                 conditional_stack.append(
-                    createHandlingObject(line, 'if', random_word))
+                createHandlingObject(line, 'if', random_word))
                 params += f' {getReferenceCountAsWord(random_word)} '
 
-        if '}' not in line and len(conditional_stack) > 0:
-            handling_object = conditional_stack.pop()
-            handling_object.handleCondition(line)
-            conditional_stack.append(handling_object)
-        elif '}' in line and len(conditional_stack) > 0 and number_of_closing_brackets > 0:
-            for _ in range(number_of_closing_brackets):
-                conditional_grammar_after_format += handleEndOfConditional(
-                    conditional_stack.pop())
         else:
             # We are still in the conditionals or just normal parts of the code
             params += getMethodParamsFromLine(line)
@@ -124,16 +80,12 @@ def visitEachMethod(method_to_visit, method_declaration):
 
 
 
-
 def createHandlingObject(line, condition, referenceCount):
     handlingObject = loopsAndConditionalHandling(
         condition, getReferenceCountAsWord(referenceCount))
     handlingObject.handleCondition(line)
     return handlingObject
 
-
-def getReferenceCountAsWord(referenceCount):
-    return 'yy{}yy'.format(referenceCount.strip())
 
 
 def visitMainMethod():

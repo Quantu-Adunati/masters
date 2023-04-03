@@ -63,3 +63,6 @@ def findTokenValue(stringToBePrinted):
                         matchedTokens.append("SPACE")
                     break
     return '{} '.format(' '.join(matchedTokens))
+
+def getReferenceCountAsWord(referenceCount):
+    return 'yy{}yy'.format(referenceCount.strip())
