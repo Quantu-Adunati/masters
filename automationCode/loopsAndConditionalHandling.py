@@ -8,6 +8,7 @@ class loopsAndConditionalHandling:
         self.conditionalGrammar = ''
         self.ruleName = rulesName
         self.referenceCount = referenceCount
+        self.conditional_stack = []
         if('while' in rulesName):
             self.rulesFormat = '\n{}: /* empty */ | {}\n|{}\n'
         else:
@@ -44,3 +45,9 @@ class loopsAndConditionalHandling:
 
     def hasGrammar(self):
         return len(self.conditionalGrammar) > 0;
+
+    def handleEndOfConditional(self):
+        if (self.hasGrammar()):
+            return self.getFormattedGrammar()
+        return ""
+
