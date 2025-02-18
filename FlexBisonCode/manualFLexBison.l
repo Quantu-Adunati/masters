@@ -1,7 +1,7 @@
 /*C stuff like header files,declarations, variables etc.*/
 %option noyywrap nodefault yylineno
 %{
-# include "text2PDF.tab.h"
+# include "manualFLexBison.tab.h"
 %}
 /*Regular Expressions*/
 
@@ -23,7 +23,6 @@
 "/Length"	         { return LENGTH; }
 "/Count"	            { return COUNT; }
 "/MediaBox"	         { return MEDIABOX; }
-"/Kids"	            { return KIDS; }
 "xref"	            { return XREF; }
 "trailer"	         { return TRAILER; }
 "/Name"	            { return NAME; }
@@ -52,11 +51,11 @@
 \n                   { return NEWLINE; }
 "//".*[ \t]          { }
 (\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
-([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }
-(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+                      { return KIDSLOOP; }
+([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                                        { return NUMBERLOOP; }
+(\/Kids[ \t\r])(\[)([ \t\r]+(?:[0-9]+[ \t\r]+)+[a-zA-Z]?)+[ \t\r](\])                        { return KIDSLOOP; }
 .	printf("bad input character '%s' at line %d\n", yytext, yylineno);
 %%
-
+//$$[ \t\r]+(?:[0-9]+[ \t\r]+)+[a-zA-Z][ \t\r]?$$
 void yyerror (char const *s) {
    fprintf (stderr, "Error | Line: %d\n%s\n",yylineno,s);
 }

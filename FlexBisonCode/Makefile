@@ -1,10 +1,10 @@
-text2PDF: text2PDF.l text2PDF.y
-	bison -d text2PDF.y
-	flex text2PDF.l
-	gcc -Wall lex.yy.c text2PDF.tab.c -o text2PDF
+build: manualFLexBison.l manualFLexBison.y
+	bison -d manualFLexBison.y
+	flex manualFLexBison.l
+	gcc -Wall lex.yy.c manualFLexBison.tab.c -o pdfValidator
 	
 run:	
-	./text2PDF ../multiPage.pdf
+	./pdfValidator ../multiPage.pdf
 
 clean:
-	rm -f text2PDF lex.yy.c text2PDF.tab.c text2PDF.tab.h
+	rm -f manualFLexBison lex.yy.c manualFLexBison.tab.c manualFLexBison.tab.h
