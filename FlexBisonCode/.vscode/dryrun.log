@@ -1,0 +1,7 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/richard/Desktop/Masters/masters/FlexBisonCode'
+bison -d text2PDF.y
+flex text2PDF.l
+gcc -Wall lex.yy.c text2PDF.tab.c -o text2PDF
+make: Leaving directory '/home/richard/Desktop/Masters/masters/FlexBisonCode'
+ 
