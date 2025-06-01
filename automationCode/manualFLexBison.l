@@ -6,27 +6,23 @@
 /*Regular Expressions*/
 
 %%
-/* Token Specifications start */
+ /* Token Specifications */ 
 "%PDF-1.1"	         { return PDFDECLARATION; }
 "/CreationDate"      { return CREATIONDATE; }
 "/Producer"	         { return PRODUCER; }
 "/Title"	            { return TITLE; }
-"/Type"  	         { return TYPE; }
-"/Catalog"  	      { return CATALOG; }
-"/Encoding"  	      { return ENCODING; }
-"/Differences"  	   { return DIFFERENCES; }
+"/Type /Catalog"  	{ return TYPECATALOG; }
 "/Pages"	            { return PAGES; }
-"/Font"	            { return FONT; }
-"/Type1"	            { return TYPEONE; }
-"/Subtype"	         { return SUBTYPE; }
-"/Page"	            { return TYPEPAGE; }
+"/Type /Font"	      { return TYPEFONT; }
+"/Subtype /Type1"	   { return SUBTYPE; }
+"/Type /Page"	      { return TYPEPAGE; }
+"/Type /Pages"	      { return TYPEPAGES; }
 "/Parent"	         { return PARENT; }
 "/Resources"	      { return RESOURCES; }
 "/Contents"	         { return CONTENTS; }
 "/Length"	         { return LENGTH; }
 "/Count"	            { return COUNT; }
 "/MediaBox"	         { return MEDIABOX; }
-"/Kids"	            { return KIDS; }
 "xref"	            { return XREF; }
 "trailer"	         { return TRAILER; }
 "/Name"	            { return NAME; }
@@ -35,9 +31,9 @@
 "/Info"	            { return INFO; }
 "startxref"	         { return STARTXREF; }
 "/F1"	               { return FONE; }
-"/BaseFont"          { return BASEFONT; }
-"/Courier"           { return COURIER; }
-"/ProcSet"	         { return PROCSET; }
+"/BaseFont /Courier" { return BASEFONT; }
+"  /Font"	         { return FONT; }
+"  /ProcSet"	      { return PROCSET; }
 "/PDF"	            { return PDFSTRING; }
 "["	               { return ARRAYOPEN; }
 "]"	               { return ARRAYCLOSE; }
@@ -48,21 +44,18 @@
 "<<"                 { return LESSTHAN; }
 ">>"                 { return GREATERTHAN; }
 \((.*)\)             { return STRING; }
-"[a-zA-Z]+"          { return STRING; }
-"[0-9]+"	            { return NUM; }
-"%%"                 { return STRING; }
-"/\.(.*)"	         { return NOTDEF; }
-"/([a-zA-Z]*)*"	   { return SLASHWORD; }
+[a-zA-Z]+            { return STRING; }
+[0-9]+	            { return NUM; }
+"%%"                 { return STRING;}
 <<EOF>>              { yyterminate(); return 0; }
-"\n"                 { return NEWLINE; }
+\n                   { return NEWLINE; }
 "//".*[ \t]          { }
 (\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
-([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }
-(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+                      { return KIDSLOOP; }
+([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                                        { return NUMBERLOOP; }
+(\/Kids[ \t\r])(\[)([ \t\r]+(?:[0-9]+[ \t\r]+)+[a-zA-Z]?)+[ \t\r](\])                        { return KIDSLOOP; }
 .	printf("bad input character '%s' at line %d\n", yytext, yylineno);
-/* Token Specifications End */
 %%
-
+//$$[ \t\r]+(?:[0-9]+[ \t\r]+)+[a-zA-Z][ \t\r]?$$
 void yyerror (char const *s) {
    fprintf (stderr, "Error | Line: %d\n%s\n",yylineno,s);
 }

@@ -11,3 +11,6 @@ and then just called KIDSLOOP in the grammar
 Grammar changed to this (\/Kids[ \t\r])(\[)([ \t\r]+(?:[0-9]+[ \t\r]+)+[a-zA-Z]?)+[ \t\r](\])  
 
 After that change I got 0 errors out of 200 documents consisting of various page lengths, various paragraph and word lengths.
+
+
+Parser errors on Google Doc PDFs and LibreOffice PDFs

@@ -19,7 +19,7 @@ def generate_random_text(min_words=5, max_words=1000, num_paragraphs=500):
         text += paragraph + "\n\n"
     return text
 
-for i in range(1000):  # Generate 100 files
+for i in range(10):  # Generate 100 files
     filename = f"random_text_{i}.txt"
     with open(filename, "w") as file:
         file.write(generate_random_text(num_paragraphs=random.randint(2, 1000)))

@@ -6,18 +6,18 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Feb 18 11:27:54 2025
+# Make data base, printed on Sun Jun  1 12:50:30 2025
 
 # Variables
 
 # environment
 GDK_BACKEND = x11
 # environment
+MEMORY_PRESSURE_WRITE = c29tZSAyMDAwMDAgMjAwMDAwMAA=
+# environment
 LC_ALL = C
 # environment
 GNOME_SHELL_SESSION_MODE = ubuntu
-# environment
-SSH_AGENT_LAUNCHER = gnome-keyring
 # environment
 FONTCONFIG_PATH = /etc/fonts
 # environment
@@ -26,6 +26,8 @@ SNAP_LAUNCHER_ARCH_TRIPLET = x86_64-linux-gnu
 VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
 # environment
 VSCODE_CWD = /home/richard/Desktop/Masters/masters/FlexBisonCode
+# environment
+WINDOWPATH = 2
 # default
 MAKE_COMMAND := make
 # environment
@@ -35,7 +37,7 @@ QT_ACCESSIBILITY = 1
 # environment
 SNAP_INSTANCE_NAME = code
 # environment
-GDK_PIXBUF_MODULEDIR = /snap/code/184/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
+GDK_PIXBUF_MODULEDIR = /snap/code/194/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -45,33 +47,39 @@ PWD = /home/richard/Desktop/Masters/masters/FlexBisonCode
 # automatic
 %D = $(patsubst %/,%,$(dir $%))
 # environment
-XDG_DATA_DIRS = /home/richard/snap/code/184/.local/share:/home/richard/snap/code/184:/snap/code/184/usr/share:/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_DATA_DIRS = /home/richard/snap/code/194/.local/share:/home/richard/snap/code/194:/snap/code/194/usr/share:/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
 SNAP_EUID = 1000
 # environment
-OLDPWD = /home/richard/Desktop/Masters/masters
+OLDPWD = /home/richard/Desktop/Masters/masters/FlexBisonCode/TestResults
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = /home/richard/.config/Code/CachedData/e54c774e0add60467559eb0d1e229c6452cf8447
+VSCODE_CODE_CACHE_PATH = /home/richard/.config/Code/CachedData/848b80aeb52026648a8ff9f7c45a9b0a80641e2e
 # environment
 LANG = C
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.94R612
+XAUTHORITY = /run/user/1000/gdm/Xauthority
 # default
 .LOADED := 
 # default
 .INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
 # environment
-GNOME_TERMINAL_SERVICE = :1.119
+MEMORY_PRESSURE_WATCH = /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-gnome\x2dsession\x2dmanager.slice/gnome-session-manager@ubuntu.service/memory.pressure
+# environment
+GNOME_TERMINAL_SERVICE = :1.106
 # makefile
 MAKEFLAGS = pqrR
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=89fcde26b9192a53341d91b9683c2fa0
 # makefile
 CURDIR := /home/richard/Desktop/Masters/masters/FlexBisonCode
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -81,41 +89,39 @@ SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # default
 .SHELLFLAGS := -c
 # environment
-WAYLAND_DISPLAY = wayland-0
-# environment
-XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu-xorg:/etc/xdg
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
 # environment
-XDG_SESSION_DESKTOP = ubuntu
+XDG_SESSION_DESKTOP = ubuntu-xorg
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 4714
+VSCODE_PID = 21241
 # environment
-XDG_SESSION_TYPE = wayland
+XDG_SESSION_TYPE = x11
 # automatic
 ?D = $(patsubst %/,%,$(dir $?))
 # environment
-XDG_DATA_HOME = /home/richard/snap/code/184/.local/share
+XDG_DATA_HOME = /home/richard/snap/code/194/.local/share
 # environment
-SESSION_MANAGER = local/richard-VirtualBox:@/tmp/.ICE-unix/1781,unix/richard-VirtualBox:/tmp/.ICE-unix/1781
+SESSION_MANAGER = local/richard-VirtualBox:@/tmp/.ICE-unix/2679,unix/richard-VirtualBox:/tmp/.ICE-unix/2679
 # automatic
 *F = $(notdir $*)
 # environment
 CHROME_DESKTOP = code.desktop
 # environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=89fcde26b9192a53341d91b9683c2fa0
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"userLocale":"en-gb","osLocale":"en-za","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/184/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}
+VSCODE_NLS_CONFIG = {"userLocale":"en-gb","osLocale":"en-za","resolvedLanguage":"en","defaultMessagesFile":"/snap/code/194/usr/share/code/resources/app/out/nls.messages.json","locale":"en-gb","availableLanguages":{}}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-GTK_PATH = /snap/code/184/usr/lib/x86_64-linux-gnu/gtk-3.0
+GTK_PATH = /snap/code/194/usr/lib/x86_64-linux-gnu/gtk-3.0
 # environment
 GNOME_DESKTOP_SESSION_ID = this-is-deprecated
 # makefile
@@ -127,7 +133,7 @@ XMODIFIERS = @im=ibus
 # environment
 SHLVL = 1
 # environment
-GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/d1f2906f_23c7_49c3_8379_f9ddc2aacf2c
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/e456a0f8_0134_497f_a64b_877026023804
 # environment
 MAKELEVEL := 0
 # default
@@ -135,7 +141,7 @@ MAKE = $(MAKE_COMMAND)
 # environment
 SNAP_COOKIE = GYNb8_Lm0EJRo55V3Wmub7gb4WQyzGe-Fb2clEOkyE1K3VZnQLbF
 # environment
-PATH = /home/richard/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin
+PATH = /home/richard/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/bin:/sbin:/usr/sbin
 # default
 MAKEFILES := 
 # environment
@@ -145,17 +151,15 @@ LANGUAGE = en_ZA:en
 # environment
 SNAP_USER_COMMON = /home/richard/snap/code/common
 # environment
-SNAP = /snap/code/184
+SNAP = /snap/code/194
 # environment
-SNAP_REVISION = 184
+SNAP_REVISION = 194
 # environment
 SNAP_REAL_HOME = /home/richard
 # environment
 FONTCONFIG_FILE = /etc/fonts/fonts.conf
 # environment
 USERNAME = richard
-# environment
-GNOME_SETUP_DISPLAY = :1
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -165,27 +169,27 @@ GTK_IM_MODULE_FILE = /home/richard/snap/code/common/.cache/immodules/immodules.c
 # environment
 XDG_CURRENT_DESKTOP = Unity
 # environment
-LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:
 # automatic
 +F = $(notdir $+)
 # environment
-DESKTOP_SESSION = ubuntu
+DESKTOP_SESSION = ubuntu-xorg
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
-LOCPATH = /snap/code/184/usr/lib/locale
+LOCPATH = /snap/code/194/usr/lib/locale
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
-XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+XDG_DATA_DIRS_VSCODE_SNAP_ORIG = /usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # environment
 LOGNAME = richard
 # environment
 SNAP_ARCH = amd64
 # makefile
-.DEFAULT_GOAL := text2PDF
+.DEFAULT_GOAL := build
 # environment
-SYSTEMD_EXEC_PID = 1826
+SYSTEMD_EXEC_PID = 2679
 # environment
 DISPLAY = :0
 # environment
@@ -195,17 +199,23 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-SNAP_DATA = /var/snap/code/184
+SNAP_DATA = /var/snap/code/194
 # environment
 SNAP_CONTEXT = GYNb8_Lm0EJRo55V3Wmub7gb4WQyzGe-Fb2clEOkyE1K3VZnQLbF
 # environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+DEBUGINFOD_URLS = https://debuginfod.ubuntu.com 
+# environment
 XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 SNAP_UID = 1000
 # environment
 COLORTERM = truecolor
 # environment
-XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CONFIG_DIRS_VSCODE_SNAP_ORIG = /etc/xdg/xdg-ubuntu-xorg:/etc/xdg
 # environment
 GDK_PIXBUF_MODULE_FILE = /home/richard/snap/code/common/.cache/gdk-pixbuf-loaders.cache
 # environment
@@ -213,24 +223,23 @@ GIO_MODULE_DIR = /home/richard/snap/code/common/.cache/gio-modules
 # environment
 XDG_SESSION_CLASS = user
 # environment
+GSM_SKIP_SSH_AGENT_WORKAROUND = true
+# environment
 HOME = /home/richard
 # environment
 QT_IM_MODULE = ibus
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-608ac721-1.97-main.sock
+VSCODE_IPC_HOOK = /run/user/1000/vscode-608ac721-1.10-main.sock
 # environment
 TERM = xterm-256color
 # environment
- 
-make: *** No rule to make target 'all'.  Stop.
-
-GTK_EXE_PREFIX = /snap/code/184/usr
+GTK_EXE_PREFIX = /snap/code/194/usr
 # environment
 SNAP_NAME = code
 # environment
-GSETTINGS_SCHEMA_DIR = /home/richard/snap/code/184/.local/share/glib-2.0/schemas
+GSETTINGS_SCHEMA_DIR = /home/richard/snap/code/194/.local/share/glib-2.0/schemas
 # environment
 IM_CONFIG_PHASE = 1
 # default
@@ -238,7 +247,7 @@ IM_CONFIG_PHASE = 1
 # automatic
 <F = $(notdir $<)
 # environment
-SNAP_VERSION = e54c774e
+SNAP_VERSION = 848b80ae
 # default
 SUFFIXES := 
 # environment
@@ -246,33 +255,36 @@ VSCODE_CLI = 1
 # environment
 ELECTRON_NO_ATTACH_CONSOLE = 1
 # environment
-VTE_VERSION = 6800
+VTE_VERSION = 7600
 # environment
 SNAP_COMMON = /var/snap/code/common
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
 # environment
-SNAP_USER_DATA = /home/richard/snap/code/184
+SNAP_USER_DATA = /home/richard/snap/code/194
 # environment
 XDG_MENU_PREFIX = gnome-
 # environment
 VSCODE_ESM_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
-GDMSESSION = ubuntu
+GDMSESSION = ubuntu-xorg
 # environment
 SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd/void
 # variable set hash-table stats:
-# Load=124/1024=12%, Rehash=0, Collisions=12/154=8%
+# Load=130/1024=13%, Rehash=0, Collisions=15/160=9%
 
 # Pattern-specific Variable Values
+ 
+make: *** No rule to make target 'all'.  Stop.
+
 
 # No pattern-specific variable values.
 
 # Directories
 
-# . (device 2053, inode 149634): 11 files, no impossibilities.
+# . (device 2053, inode 149634): 16 files, no impossibilities.
 
-# 11 files, no impossibilities in 1 directories.
+# 16 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -281,15 +293,9 @@ SNAP_LIBRARY_PATH = /var/lib/snapd/lib/gl:/var/lib/snapd/lib/gl32:/var/lib/snapd
 # Files
 
 # Not a target:
-text2PDF.y:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-27 20:14:29.083009789
+#  Last modified 2025-02-18 12:07:53.584069297
 #  File has been updated.
 #  Successfully updated.
 
@@ -298,10 +304,10 @@ clean:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 10):
-	rm -f text2PDF lex.yy.c text2PDF.tab.c text2PDF.tab.h
+	rm -f manualFLexBison lex.yy.c manualFLexBison.tab.c manualFLexBison.tab.h
 
 # Not a target:
-text2PDF.l:
+manualFLexBison.l:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -324,17 +330,23 @@ run:
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 7):
-	./text2PDF ../multiPage.pdf
+	./pdfValidator ../multiPage.pdf
 
-text2PDF: text2PDF.l text2PDF.y
+build: manualFLexBison.l manualFLexBison.y
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 2):
-	bison -d text2PDF.y
-	flex text2PDF.l
-	gcc -Wall lex.yy.c text2PDF.tab.c -o text2PDF
+	bison -d manualFLexBison.y
+	flex manualFLexBison.l
+	gcc -Wall lex.yy.c manualFLexBison.tab.c -o pdfValidator
 	
+
+# Not a target:
+manualFLexBison.y:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # files hash-table stats:
 # Load=9/1024=1%, Rehash=0, Collisions=0/21=0%
@@ -344,12 +356,12 @@ text2PDF: text2PDF.l text2PDF.y
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 174 B / avg = 9 B
-# current buf: size = 8162 B / used = 174 B / count = 18 / avg = 9 B
+# strcache buffers: 1 (0) / strings = 24 / storage = 320 B / avg = 13 B
+# current buf: size = 8162 B / used = 320 B / count = 24 / avg = 13 B
 
-# strcache performance: lookups = 28 / hit rate = 35%
+# strcache performance: lookups = 33 / hit rate = 27%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/28=0%
-# Finished Make data base on Tue Feb 18 11:27:54 2025
+# Load=24/8192=0%, Rehash=0, Collisions=0/33=0%
+# Finished Make data base on Sun Jun  1 12:50:30 2025
 
  
