@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Get an AST of c code in python. Might that be the better option?
 ## [Upcoming]
 - Moving dictionaryHandler regex code to regexQueries file
+
+## 18 February 2025
+- Starting from scratch.
+- Decided that a state machine might be the best option to handle the complex nested structure of the C code.
+    - created a CParser class. Needs refinement, but it is a start
+
 ## 24 October 2022
 - Enhanced loopAndConditionalHandling as a class
 - Experimenting with stacks to handling if and whiles as well as nested if and whiles
