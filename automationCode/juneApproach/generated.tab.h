@@ -35,11 +35,11 @@
    especially those whose name start with YY_ or yy_.  They are
    private implementation details that can be changed or removed.  */
 
-#ifndef YY_YY_MANUALFLEXBISON_TAB_H_INCLUDED
-# define YY_YY_MANUALFLEXBISON_TAB_H_INCLUDED
+#ifndef YY_YY_GENERATED_TAB_H_INCLUDED
+# define YY_YY_GENERATED_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
-# define YYDEBUG 0
+# define YYDEBUG 1
 #endif
 #if YYDEBUG
 extern int yydebug;
@@ -54,49 +54,56 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    NUM = 258,                     /* NUM  */
-    PDFDECLARATION = 259,          /* PDFDECLARATION  */
-    CREATIONDATE = 260,            /* CREATIONDATE  */
-    ENDOBJ = 261,                  /* ENDOBJ  */
-    PRODUCER = 262,                /* PRODUCER  */
-    TITLE = 263,                   /* TITLE  */
-    TYPECATALOG = 264,             /* TYPECATALOG  */
-    PAGES = 265,                   /* PAGES  */
-    TYPEFONT = 266,                /* TYPEFONT  */
-    SUBTYPE = 267,                 /* SUBTYPE  */
-    NAME = 268,                    /* NAME  */
+    ARRAYCLOSE = 258,              /* ARRAYCLOSE  */
+    ARRAYOPEN = 259,               /* ARRAYOPEN  */
+    BASEFONT = 260,                /* BASEFONT  */
+    CATALOG = 261,                 /* CATALOG  */
+    CONTENTS = 262,                /* CONTENTS  */
+    COUNT = 263,                   /* COUNT  */
+    COURIER = 264,                 /* COURIER  */
+    CREATIONDATE = 265,            /* CREATIONDATE  */
+    DIFFERENCES = 266,             /* DIFFERENCES  */
+    ENCODING = 267,                /* ENCODING  */
+    ENDOBJ = 268,                  /* ENDOBJ  */
     FONE = 269,                    /* FONE  */
-    BASEFONT = 270,                /* BASEFONT  */
-    FONT = 271,                    /* FONT  */
-    PROCSET = 272,                 /* PROCSET  */
-    PDFSTRING = 273,               /* PDFSTRING  */
-    TEXTSTRING = 274,              /* TEXTSTRING  */
-    ARRAYOPEN = 275,               /* ARRAYOPEN  */
-    ARRAYCLOSE = 276,              /* ARRAYCLOSE  */
-    LESSTHAN = 277,                /* LESSTHAN  */
-    GREATERTHAN = 278,             /* GREATERTHAN  */
-    NUMBERLOOP = 279,              /* NUMBERLOOP  */
-    KIDSLOOP = 280,                /* KIDSLOOP  */
-    STREAMENDSTREAM = 281,         /* STREAMENDSTREAM  */
-    OBJ = 282,                     /* OBJ  */
-    SPACE = 283,                   /* SPACE  */
-    NEWLINE = 284,                 /* NEWLINE  */
-    STRING = 285,                  /* STRING  */
-    TYPEPAGE = 286,                /* TYPEPAGE  */
-    TYPEPAGES = 287,               /* TYPEPAGES  */
-    PARENT = 288,                  /* PARENT  */
-    RESOURCES = 289,               /* RESOURCES  */
-    CONTENTS = 290,                /* CONTENTS  */
-    LENGTH = 291,                  /* LENGTH  */
-    COUNT = 292,                   /* COUNT  */
-    KIDS = 293,                    /* KIDS  */
-    MEDIABOX = 294,                /* MEDIABOX  */
-    XREF = 295,                    /* XREF  */
-    TRAILER = 296,                 /* TRAILER  */
-    SIZE = 297,                    /* SIZE  */
-    ROOT = 298,                    /* ROOT  */
-    INFO = 299,                    /* INFO  */
-    STARTXREF = 300                /* STARTXREF  */
+    FONT = 270,                    /* FONT  */
+    GREATERTHAN = 271,             /* GREATERTHAN  */
+    INFO = 272,                    /* INFO  */
+    KIDS = 273,                    /* KIDS  */
+    KIDSLOOP = 274,                /* KIDSLOOP  */
+    LENGTH = 275,                  /* LENGTH  */
+    LESSTHAN = 276,                /* LESSTHAN  */
+    LESSTHANNEWLINE = 277,         /* LESSTHANNEWLINE  */
+    MEDIABOX = 278,                /* MEDIABOX  */
+    NAME = 279,                    /* NAME  */
+    NEWLINE = 280,                 /* NEWLINE  */
+    NOTDEF = 281,                  /* NOTDEF  */
+    NUM = 282,                     /* NUM  */
+    NUMBERLOOP = 283,              /* NUMBERLOOP  */
+    OBJ = 284,                     /* OBJ  */
+    OBJREF = 285,                  /* OBJREF  */
+    PAGES = 286,                   /* PAGES  */
+    PARENT = 287,                  /* PARENT  */
+    PDFDECLARATION = 288,          /* PDFDECLARATION  */
+    PDFSTRING = 289,               /* PDFSTRING  */
+    PROCSET = 290,                 /* PROCSET  */
+    PRODUCER = 291,                /* PRODUCER  */
+    RESOURCES = 292,               /* RESOURCES  */
+    ROOT = 293,                    /* ROOT  */
+    SIZE = 294,                    /* SIZE  */
+    SLASHWORD = 295,               /* SLASHWORD  */
+    SPACE = 296,                   /* SPACE  */
+    STARTXREF = 297,               /* STARTXREF  */
+    STREAMENDSTREAM = 298,         /* STREAMENDSTREAM  */
+    STRING = 299,                  /* STRING  */
+    SUBTYPE = 300,                 /* SUBTYPE  */
+    TEXTSTRING = 301,              /* TEXTSTRING  */
+    TITLE = 302,                   /* TITLE  */
+    TRAILER = 303,                 /* TRAILER  */
+    TYPE = 304,                    /* TYPE  */
+    TYPEONE = 305,                 /* TYPEONE  */
+    TYPEPAGE = 306,                /* TYPEPAGE  */
+    XREF = 307                     /* XREF  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -105,12 +112,12 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 14 "manualFLexBison.y"
+#line 17 "generated.y"
 
     int ival;
     char* str;
 
-#line 114 "manualFLexBison.tab.h"
+#line 121 "generated.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -139,4 +146,4 @@ extern YYLTYPE yylloc;
 int yyparse (void);
 
 
-#endif /* !YY_YY_MANUALFLEXBISON_TAB_H_INCLUDED  */
+#endif /* !YY_YY_GENERATED_TAB_H_INCLUDED  */

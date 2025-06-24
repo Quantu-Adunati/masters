@@ -1,0 +1,750 @@
+Starting parse
+Entering state 0
+Stack now 0
+Reading a token
+--(end of buffer or a NUL)
+--accepting rule at line 11 ("%PDF-1.1")
+Next token is token PDFDECLARATION (1.1: )
+Shifting token PDFDECLARATION (1.1: )
+Entering state 1
+Stack now 0 1
+Reading a token
+--accepting rule at line 64 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 4
+Stack now 0 1 4
+Reading a token
+--accepting rule at line 70 ("1")
+bad input character '1' at line 2
+--accepting rule at line 65 (" ")
+Next token is token SPACE (1.1: )
+Error: syntax error, unexpected SPACE, expecting NUM
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1
+Error: popping token PDFDECLARATION (1.1: )
+Stack now 0
+Cleanup: discarding lookahead token SPACE (1.1: )
+Stack now 0
+--accepting rule at line 70 ("0")
+bad input character '0' at line 2
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 12 ("/CreationDate")
+Token: 265 (/CreationDate)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 56 ("(D:20250218123653)")
+Token: 299 ((D:20250218123653))
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 13 ("/Producer")
+Token: 291 (/Producer)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 56 ("(text2pdf v1.1 (\251 Phil Smith, 1996))")
+Token: 299 ((text2pdf v1.1 (\251 Phil Smith, 1996)))
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 14 ("/Title")
+Token: 302 (/Title)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 56 ("(random_text_0.txt)")
+Token: 299 ((random_text_0.txt))
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("2")
+bad input character '2' at line 9
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 9
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 15 ("/Type")
+Token: 304 (/Type)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 16 ("/Catalog")
+Token: 261 (/Catalog)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 19 ("/Pages")
+Token: 286 (/Pages)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("3")
+bad input character '3' at line 12
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 12
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 12
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("4")
+bad input character '4' at line 15
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 15
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 15 ("/Type")
+Token: 304 (/Type)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 20 ("/Font")
+Token: 270 (/Font)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 22 ("/Subtype")
+Token: 300 (/Subtype)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 21 ("/Type1")
+Token: 305 (/Type1)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 33 ("/Name")
+Token: 279 (/Name)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 38 ("/F1")
+Token: 269 (/F1)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 39 ("/BaseFont")
+Token: 260 (/BaseFont)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 40 ("/Courier")
+Token: 264 (/Courier)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("5")
+bad input character '5' at line 23
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 23
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 20 ("/Font")
+Token: 270 (/Font)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 38 ("/F1")
+Token: 269 (/F1)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("4")
+bad input character '4' at line 25
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 25
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 25
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 41 ("/ProcSet")
+Token: 290 (/ProcSet)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 43 ("[")
+Token: 259 ([)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 42 ("/PDF")
+Token: 289 (/PDF)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 45 ("/Text")
+Token: 301 (/Text)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 44 ("]")
+Token: 258 (])
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("6")
+bad input character '6' at line 29
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 29
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 15 ("/Type")
+Token: 304 (/Type)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 23 ("/Page")
+Token: 306 (/Page)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 24 ("/Parent")
+Token: 287 (/Parent)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("3")
+bad input character '3' at line 32
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 32
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 32
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 25 ("/Resources")
+Token: 292 (/Resources)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("5")
+bad input character '5' at line 33
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 33
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 33
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 26 ("/Contents")
+Token: 262 (/Contents)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("7")
+bad input character '7' at line 34
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 34
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 34
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("7")
+bad input character '7' at line 37
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 37
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 27 ("/Length")
+Token: 275 (/Length)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("8")
+bad input character '8' at line 39
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 39
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 39
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--(end of buffer or a NUL)
+--accepting rule at line 67 (">>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 752 Tm
+12 TL
+(labore do ipsum sed amet lorem incididunt et et eiusmod aliqua dolore lorem inci)'
+(didunt lorem et ut magna amet do amet et dolore amet elit labore sed)'
+()'
+(do et sit lorem elit consectetur et dolor dolore dolor tempor lorem ut et eiusmo)'
+(d aliqua lorem adipiscing dolore tempor dolor magna et sed consectetur elit inci)'
+(didunt lorem eiusmod eiusmod magna lorem eiusmod aliqua dolore et ut sit dolore )'
+(sit magna labore ut ipsum aliqua sed ipsum incididunt labore sit dolore elit sit)'
+()'
+()'
+(aliqua eiusmod sed sed elit labore amet dolor sit tempor dolore elit labore dolo)'
+(r incididunt ut magna lorem adipiscing dolor consectetur ipsum et dolore lorem e)'
+(t adipiscing labore dolore do et magna dolor amet magna magna do ipsum tempor ut)'
+( dolore incididunt aliqua labore tempor sed sed dolor tempor labore magna amet i)'
+(ncididunt amet eiusmod amet tempor consectetur sed dolor sed aliqua lorem consec)'
+(tetur dolore sed eiusmod sit sit tempor incididunt amet eiusmod amet aliqua amet)'
+( ut magna amet ipsum lorem amet lorem sit adipiscing adipiscing dolore sed)'
+()'
+()'
+ET
+endstream
+endobj")
+Token: 298 (>>
+stream
+BT
+/F1 10 Tf
+1 0 0 1 50 752 Tm
+12 TL
+(labore do ipsum sed amet lorem incididunt et et eiusmod aliqua dolore lorem inci)'
+(didunt lorem et ut magna amet do amet et dolore amet elit labore sed)'
+()'
+(do et sit lorem elit consectetur et dolor dolore dolor tempor lorem ut et eiusmo)'
+(d aliqua lorem adipiscing dolore tempor dolor magna et sed consectetur elit inci)'
+(didunt lorem eiusmod eiusmod magna lorem eiusmod aliqua dolore et ut sit dolore )'
+(sit magna labore ut ipsum aliqua sed ipsum incididunt labore sit dolore elit sit)'
+()'
+()'
+(aliqua eiusmod sed sed elit labore amet dolor sit tempor dolore elit labore dolo)'
+(r incididunt ut magna lorem adipiscing dolor consectetur ipsum et dolore lorem e)'
+(t adipiscing labore dolore do et magna dolor amet magna magna do ipsum tempor ut)'
+( dolore incididunt aliqua labore tempor sed sed dolor tempor labore magna amet i)'
+(ncididunt amet eiusmod amet tempor consectetur sed dolor sed aliqua lorem consec)'
+(tetur dolore sed eiusmod sit sit tempor incididunt amet eiusmod amet aliqua amet)'
+( ut magna amet ipsum lorem amet lorem sit adipiscing adipiscing dolore sed)'
+()'
+()'
+ET
+endstream
+endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("8")
+bad input character '8' at line 67
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 67
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("1")
+bad input character '1' at line 68
+--accepting rule at line 70 ("1")
+bad input character '1' at line 68
+--accepting rule at line 70 ("3")
+bad input character '3' at line 68
+--accepting rule at line 70 ("4")
+bad input character '4' at line 68
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("3")
+bad input character '3' at line 70
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 70
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 48 ("obj")
+Token: 284 (obj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 15 ("/Type")
+Token: 304 (/Type)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 19 ("/Pages")
+Token: 286 (/Pages)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 28 ("/Count")
+Token: 263 (/Count)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("1")
+bad input character '1' at line 73
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 29 ("/MediaBox")
+Token: 278 (/MediaBox)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 43 ("[")
+Token: 259 ([)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 74
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 74
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("6")
+bad input character '6' at line 74
+--accepting rule at line 70 ("1")
+bad input character '1' at line 74
+--accepting rule at line 70 ("2")
+bad input character '2' at line 74
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("7")
+bad input character '7' at line 74
+--accepting rule at line 70 ("9")
+bad input character '9' at line 74
+--accepting rule at line 70 ("2")
+bad input character '2' at line 74
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 44 ("]")
+Token: 258 (])
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 30 ("/Kids")
+Token: 273 (/Kids)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 69 ("[ 6 0 R ]")
+Token: 274 ([ 6 0 R ])
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 49 ("endobj")
+Token: 268 (endobj)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 31 ("xref")
+Token: 307 (xref)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("0")
+bad input character '0' at line 79
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("9")
+bad input character '9' at line 79
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+")00001604 00000 n  line 68 ("0000000000 65535 f 
+)000001604 00000 n 000 65535 f 
+--accepting rule at line 32 ("trailer")
+Token: 303 (trailer)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 50 ("<<")
+Token: 276 (<<)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 34 ("/Size")
+Token: 294 (/Size)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("9")
+bad input character '9' at line 82
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 35 ("/Root")
+Token: 293 (/Root)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("2")
+bad input character '2' at line 83
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 83
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 83
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 36 ("/Info")
+Token: 272 (/Info)
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("1")
+bad input character '1' at line 84
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("0")
+bad input character '0' at line 84
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 70 ("R")
+bad input character 'R' at line 84
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 51 (">>")
+Token: 271 (>>)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 37 ("startxref")
+Token: 297 (startxref)
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 70 ("1")
+bad input character '1' at line 87
+--accepting rule at line 70 ("7")
+bad input character '7' at line 87
+--accepting rule at line 70 ("0")
+bad input character '0' at line 87
+--accepting rule at line 70 ("9")
+bad input character '9' at line 87
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--accepting rule at line 60 ("%%")
+Token: 299 (%%)
+--accepting rule at line 70 ("E")
+bad input character 'E' at line 88
+--accepting rule at line 70 ("O")
+bad input character 'O' at line 88
+--accepting rule at line 70 ("F")
+bad input character 'F' at line 88
+--accepting rule at line 64 ("
+")
+Token: 280 (
+)
+--(end of buffer or a NUL)
+--EOF (start condition 0)

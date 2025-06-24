@@ -1,10 +1,10 @@
-build: text2PDF.l generated_parser.y
-	bison -d generated_parser.y
-	flex text2PDF.l
-	gcc -Wall lex.yy.c generated_parser.tab.c -o pdfValidator
+build: text2PDF.l generated.y
+	bison -t generated.y
+	flex -d text2PDF.l
+	gcc -Wall lex.yy.c generated.tab.c -o pdfValidator
 	
 run:	
-	./pdfValidator ../multiPage.pdf
+	./pdfValidator ./random_text_0.pdf
 
 clean:
-	rm -f generated_parser lex.yy.c generated_parser.tab.c generated_parser.tab.h
+	rm -f generated.lex.yy.c generated.tab.c generated.tab.h
