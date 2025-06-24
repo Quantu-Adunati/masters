@@ -56,35 +56,106 @@ def split_string(input_string):
         return part1 + part2
     return split_string_with_spaces(input_string)
 
-def findTokenValue(stringToBePrinted):
-    matchedTokens = []
-    global tokenDictionary
-    if stringToBePrinted:
-        # Try to match the whole string to a token regex
-        print(stringToBePrinted);
-        for tokenRegex in tokenDictionary:
-            try:
-                if re.fullmatch(tokenRegex, stringToBePrinted):
-                    matchedTokens.append(tokenDictionary[tokenRegex])
-                    break
-            except re.error:
-                continue
-        # If not matched, try splitting and matching each part
-        if not matchedTokens:
-            stringToBePrintedSplit = split_string(stringToBePrinted)
-            for index, character in enumerate(stringToBePrintedSplit):
-                for tokenRegex in tokenDictionary:
-                    try:
-                        if re.fullmatch(tokenRegex, character):
-                            matchedTokens.append(tokenDictionary[tokenRegex])
-                            # if "\n" in character:
-                            #     matchedTokens.append(tokenDictionary.get('\n', 'NEWLINE'))
-                            # if index < (len(stringToBePrintedSplit)-1):
-                            #     matchedTokens.append("SPACE")
-                            break
-                    except re.error:
-                        continue
-    return '{} '.format(' '.join(matchedTokens))
+# def findTokenValue(stringToBePrinted):
+#     matchedTokens = []
+#     global tokenDictionary
+#     if stringToBePrinted:
+#         # Try to match the whole string to a token regex
+#         print(stringToBePrinted);
+#         for tokenRegex in tokenDictionary:
+#             try:
+#                 if re.fullmatch(tokenRegex, stringToBePrinted):
+#                     matchedTokens.append(tokenDictionary[tokenRegex])
+#                     break
+#             except re.error:
+#                 continue
+#         # If not matched, try splitting and matching each part
+#         if not matchedTokens:
+#             stringToBePrintedSplit = split_string(stringToBePrinted)
+#             for index, character in enumerate(stringToBePrintedSplit):
+#                 for tokenRegex in tokenDictionary:
+#                     try:
+#                         if re.fullmatch(tokenRegex, character):
+#                             matchedTokens.append(tokenDictionary[tokenRegex])
+#                             # if "\n" in character:
+#                             #     matchedTokens.append(tokenDictionary.get('\n', 'NEWLINE'))
+#                             # if index < (len(stringToBePrintedSplit)-1):
+#                             #     matchedTokens.append("SPACE")
+#                             break
+#                     except re.error:
+#                         continue
+#     return '{} '.format(' '.join(matchedTokens))
+
 
 def getReferenceCountAsWord(referenceCount):
     return 'yy{}yy'.format(referenceCount.strip())
+
+def findTokenValue(s):
+    """
+    Given a string s, return a space-separated string of token names as matched by the lexer.
+    Handles format strings and preserves SPACE/NEWLINE.
+    """
+    # Handle format specifiers
+    s = re.sub(r'%[0-9]*[l]?[du]', 'NUM', s)
+    s = re.sub(r'%[0-9]*[s]', 'STRING', s)
+    # Now split and map as before
+    tokens = []
+    for part in re.split(r'(\s+|[()\'"])', s):
+        if not part or part.isspace():
+            if part == '\n':
+                tokens.append('NEWLINE')
+            elif part == ' ':
+                tokens.append('SPACE')
+            continue
+        # Try to match to a token
+        matched = False
+        for regex, token in tokenDictionary.items():
+            if re.fullmatch(regex, part):
+                tokens.append(token)
+                matched = True
+                break
+        if not matched:
+            # Fallback for punctuation or unknowns
+            if part == '\n':
+                tokens.append('NEWLINE')
+            elif part == ' ':
+                tokens.append('SPACE')
+            elif part in ("(", ")", "'", '"'):
+                tokens.append('STRING')
+    return ' '.join(tokens)
+
+# def findTokenValue(s):
+#     """
+#     Given a string s, return a space-separated string of token names as matched by the lexer.
+#     Handles format strings and preserves SPACE/NEWLINE.
+#     """
+#     import re
+#     tokens = []
+#     # Handle format specifiers
+#     s = re.sub(r'%[0-9]*[l]?[du]', 'NUM', s)
+#     s = re.sub(r'%[0-9]*[s]', 'STRING', s)
+#     # Split on whitespace and punctuation
+#     for part in re.findall(r'\d+|[a-zA-Z_]+|[^\w\s]', s):
+#         if part.isdigit():
+#             tokens.append('NUM')
+#         elif part.isspace():
+#             if part == '\n':
+#                 tokens.append('NEWLINE')
+#             elif part == ' ':
+#                 tokens.append('SPACE')
+#         else:
+#             # Try to match to a token
+#             matched = False
+#             for regex, token in tokenDictionary.items():
+#                 if re.fullmatch(regex, part):
+#                     tokens.append(token)
+#                     matched = True
+#                     break
+#             if not matched:
+#                 if part == '\n':
+#                     tokens.append('NEWLINE')
+#                 elif part == ' ':
+#                     tokens.append('SPACE')
+#                 else:
+#                     tokens.append('STRING')
+#     return ' '.join(tokens)

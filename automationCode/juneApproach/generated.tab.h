@@ -103,7 +103,11 @@ extern int yydebug;
     TYPE = 304,                    /* TYPE  */
     TYPEONE = 305,                 /* TYPEONE  */
     TYPEPAGE = 306,                /* TYPEPAGE  */
-    XREF = 307                     /* XREF  */
+    XREF = 307,                    /* XREF  */
+    any = 308,                     /* any  */
+    character = 309,               /* character  */
+    fallback = 310,                /* fallback  */
+    single = 311                   /* single  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -117,7 +121,7 @@ union YYSTYPE
     int ival;
     char* str;
 
-#line 121 "generated.tab.h"
+#line 125 "generated.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

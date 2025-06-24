@@ -1,3 +1,4 @@
+./pdfValidator ./random_text_0.pdf
 Starting parse
 Entering state 0
 Stack now 0
@@ -16,19 +17,19 @@ Shifting token NEWLINE (1.1: )
 Entering state 4
 Stack now 0 1 4
 Reading a token
---accepting rule at line 70 ("1")
-bad input character '1' at line 2
---accepting rule at line 65 (" ")
-Next token is token SPACE (1.1: )
-Error: syntax error, unexpected SPACE, expecting NUM
+--accepting rule at line 72 ("1")
+Next token is token STRING (1.1: )
+Error: syntax error, unexpected STRING, expecting NUM
 Error: popping token NEWLINE (1.1: )
 Stack now 0 1
 Error: popping token PDFDECLARATION (1.1: )
 Stack now 0
-Cleanup: discarding lookahead token SPACE (1.1: )
+Cleanup: discarding lookahead token STRING (1.1: )
 Stack now 0
---accepting rule at line 70 ("0")
-bad input character '0' at line 2
+--accepting rule at line 65 (" ")
+Token: 296 ( )
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -85,12 +86,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("2")
-bad input character '2' at line 9
+--accepting rule at line 72 ("2")
+Token: 299 (2)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 9
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -119,16 +120,16 @@ Token: 280 (
 Token: 286 (/Pages)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("3")
-bad input character '3' at line 12
+--accepting rule at line 72 ("3")
+Token: 299 (3)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 12
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 12
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -145,12 +146,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("4")
-bad input character '4' at line 15
+--accepting rule at line 72 ("4")
+Token: 299 (4)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 15
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -217,12 +218,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("5")
-bad input character '5' at line 23
+--accepting rule at line 72 ("5")
+Token: 299 (5)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 23
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -253,16 +254,16 @@ Token: 296 ( )
 Token: 269 (/F1)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("4")
-bad input character '4' at line 25
+--accepting rule at line 72 ("4")
+Token: 299 (4)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 25
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 25
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 51 (">>")
@@ -309,12 +310,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("6")
-bad input character '6' at line 29
+--accepting rule at line 72 ("6")
+Token: 299 (6)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 29
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -343,16 +344,16 @@ Token: 280 (
 Token: 287 (/Parent)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("3")
-bad input character '3' at line 32
+--accepting rule at line 72 ("3")
+Token: 299 (3)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 32
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 32
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -361,16 +362,16 @@ Token: 280 (
 Token: 292 (/Resources)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("5")
-bad input character '5' at line 33
+--accepting rule at line 72 ("5")
+Token: 299 (5)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 33
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 33
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -379,16 +380,16 @@ Token: 280 (
 Token: 262 (/Contents)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("7")
-bad input character '7' at line 34
+--accepting rule at line 72 ("7")
+Token: 299 (7)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 34
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 34
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -405,12 +406,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("7")
-bad input character '7' at line 37
+--accepting rule at line 72 ("7")
+Token: 299 (7)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 37
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -429,22 +430,22 @@ Token: 280 (
 Token: 275 (/Length)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("8")
-bad input character '8' at line 39
+--accepting rule at line 72 ("8")
+Token: 299 (8)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 39
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 39
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
 )
 --(end of buffer or a NUL)
---accepting rule at line 67 (">>
+--accepting rule at line 69 (">>
 stream
 BT
 /F1 10 Tf
@@ -502,12 +503,12 @@ endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("8")
-bad input character '8' at line 67
+--accepting rule at line 72 ("8")
+Token: 299 (8)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 67
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -516,14 +517,14 @@ Token: 284 (obj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("1")
-bad input character '1' at line 68
---accepting rule at line 70 ("1")
-bad input character '1' at line 68
---accepting rule at line 70 ("3")
-bad input character '3' at line 68
---accepting rule at line 70 ("4")
-bad input character '4' at line 68
+--accepting rule at line 72 ("1")
+Token: 299 (1)
+--accepting rule at line 72 ("1")
+Token: 299 (1)
+--accepting rule at line 72 ("3")
+Token: 299 (3)
+--accepting rule at line 72 ("4")
+Token: 299 (4)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -534,12 +535,12 @@ Token: 268 (endobj)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("3")
-bad input character '3' at line 70
+--accepting rule at line 72 ("3")
+Token: 299 (3)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 70
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 48 ("obj")
@@ -568,8 +569,8 @@ Token: 280 (
 Token: 263 (/Count)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("1")
-bad input character '1' at line 73
+--accepting rule at line 72 ("1")
+Token: 299 (1)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -582,28 +583,28 @@ Token: 296 ( )
 Token: 259 ([)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 74
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 74
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("6")
-bad input character '6' at line 74
---accepting rule at line 70 ("1")
-bad input character '1' at line 74
---accepting rule at line 70 ("2")
-bad input character '2' at line 74
+--accepting rule at line 72 ("6")
+Token: 299 (6)
+--accepting rule at line 72 ("1")
+Token: 299 (1)
+--accepting rule at line 72 ("2")
+Token: 299 (2)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("7")
-bad input character '7' at line 74
---accepting rule at line 70 ("9")
-bad input character '9' at line 74
---accepting rule at line 70 ("2")
-bad input character '2' at line 74
+--accepting rule at line 72 ("7")
+Token: 299 (7)
+--accepting rule at line 72 ("9")
+Token: 299 (9)
+--accepting rule at line 72 ("2")
+Token: 299 (2)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
 --accepting rule at line 44 ("]")
@@ -616,7 +617,7 @@ Token: 280 (
 Token: 273 (/Kids)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 69 ("[ 6 0 R ]")
+--accepting rule at line 71 ("[ 6 0 R ]")
 Token: 274 ([ 6 0 R ])
 --accepting rule at line 64 ("
 ")
@@ -640,17 +641,17 @@ Token: 307 (xref)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("0")
-bad input character '0' at line 79
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("9")
-bad input character '9' at line 79
+--accepting rule at line 72 ("9")
+Token: 299 (9)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
 )
-")00001604 00000 n  line 68 ("0000000000 65535 f 
+")00001604 00000 n  line 70 ("0000000000 65535 f 
 )000001604 00000 n 000 65535 f 
 --accepting rule at line 32 ("trailer")
 Token: 303 (trailer)
@@ -668,8 +669,8 @@ Token: 280 (
 Token: 294 (/Size)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("9")
-bad input character '9' at line 82
+--accepting rule at line 72 ("9")
+Token: 299 (9)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -678,16 +679,16 @@ Token: 280 (
 Token: 293 (/Root)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("2")
-bad input character '2' at line 83
+--accepting rule at line 72 ("2")
+Token: 299 (2)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 83
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 83
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -696,16 +697,16 @@ Token: 280 (
 Token: 272 (/Info)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("1")
-bad input character '1' at line 84
+--accepting rule at line 72 ("1")
+Token: 299 (1)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("0")
-bad input character '0' at line 84
+--accepting rule at line 72 ("0")
+Token: 299 (0)
 --accepting rule at line 65 (" ")
 Token: 296 ( )
---accepting rule at line 70 ("R")
-bad input character 'R' at line 84
+--accepting rule at line 72 ("R")
+Token: 299 (R)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
@@ -722,26 +723,20 @@ Token: 297 (startxref)
 ")
 Token: 280 (
 )
---accepting rule at line 70 ("1")
-bad input character '1' at line 87
---accepting rule at line 70 ("7")
-bad input character '7' at line 87
---accepting rule at line 70 ("0")
-bad input character '0' at line 87
---accepting rule at line 70 ("9")
-bad input character '9' at line 87
+--accepting rule at line 72 ("1")
+Token: 299 (1)
+--accepting rule at line 72 ("7")
+Token: 299 (7)
+--accepting rule at line 72 ("0")
+Token: 299 (0)
+--accepting rule at line 72 ("9")
+Token: 299 (9)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
 )
---accepting rule at line 60 ("%%")
-Token: 299 (%%)
---accepting rule at line 70 ("E")
-bad input character 'E' at line 88
---accepting rule at line 70 ("O")
-bad input character 'O' at line 88
---accepting rule at line 70 ("F")
-bad input character 'F' at line 88
+--accepting rule at line 66 ("%%EOF")
+Token: 299 (%%EOF)
 --accepting rule at line 64 ("
 ")
 Token: 280 (
