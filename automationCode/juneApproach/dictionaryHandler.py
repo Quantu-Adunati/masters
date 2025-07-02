@@ -91,71 +91,55 @@ def getReferenceCountAsWord(referenceCount):
     return 'yy{}yy'.format(referenceCount.strip())
 
 def findTokenValue(s):
-    """
-    Given a string s, return a space-separated string of token names as matched by the lexer.
-    Handles format strings and preserves SPACE/NEWLINE.
-    """
-    # Handle format specifiers
-    s = re.sub(r'%[0-9]*[l]?[du]', 'NUM', s)
-    s = re.sub(r'%[0-9]*[s]', 'STRING', s)
-    # Now split and map as before
-    tokens = []
-    for part in re.split(r'(\s+|[()\'"])', s):
-        if not part or part.isspace():
-            if part == '\n':
-                tokens.append('NEWLINE')
-            elif part == ' ':
-                tokens.append('SPACE')
-            continue
-        # Try to match to a token
-        matched = False
-        for regex, token in tokenDictionary.items():
-            if re.fullmatch(regex, part):
-                tokens.append(token)
-                matched = True
-                break
-        if not matched:
-            # Fallback for punctuation or unknowns
-            if part == '\n':
-                tokens.append('NEWLINE')
-            elif part == ' ':
-                tokens.append('SPACE')
-            elif part in ("(", ")", "'", '"'):
-                tokens.append('STRING')
-    return ' '.join(tokens)
+    import re
 
-# def findTokenValue(s):
-#     """
-#     Given a string s, return a space-separated string of token names as matched by the lexer.
-#     Handles format strings and preserves SPACE/NEWLINE.
-#     """
-#     import re
-#     tokens = []
-#     # Handle format specifiers
-#     s = re.sub(r'%[0-9]*[l]?[du]', 'NUM', s)
-#     s = re.sub(r'%[0-9]*[s]', 'STRING', s)
-#     # Split on whitespace and punctuation
-#     for part in re.findall(r'\d+|[a-zA-Z_]+|[^\w\s]', s):
-#         if part.isdigit():
-#             tokens.append('NUM')
-#         elif part.isspace():
-#             if part == '\n':
-#                 tokens.append('NEWLINE')
-#             elif part == ' ':
-#                 tokens.append('SPACE')
-#         else:
-#             # Try to match to a token
-#             matched = False
-#             for regex, token in tokenDictionary.items():
-#                 if re.fullmatch(regex, part):
-#                     tokens.append(token)
-#                     matched = True
-#                     break
-#             if not matched:
-#                 if part == '\n':
-#                     tokens.append('NEWLINE')
-#                 elif part == ' ':
-#                     tokens.append('SPACE')
-#                 else:
-#                     tokens.append('STRING')
-#     return ' '.join(tokens)
+    token_items = list(tokenDictionary.items())
+
+    # If s is surrounded by quotes, treat as STRING
+    if (s.startswith('"') and s.endswith('"')) or (s.startswith("'") and s.endswith("'")):
+        return 'STRING'
+
+    # If s is all digits, treat as NUM
+    if re.fullmatch(r'[0-9]+', s):
+        return 'NUM'
+
+    # Try to match the whole string against each regex, in order
+    for regex, token in token_items:
+        try:
+            if re.fullmatch(regex, s):
+                return token
+        except re.error:
+            continue
+
+    # Split into logical tokens, preserving whitespace
+    tokens = []
+    parts = re.findall(
+        r'/[a-zA-Z0-9_.]+|%PDF-1\.1|[a-zA-Z0-9_.]+|<<|>>|[()[\]{}<>/%]|[ \t]+|\n|.', s
+    )
+
+    for part in parts:
+        if part == ' ' or part == '\t':
+            tokens.append('SPACE')
+            continue
+        if part == '\n':
+            tokens.append('NEWLINE')
+            continue
+        if (part.startswith('"') and part.endswith('"')) or (part.startswith("'") and part.endswith("'")):
+            tokens.append('STRING')
+            continue
+        if re.fullmatch(r'[0-9]+', part):
+            tokens.append('NUM')
+            continue
+        matched = False
+        for regex, token in token_items:
+            try:
+                if re.fullmatch(regex, part):
+                    tokens.append(token)
+                    matched = True
+                    break
+            except re.error:
+                continue
+        if not matched:
+            tokens.append('STRING')
+
+    return ' '.join(tokens)

@@ -1,10 +1,16 @@
 import re
 
 def extractSprintFMethodParam(methodCall):
-    regexPattern = r"\,(.*?)\"\,"
-    param = re.search(regexPattern, methodCall).group()
-    param = param.translate({ord(ch): '' for ch in '",'}).strip()
-    return param.encode().decode('unicode-escape')
+    import re
+    # Match the format string inside the first pair of quotes after the first comma
+    regexPattern = r',\s*"((?:[^"\\]|\\.)*)"'
+    match = re.search(regexPattern, methodCall)
+    if not match:
+        return ''
+    param = match.group(1)
+    # Decode escape sequences (so \n becomes an actual newline)
+    param = param.encode().decode('unicode_escape')
+    return param
 
 
 def extractWriteStrMethodParam(methodCall):

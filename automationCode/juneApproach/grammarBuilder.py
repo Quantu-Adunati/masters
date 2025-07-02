@@ -241,12 +241,13 @@ class GrammarBuilder:
                 if not params or (params.strip() == 'buf' and 'writestr' in line):
                     i += 1
                     continue
-                token = findTokenValue(params).strip()
-                if not token:
+                tokens = findTokenValue(params).strip().split()
+                if not tokens:
                     i += 1
                     continue
-                rule_parts.append(token)
-                self.tokens.add(token)
+                for token in tokens:
+                    rule_parts.append(token)
+                    self.tokens.add(token)
                 i += 1
                 continue
     
@@ -338,12 +339,11 @@ class GrammarBuilder:
 
     def write_bison_file(self):
         def is_valid_token(token):
-            # Exclude C reserved words and invalid identifiers
             reserved = {'for', 'if', 'else', 'while', 'switch', 'case', 'break', 'continue', 'return', 'goto', 'default', 'do', 'int', 'char', 'float', 'double', 'void', 'struct', 'union', 'enum', 'typedef', 'const', 'static', 'extern', 'register', 'volatile', 'signed', 'unsigned', 'short', 'long', 'auto', 'sizeof'}
             return re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', token) and token not in reserved
     
         with open("generated.y", "w") as f:
-            f.write("%defines\n%locations\n%error-verbose\n\n")
+            f.write("%defines\n%locations\n%define parse.error verbose\n\n")
             f.write("%{\n#include <stdio.h>\n#include <stddef.h>\n#include <errno.h>\n#include <stdlib.h>\n#include <string.h>\nextern FILE *yyin;\nextern char *yytext;\n")
             f.write("int yylex(void);\nvoid yyerror(const char *s);\n%}\n\n")
             f.write("%union {\n    int ival;\n    char* str;\n};\n\n")
@@ -353,43 +353,28 @@ class GrammarBuilder:
                     f.write(f"%token <str> {token}\n")
             f.write("\n")
             f.write("%start main\n\n")
-            f.write("/* Non-terminals */\n")
-            for non_terminal in sorted(self.non_terminals):
-                # Remove StartPage and EndPage if not in grammar_rules
-                if non_terminal in ("StartPage", "EndPage") and non_terminal not in self.grammar_rules:
-                    continue
-                f.write(f"%type <str> {non_terminal}\n")
-            f.write("\n%%\n")
     
             # --- Find reachable non-terminals ---
-            # Build a dependency graph of non-terminals
             dep_graph = {nt: set(re.findall(r'\b[A-Za-z_][A-Za-z0-9_]*\b', rule))
                          for nt, rule in self.grammar_rules.items()}
-            # Remove self-dependencies and tokens
             for nt in dep_graph:
                 dep_graph[nt] = {x for x in dep_graph[nt] if x in self.grammar_rules and x != nt}
     
-            # Find all reachable non-terminals from main
-            # --- MAIN RULE INSERTION ---
             # Insert a main rule if not present
-            # Try to infer the main structure from FUNCTION_TO_SECTION
             main_sections = []
             for func in ("HeaderSection", "PagesSection", "TrailerSection"):
                 if func in self.grammar_rules:
                     main_sections.append(func)
             if main_sections:
-                f.write(f"main: {' '.join(main_sections)};\n")
+                main_rule = f"main: {' '.join(main_sections)};"
             else:
-                # Fallback: pick all reachable non-terminals
                 all_nts = [nt for nt in self.grammar_rules if nt != "main"]
-                if all_nts:
-                    f.write(f"main: {' '.join(all_nts)};\n")
-            # Add main to reachable set
+                main_rule = f"main: {' '.join(all_nts)};" if all_nts else "main: ;"
+    
+            # Compute reachability from main
             reachable = set(["main"])
-            # Now compute reachability from main
             stack = ["main"]
-            # Add the main rule to dep_graph for reachability
-            dep_graph["main"] = set(main_sections) if main_sections else set(all_nts)
+            dep_graph["main"] = set(main_sections) if main_sections else set(all_nts) if 'all_nts' in locals() else set()
             while stack:
                 nt = stack.pop()
                 for dep in dep_graph.get(nt, []):
@@ -397,15 +382,50 @@ class GrammarBuilder:
                         reachable.add(dep)
                         stack.append(dep)
     
-            # --- Only emit reachable and non-empty rules ---
+            # --- Prune rules that are only empty or not referenced ---
+            emitted_rules = set()
+            non_empty_rules = {}
             for nt in sorted(self.grammar_rules):
                 if nt not in reachable:
                     continue
                 rule = self.grammar_rules[nt]
-                # Skip rules that are only empty
+                # Remove rules that are only empty or blank
                 if rule.strip() == "/*empty*/" or rule.strip() == "":
                     continue
-                f.write(f"{nt}: {rule};\n")
+                # Remove rules that are only an empty alternative (e.g., "X: | /*empty*/;")
+                parts = [p.strip() for p in rule.split('|')]
+                non_empty_parts = [p for p in parts if p and p != "/*empty*/"]
+                # Only keep the empty alternative if there is at least one non-empty part
+                if non_empty_parts and len(non_empty_parts) < len(parts):
+                    non_empty_rules[nt] = " | ".join(non_empty_parts + ["/*empty*/"])
+                elif non_empty_parts:
+                    non_empty_rules[nt] = " | ".join(non_empty_parts)
+                else:
+                    continue
+                emitted_rules.add(nt)
+    
+            # --- Ensure all referenced nonterminals are emitted, even if empty ---
+            referenced = set()
+            for rule in non_empty_rules.values():
+                referenced.update(re.findall(r'\b[A-Za-z_][A-Za-z0-9_]*\b', rule))
+            missing = {nt for nt in referenced if nt in self.grammar_rules and nt not in non_empty_rules}
+            for nt in missing:
+                # Only emit as empty if it is referenced
+                non_empty_rules[nt] = "/*empty*/"
+    
+            # --- Only emit %type for nonterminals that are actually emitted as rules ---
+            f.write("/* Non-terminals */\n")
+            for non_terminal in sorted(self.non_terminals):
+                if non_terminal in non_empty_rules:
+                    f.write(f"%type <str> {non_terminal}\n")
+            f.write("\n%%\n")
+    
+            # Write main rule at the top of the rules section
+            f.write(main_rule + "\n")
+    
+            # Only emit reachable and non-empty rules (plus any required empty ones)
+            for nt in sorted(non_empty_rules):
+                f.write(f"{nt}: {non_empty_rules[nt]};\n")
             f.write("\n%%\n")
             f.write('''
     int main(int argc, char ** argv) {
@@ -429,6 +449,7 @@ class GrammarBuilder:
         fprintf(stderr, "Error: %s\\n", s);
     }
     ''')
+            
 
 if __name__ == "__main__":
     token_file = "text2PDF.l"

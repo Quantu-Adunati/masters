@@ -43,36 +43,28 @@
 "\]"	               { return ARRAYCLOSE; }
 "/Text"	            { return TEXTSTRING; }
 "[0-9]+[ \t]+[0-9]+[ \t]+R"    { return OBJREF; }
-"<<\\n"	           { return LESSTHANNEWLINE; }
 "obj"	               { return OBJ; }
 "endobj"             { return ENDOBJ; }
 "<<"                 { return LESSTHAN; }
 ">>"                 { return GREATERTHAN; }
-"\%d"               { return STRING; }
-"\%c"               { return STRING; }
-"\\\%\.3o"             { return STRING; }
-"\("                { return STRING; }
-\((.*)\)             { return STRING; }
-"[a-zA-Z]+"          { return STRING; }
-"[0-9]+"	            { return NUM; }
-"\\\\"                 { return STRING; }
+[1-9][0-9]*    { return NUM; }
+0              { return NUM; }
+\([^()]*\([^()]*\)[^()]*\)    { return PDFSTRING; }
+\([^()]*\)                    { return PDFSTRING; }
+"%%EOF"              { return STRING; }
+"'"                  { return STRING; }
+"\\\\"               { return STRING; }
 "%%"                 { return STRING; }
-"/\.(.*)"	         { return NOTDEF; }
-"/([a-zA-Z]*)*"	   { return SLASHWORD; }
-<<EOF>>              { yyterminate(); return 0; }
+"/[a-zA-Z]+"         { return SLASHWORD; }
+"[a-zA-Z]+"          { return STRING; }
+"."                  { return STRING; }
 "\n"                 { return NEWLINE; }
 " "                  { return SPACE; }
-"%%EOF"             { return STRING; }
-"'"                 { return STRING; }
 "//".*[ \t]          { }
+([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+    { return NUMBERLOOP; }
+(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+ { return KIDSLOOP; }
 (\>\>[ \n\t\r]stream[ \n\t\r]BT[ \n\t\r]((.*[ \n\t\r])*)ET[ \n\t\r]endstream[ \n\t\r]endobj) { return STREAMENDSTREAM; }
-([0-9]+[ \n\t\r]+[0-9]+[ \n\t\r]+[a-z][ \t\r]+[\n]?)+                            { return NUMBERLOOP; }
-(\[[ \t\r]+[0-9]+[ \t\r]+[0-9]+[ \t\r]+[a-zA-Z][ \t\r]?\])+                      { return KIDSLOOP; }
-.                   { return STRING; }   // fallback for any single character
+<<EOF>>              { yyterminate(); return 0; }
+.   { return STRING; }
     /* Token Specifications End */
 %%
-
-/* void yyerror (char const *s) {
-   fprintf (stderr, "Error | Line: %d\n%s\n",yylineno,s);
-} */
-/* C functions( like the main)*/

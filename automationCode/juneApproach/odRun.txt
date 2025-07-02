@@ -1,0 +1,138 @@
+od -c ./random_text_0.pdf
+0000000   %   P   D   F   -   1   .   1  \n   1       0       o   b   j
+0000020  \n   <   <  \n   /   C   r   e   a   t   i   o   n   D   a   t
+0000040   e       (   D   :   2   0   2   5   0   2   1   8   1   2   3
+0000060   6   5   3   )  \n   /   P   r   o   d   u   c   e   r       (
+0000100   t   e   x   t   2   p   d   f       v   1   .   1       (   \
+0000120   2   5   1       P   h   i   l       S   m   i   t   h   ,    
+0000140   1   9   9   6   )   )  \n   /   T   i   t   l   e       (   r
+0000160   a   n   d   o   m   _   t   e   x   t   _   0   .   t   x   t
+0000200   )  \n   >   >  \n   e   n   d   o   b   j  \n   2       0    
+0000220   o   b   j  \n   <   <  \n   /   T   y   p   e       /   C   a
+0000240   t   a   l   o   g  \n   /   P   a   g   e   s       3       0
+0000260       R  \n   >   >  \n   e   n   d   o   b   j  \n   4       0
+0000300       o   b   j  \n   <   <  \n   /   T   y   p   e       /   F
+0000320   o   n   t  \n   /   S   u   b   t   y   p   e       /   T   y
+0000340   p   e   1  \n   /   N   a   m   e       /   F   1  \n   /   B
+0000360   a   s   e   F   o   n   t       /   C   o   u   r   i   e   r
+0000400  \n   >   >  \n   e   n   d   o   b   j  \n   5       0       o
+0000420   b   j  \n   <   <  \n           /   F   o   n   t       <   <
+0000440       /   F   1       4       0       R       >   >  \n        
+0000460   /   P   r   o   c   S   e   t       [       /   P   D   F    
+0000500   /   T   e   x   t       ]  \n   >   >  \n   e   n   d   o   b
+0000520   j  \n   6       0       o   b   j  \n   <   <  \n   /   T   y
+0000540   p   e       /   P   a   g   e  \n   /   P   a   r   e   n   t
+0000560       3       0       R  \n   /   R   e   s   o   u   r   c   e
+0000600   s       5       0       R  \n   /   C   o   n   t   e   n   t
+0000620   s       7       0       R  \n   >   >  \n   e   n   d   o   b
+0000640   j  \n   7       0       o   b   j  \n   <   <  \n   /   L   e
+0000660   n   g   t   h       8       0       R  \n   >   >  \n   s   t
+0000700   r   e   a   m  \n   B   T  \n   /   F   1       1   0       T
+0000720   f  \n   1       0       0       1       5   0       7   5   2
+0000740       T   m  \n   1   2       T   L  \n   (   l   a   b   o   r
+0000760   e       d   o       i   p   s   u   m       s   e   d       a
+0001000   m   e   t       l   o   r   e   m       i   n   c   i   d   i
+0001020   d   u   n   t       e   t       e   t       e   i   u   s   m
+0001040   o   d       a   l   i   q   u   a       d   o   l   o   r   e
+0001060       l   o   r   e   m       i   n   c   i   )   '  \n   (   d
+0001100   i   d   u   n   t       l   o   r   e   m       e   t       u
+0001120   t       m   a   g   n   a       a   m   e   t       d   o    
+0001140   a   m   e   t       e   t       d   o   l   o   r   e       a
+0001160   m   e   t       e   l   i   t       l   a   b   o   r   e    
+0001200   s   e   d   )   '  \n   (   )   '  \n   (   d   o       e   t
+0001220       s   i   t       l   o   r   e   m       e   l   i   t    
+0001240   c   o   n   s   e   c   t   e   t   u   r       e   t       d
+0001260   o   l   o   r       d   o   l   o   r   e       d   o   l   o
+0001300   r       t   e   m   p   o   r       l   o   r   e   m       u
+0001320   t       e   t       e   i   u   s   m   o   )   '  \n   (   d
+0001340       a   l   i   q   u   a       l   o   r   e   m       a   d
+0001360   i   p   i   s   c   i   n   g       d   o   l   o   r   e    
+0001400   t   e   m   p   o   r       d   o   l   o   r       m   a   g
+0001420   n   a       e   t       s   e   d       c   o   n   s   e   c
+0001440   t   e   t   u   r       e   l   i   t       i   n   c   i   )
+0001460   '  \n   (   d   i   d   u   n   t       l   o   r   e   m    
+0001500   e   i   u   s   m   o   d       e   i   u   s   m   o   d    
+0001520   m   a   g   n   a       l   o   r   e   m       e   i   u   s
+0001540   m   o   d       a   l   i   q   u   a       d   o   l   o   r
+0001560   e       e   t       u   t       s   i   t       d   o   l   o
+0001600   r   e       )   '  \n   (   s   i   t       m   a   g   n   a
+0001620       l   a   b   o   r   e       u   t       i   p   s   u   m
+0001640       a   l   i   q   u   a       s   e   d       i   p   s   u
+0001660   m       i   n   c   i   d   i   d   u   n   t       l   a   b
+0001700   o   r   e       s   i   t       d   o   l   o   r   e       e
+0001720   l   i   t       s   i   t   )   '  \n   (   )   '  \n   (   )
+0001740   '  \n   (   a   l   i   q   u   a       e   i   u   s   m   o
+0001760   d       s   e   d       s   e   d       e   l   i   t       l
+0002000   a   b   o   r   e       a   m   e   t       d   o   l   o   r
+0002020       s   i   t       t   e   m   p   o   r       d   o   l   o
+0002040   r   e       e   l   i   t       l   a   b   o   r   e       d
+0002060   o   l   o   )   '  \n   (   r       i   n   c   i   d   i   d
+0002100   u   n   t       u   t       m   a   g   n   a       l   o   r
+0002120   e   m       a   d   i   p   i   s   c   i   n   g       d   o
+0002140   l   o   r       c   o   n   s   e   c   t   e   t   u   r    
+0002160   i   p   s   u   m       e   t       d   o   l   o   r   e    
+0002200   l   o   r   e   m       e   )   '  \n   (   t       a   d   i
+0002220   p   i   s   c   i   n   g       l   a   b   o   r   e       d
+0002240   o   l   o   r   e       d   o       e   t       m   a   g   n
+0002260   a       d   o   l   o   r       a   m   e   t       m   a   g
+0002300   n   a       m   a   g   n   a       d   o       i   p   s   u
+0002320   m       t   e   m   p   o   r       u   t   )   '  \n   (    
+0002340   d   o   l   o   r   e       i   n   c   i   d   i   d   u   n
+0002360   t       a   l   i   q   u   a       l   a   b   o   r   e    
+0002400   t   e   m   p   o   r       s   e   d       s   e   d       d
+0002420   o   l   o   r       t   e   m   p   o   r       l   a   b   o
+0002440   r   e       m   a   g   n   a       a   m   e   t       i   )
+0002460   '  \n   (   n   c   i   d   i   d   u   n   t       a   m   e
+0002500   t       e   i   u   s   m   o   d       a   m   e   t       t
+0002520   e   m   p   o   r       c   o   n   s   e   c   t   e   t   u
+0002540   r       s   e   d       d   o   l   o   r       s   e   d    
+0002560   a   l   i   q   u   a       l   o   r   e   m       c   o   n
+0002600   s   e   c   )   '  \n   (   t   e   t   u   r       d   o   l
+0002620   o   r   e       s   e   d       e   i   u   s   m   o   d    
+0002640   s   i   t       s   i   t       t   e   m   p   o   r       i
+0002660   n   c   i   d   i   d   u   n   t       a   m   e   t       e
+0002700   i   u   s   m   o   d       a   m   e   t       a   l   i   q
+0002720   u   a       a   m   e   t   )   '  \n   (       u   t       m
+0002740   a   g   n   a       a   m   e   t       i   p   s   u   m    
+0002760   l   o   r   e   m       a   m   e   t       l   o   r   e   m
+0003000       s   i   t       a   d   i   p   i   s   c   i   n   g    
+0003020   a   d   i   p   i   s   c   i   n   g       d   o   l   o   r
+0003040   e       s   e   d   )   '  \n   (   )   '  \n   (   )   '  \n
+0003060   E   T  \n   e   n   d   s   t   r   e   a   m  \n   e   n   d
+0003100   o   b   j  \n   8       0       o   b   j  \n   1   1   3   4
+0003120  \n   e   n   d   o   b   j  \n   3       0       o   b   j  \n
+0003140   <   <  \n   /   T   y   p   e       /   P   a   g   e   s  \n
+0003160   /   C   o   u   n   t       1  \n   /   M   e   d   i   a   B
+0003200   o   x       [       0       0       6   1   2       7   9   2
+0003220       ]  \n   /   K   i   d   s       [       6       0       R
+0003240       ]  \n   >   >  \n   e   n   d   o   b   j  \n   x   r   e
+0003260   f  \n   0       9  \n   0   0   0   0   0   0   0   0   0   0
+0003300       6   5   5   3   5       f      \r   0   0   0   0   0   0
+0003320   0   0   0   9       0   0   0   0   0       n      \r   0   0
+0003340   0   0   0   0   0   1   4   0       0   0   0   0   0       n
+0003360      \r   0   0   0   0   0   0   1   6   2   4       0   0   0
+0003400   0   0       n      \r   0   0   0   0   0   0   0   1   8   9
+0003420       0   0   0   0   0       n      \r   0   0   0   0   0   0
+0003440   0   2   6   7       0   0   0   0   0       n      \r   0   0
+0003460   0   0   0   0   0   3   3   8       0   0   0   0   0       n
+0003500      \r   0   0   0   0   0   0   0   4   1   8       0   0   0
+0003520   0   0       n      \r   0   0   0   0   0   0   1   6   0   4
+0003540       0   0   0   0   0       n      \r   t   r   a   i   l   e
+0003560   r  \n   <   <  \n   /   S   i   z   e       9  \n   /   R   o
+0003600   o   t       2       0       R  \n   /   I   n   f   o       1
+0003620       0       R  \n   >   >  \n   s   t   a   r   t   x   r   e
+0003640   f  \n   1   7   0   9  \n   %   %   E   O   F  \n
+0003655
+
+
+
+
+How Validation Works
+1. Lexer (text2PDF.l / lex.yy.c)
+The lexer reads the input file character by character (not line by line).
+It matches the longest possible string at each position using the regex rules in your .l file.
+For each match, it returns a token (e.g., NUM, STRING, PDFDECLARATION, SPACE, etc.) to the parser.
+2. Parser (generated.y / generated.tab.c)
+The parser receives this stream of tokens from the lexer.
+It tries to match the sequence of tokens against the grammar rules you defined in your .y file.
+If the sequence of tokens matches the grammar, parsing succeeds; otherwise, you get a syntax error.

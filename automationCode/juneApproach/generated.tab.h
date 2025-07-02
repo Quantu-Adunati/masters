@@ -73,41 +73,35 @@ extern int yydebug;
     KIDSLOOP = 274,                /* KIDSLOOP  */
     LENGTH = 275,                  /* LENGTH  */
     LESSTHAN = 276,                /* LESSTHAN  */
-    LESSTHANNEWLINE = 277,         /* LESSTHANNEWLINE  */
-    MEDIABOX = 278,                /* MEDIABOX  */
-    NAME = 279,                    /* NAME  */
-    NEWLINE = 280,                 /* NEWLINE  */
-    NOTDEF = 281,                  /* NOTDEF  */
-    NUM = 282,                     /* NUM  */
-    NUMBERLOOP = 283,              /* NUMBERLOOP  */
-    OBJ = 284,                     /* OBJ  */
-    OBJREF = 285,                  /* OBJREF  */
-    PAGES = 286,                   /* PAGES  */
-    PARENT = 287,                  /* PARENT  */
-    PDFDECLARATION = 288,          /* PDFDECLARATION  */
-    PDFSTRING = 289,               /* PDFSTRING  */
-    PROCSET = 290,                 /* PROCSET  */
-    PRODUCER = 291,                /* PRODUCER  */
-    RESOURCES = 292,               /* RESOURCES  */
-    ROOT = 293,                    /* ROOT  */
-    SIZE = 294,                    /* SIZE  */
-    SLASHWORD = 295,               /* SLASHWORD  */
-    SPACE = 296,                   /* SPACE  */
-    STARTXREF = 297,               /* STARTXREF  */
-    STREAMENDSTREAM = 298,         /* STREAMENDSTREAM  */
-    STRING = 299,                  /* STRING  */
-    SUBTYPE = 300,                 /* SUBTYPE  */
-    TEXTSTRING = 301,              /* TEXTSTRING  */
-    TITLE = 302,                   /* TITLE  */
-    TRAILER = 303,                 /* TRAILER  */
-    TYPE = 304,                    /* TYPE  */
-    TYPEONE = 305,                 /* TYPEONE  */
-    TYPEPAGE = 306,                /* TYPEPAGE  */
-    XREF = 307,                    /* XREF  */
-    any = 308,                     /* any  */
-    character = 309,               /* character  */
-    fallback = 310,                /* fallback  */
-    single = 311                   /* single  */
+    MEDIABOX = 277,                /* MEDIABOX  */
+    NAME = 278,                    /* NAME  */
+    NEWLINE = 279,                 /* NEWLINE  */
+    NUM = 280,                     /* NUM  */
+    NUMBERLOOP = 281,              /* NUMBERLOOP  */
+    OBJ = 282,                     /* OBJ  */
+    OBJREF = 283,                  /* OBJREF  */
+    PAGES = 284,                   /* PAGES  */
+    PARENT = 285,                  /* PARENT  */
+    PDFDECLARATION = 286,          /* PDFDECLARATION  */
+    PDFSTRING = 287,               /* PDFSTRING  */
+    PROCSET = 288,                 /* PROCSET  */
+    PRODUCER = 289,                /* PRODUCER  */
+    RESOURCES = 290,               /* RESOURCES  */
+    ROOT = 291,                    /* ROOT  */
+    SIZE = 292,                    /* SIZE  */
+    SLASHWORD = 293,               /* SLASHWORD  */
+    SPACE = 294,                   /* SPACE  */
+    STARTXREF = 295,               /* STARTXREF  */
+    STREAMENDSTREAM = 296,         /* STREAMENDSTREAM  */
+    STRING = 297,                  /* STRING  */
+    SUBTYPE = 298,                 /* SUBTYPE  */
+    TEXTSTRING = 299,              /* TEXTSTRING  */
+    TITLE = 300,                   /* TITLE  */
+    TRAILER = 301,                 /* TRAILER  */
+    TYPE = 302,                    /* TYPE  */
+    TYPEONE = 303,                 /* TYPEONE  */
+    TYPEPAGE = 304,                /* TYPEPAGE  */
+    XREF = 305                     /* XREF  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -121,7 +115,7 @@ union YYSTYPE
     int ival;
     char* str;
 
-#line 125 "generated.tab.h"
+#line 119 "generated.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

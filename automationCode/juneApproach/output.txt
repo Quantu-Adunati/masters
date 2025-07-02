@@ -1,4 +1,3 @@
-./pdfValidator ./random_text_0.pdf
 Starting parse
 Entering state 0
 Stack now 0
@@ -10,442 +9,240 @@ Shifting token PDFDECLARATION (1.1: )
 Entering state 1
 Stack now 0 1
 Reading a token
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
 Next token is token NEWLINE (1.1: )
 Shifting token NEWLINE (1.1: )
 Entering state 4
 Stack now 0 1 4
 Reading a token
---accepting rule at line 72 ("1")
-Next token is token STRING (1.1: )
-Error: syntax error, unexpected STRING, expecting NUM
+--accepting rule at line 51 ("1")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 11
+Stack now 0 1 4 11
+Reading a token
+--accepting rule at line 63 (" ")
+Next token is token SPACE (1.1: )
+Error: syntax error, unexpected SPACE, expecting STRING
+Error: popping token NUM (1.1: )
+Stack now 0 1 4
 Error: popping token NEWLINE (1.1: )
 Stack now 0 1
 Error: popping token PDFDECLARATION (1.1: )
 Stack now 0
-Cleanup: discarding lookahead token STRING (1.1: )
+Cleanup: discarding lookahead token SPACE (1.1: )
 Stack now 0
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 12 ("/CreationDate")
-Token: 265 (/CreationDate)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 56 ("(D:20250218123653)")
-Token: 299 ((D:20250218123653))
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 54 ("(D:20250218123653)")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 13 ("/Producer")
-Token: 291 (/Producer)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 56 ("(text2pdf v1.1 (\251 Phil Smith, 1996))")
-Token: 299 ((text2pdf v1.1 (\251 Phil Smith, 1996)))
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 53 ("(text2pdf v1.1 (\251 Phil Smith, 1996))")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 14 ("/Title")
-Token: 302 (/Title)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 56 ("(random_text_0.txt)")
-Token: 299 ((random_text_0.txt))
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 54 ("(random_text_0.txt)")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("2")
-Token: 299 (2)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("2")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 15 ("/Type")
-Token: 304 (/Type)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 16 ("/Catalog")
-Token: 261 (/Catalog)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 19 ("/Pages")
-Token: 286 (/Pages)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("3")
-Token: 299 (3)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("3")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("4")
-Token: 299 (4)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("4")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 15 ("/Type")
-Token: 304 (/Type)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 20 ("/Font")
-Token: 270 (/Font)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 22 ("/Subtype")
-Token: 300 (/Subtype)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 21 ("/Type1")
-Token: 305 (/Type1)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 33 ("/Name")
-Token: 279 (/Name)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 38 ("/F1")
-Token: 269 (/F1)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 39 ("/BaseFont")
-Token: 260 (/BaseFont)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 40 ("/Courier")
-Token: 264 (/Courier)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("5")
-Token: 299 (5)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("5")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
+--accepting rule at line 63 (" ")
 --accepting rule at line 20 ("/Font")
-Token: 270 (/Font)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
+--accepting rule at line 49 ("<<")
+--accepting rule at line 63 (" ")
 --accepting rule at line 38 ("/F1")
-Token: 269 (/F1)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("4")
-Token: 299 (4)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("4")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 63 (" ")
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
+--accepting rule at line 63 (" ")
 --accepting rule at line 41 ("/ProcSet")
-Token: 290 (/ProcSet)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 43 ("[")
-Token: 259 ([)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 42 ("/PDF")
-Token: 289 (/PDF)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 45 ("/Text")
-Token: 301 (/Text)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 44 ("]")
-Token: 258 (])
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("6")
-Token: 299 (6)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("6")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 15 ("/Type")
-Token: 304 (/Type)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 23 ("/Page")
-Token: 306 (/Page)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 24 ("/Parent")
-Token: 287 (/Parent)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("3")
-Token: 299 (3)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("3")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 25 ("/Resources")
-Token: 292 (/Resources)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("5")
-Token: 299 (5)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("5")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 26 ("/Contents")
-Token: 262 (/Contents)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("7")
-Token: 299 (7)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("7")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("7")
-Token: 299 (7)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("7")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 27 ("/Length")
-Token: 275 (/Length)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("8")
-Token: 299 (8)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("8")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --(end of buffer or a NUL)
---accepting rule at line 69 (">>
+--accepting rule at line 67 (">>
 stream
 BT
 /F1 10 Tf
@@ -472,7 +269,225 @@ BT
 ET
 endstream
 endobj")
-Token: 298 (>>
+--accepting rule at line 62 ("
+")
+--accepting rule at line 51 ("8")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
+")
+--accepting rule at line 51 ("1134")
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 265 (/CreationDate)
+Token: 294 ( )
+Token: 287 ((D:20250218123653))
+Token: 279 (
+)
+Token: 289 (/Producer)
+Token: 294 ( )
+Token: 287 ((text2pdf v1.1 (\251 Phil Smith, 1996)))
+Token: 279 (
+)
+Token: 300 (/Title)
+Token: 294 ( )
+Token: 287 ((random_text_0.txt))
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (2)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 302 (/Type)
+Token: 294 ( )
+Token: 261 (/Catalog)
+Token: 279 (
+)
+Token: 284 (/Pages)
+Token: 294 ( )
+Token: 280 (3)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (4)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 302 (/Type)
+Token: 294 ( )
+Token: 270 (/Font)
+Token: 279 (
+)
+Token: 298 (/Subtype)
+Token: 294 ( )
+Token: 303 (/Type1)
+Token: 279 (
+)
+Token: 278 (/Name)
+Token: 294 ( )
+Token: 269 (/F1)
+Token: 279 (
+)
+Token: 260 (/BaseFont)
+Token: 294 ( )
+Token: 264 (/Courier)
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (5)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 294 ( )
+Token: 294 ( )
+Token: 270 (/Font)
+Token: 294 ( )
+Token: 276 (<<)
+Token: 294 ( )
+Token: 269 (/F1)
+Token: 294 ( )
+Token: 280 (4)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 294 ( )
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 294 ( )
+Token: 294 ( )
+Token: 288 (/ProcSet)
+Token: 294 ( )
+Token: 259 ([)
+Token: 294 ( )
+Token: 287 (/PDF)
+Token: 294 ( )
+Token: 299 (/Text)
+Token: 294 ( )
+Token: 258 (])
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (6)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 302 (/Type)
+Token: 294 ( )
+Token: 304 (/Page)
+Token: 279 (
+)
+Token: 285 (/Parent)
+Token: 294 ( )
+Token: 280 (3)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 290 (/Resources)
+Token: 294 ( )
+Token: 280 (5)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 262 (/Contents)
+Token: 294 ( )
+Token: 280 (7)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (7)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 275 (/Length)
+Token: 294 ( )
+Token: 280 (8)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 296 (>>
 stream
 BT
 /F1 10 Tf
@@ -499,247 +514,217 @@ BT
 ET
 endstream
 endobj)
---accepting rule at line 64 ("
-")
-Token: 280 (
+Token: 279 (
 )
---accepting rule at line 72 ("8")
-Token: 299 (8)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
-")
-Token: 280 (
+Token: 280 (8)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
 )
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 72 ("3")
-Token: 299 (3)
---accepting rule at line 72 ("4")
-Token: 299 (4)
---accepting rule at line 64 ("
+Tok--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("3")
-Token: 299 (3)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 48 ("obj")
-Token: 284 (obj)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("3")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 47 ("obj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 15 ("/Type")
-Token: 304 (/Type)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 19 ("/Pages")
-Token: 286 (/Pages)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 28 ("/Count")
-Token: 263 (/Count)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("1")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 29 ("/MediaBox")
-Token: 278 (/MediaBox)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
 --accepting rule at line 43 ("[")
-Token: 259 ([)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("6")
-Token: 299 (6)
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 72 ("2")
-Token: 299 (2)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("7")
-Token: 299 (7)
---accepting rule at line 72 ("9")
-Token: 299 (9)
---accepting rule at line 72 ("2")
-Token: 299 (2)
---accepting rule at line 65 (" ")
-Token: 296 ( )
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("612")
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("792")
+--accepting rule at line 63 (" ")
 --accepting rule at line 44 ("]")
-Token: 258 (])
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 30 ("/Kids")
-Token: 273 (/Kids)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 71 ("[ 6 0 R ]")
-Token: 274 ([ 6 0 R ])
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 66 ("[ 6 0 R ]")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 49 ("endobj")
-Token: 268 (endobj)
---accepting rule at line 64 ("
+--accepting rule at line 48 ("endobj")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 31 ("xref")
-Token: 307 (xref)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("9")
-Token: 299 (9)
---accepting rule at line 64 ("
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("9")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
-")00001604 00000 n  line 70 ("0000000000 65535 f 
-)000001604 00000 n 000 65535 f 
+--accepting rule at line 65 ("0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 0000001604 00000 n ")
 --accepting rule at line 32 ("trailer")
-Token: 303 (trailer)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 50 ("<<")
-Token: 276 (<<)
---accepting rule at line 64 ("
+--accepting rule at line 49 ("<<")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 34 ("/Size")
-Token: 294 (/Size)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("9")
-Token: 299 (9)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("9")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 35 ("/Root")
-Token: 293 (/Root)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("2")
-Token: 299 (2)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("2")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 36 ("/Info")
-Token: 272 (/Info)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 65 (" ")
-Token: 296 ( )
---accepting rule at line 72 ("R")
-Token: 299 (R)
---accepting rule at line 64 ("
+--accepting rule at line 63 (" ")
+--accepting rule at line 51 ("1")
+--accepting rule at line 63 (" ")
+--accepting rule at line 52 ("0")
+--accepting rule at line 63 (" ")
+--accepting rule at line 69 ("R")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 51 (">>")
-Token: 271 (>>)
---accepting rule at line 64 ("
+--accepting rule at line 50 (">>")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --accepting rule at line 37 ("startxref")
-Token: 297 (startxref)
---accepting rule at line 64 ("
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 72 ("1")
-Token: 299 (1)
---accepting rule at line 72 ("7")
-Token: 299 (7)
---accepting rule at line 72 ("0")
-Token: 299 (0)
---accepting rule at line 72 ("9")
-Token: 299 (9)
---accepting rule at line 64 ("
+--accepting rule at line 51 ("1709")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
---accepting rule at line 66 ("%%EOF")
-Token: 299 (%%EOF)
---accepting rule at line 64 ("
+--accepting rule at line 55 ("%%EOF")
+--accepting rule at line 62 ("
 ")
-Token: 280 (
-)
 --(end of buffer or a NUL)
 --EOF (start condition 0)
+en: 280 (1134)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 280 (3)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 282 (obj)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 302 (/Type)
+Token: 294 ( )
+Token: 284 (/Pages)
+Token: 279 (
+)
+Token: 263 (/Count)
+Token: 294 ( )
+Token: 280 (1)
+Token: 279 (
+)
+Token: 277 (/MediaBox)
+Token: 294 ( )
+Token: 259 ([)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 280 (612)
+Token: 294 ( )
+Token: 280 (792)
+Token: 294 ( )
+Token: 258 (])
+Token: 279 (
+)
+Token: 273 (/Kids)
+Token: 294 ( )
+Token: 274 ([ 6 0 R ])
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 268 (endobj)
+Token: 279 (
+)
+Token: 305 (xref)
+Token: 279 (
+)
+Token: 280 (0)
+Token: 294 ( )
+Token: 280 (9)
+Token: 279 (
+)
+Token: 281 (0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 0000001604 00000 n )
+Token: 301 (trailer)
+Token: 279 (
+)
+Token: 276 (<<)
+Token: 279 (
+)
+Token: 292 (/Size)
+Token: 294 ( )
+Token: 280 (9)
+Token: 279 (
+)
+Token: 291 (/Root)
+Token: 294 ( )
+Token: 280 (2)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 272 (/Info)
+Token: 294 ( )
+Token: 280 (1)
+Token: 294 ( )
+Token: 280 (0)
+Token: 294 ( )
+Token: 297 (R)
+Token: 279 (
+)
+Token: 271 (>>)
+Token: 279 (
+)
+Token: 295 (startxref)
+Token: 279 (
+)
+Token: 280 (1709)
+Token: 279 (
+)
+Token: 297 (%%EOF)
+Token: 279 (
+)
