@@ -111,10 +111,44 @@ def findTokenValue(s):
         except re.error:
             continue
 
+    # Handle format strings with %s, %d, %ld, etc. - treat them as placeholders for STRING
+    # Simplify format strings by removing literals around format specifiers
+    # Pattern: /keyword (%s ...anything...) becomes just: /keyword SPACE STRING NEWLINE (if format string ends with \n)
+    if '%' in s and '(' in s:
+        # This looks like a format string with substitution
+        # Extract the keyword (if it starts with /)
+        kw_match = re.match(r'^(/[a-zA-Z]+)', s)
+        if kw_match:
+            keyword = kw_match.group(1)
+            # Find the token for this keyword
+            tokens = []
+            for regex, token in token_items:
+                try:
+                    if re.fullmatch(regex, keyword):
+                        tokens.append(token)
+                        break
+                except re.error:
+                    continue
+            if not tokens:
+                # Keyword not found in tokens, just add it as STRING
+                tokens.append('STRING')
+            # Add SPACE after keyword (if there's a space in the format string)
+            if ' ' in s[len(keyword):len(keyword)+1]:
+                tokens.append('SPACE')
+            # Add a STRING token to represent the variable
+            tokens.append('STRING')
+            # Add a NEWLINE if the format string ends with a newline (actual newline char, not literal \n)
+            if s.endswith('\n'):
+                tokens.append('NEWLINE')
+            return ' '.join(tokens)
+    
+    # Original format string handling
+    s_normalized = re.sub(r'%[0-9]*[ldfs]', 'STRINGVALUE', s)
+    
     # Split into logical tokens, preserving whitespace
     tokens = []
     parts = re.findall(
-        r'/[a-zA-Z0-9_.]+|%PDF-1\.1|[a-zA-Z0-9_.]+|<<|>>|[()[\]{}<>/%]|[ \t]+|\n|.', s
+        r'/[a-zA-Z0-9_.]+|%PDF-1\.1|[a-zA-Z0-9_.]+|<<|>>|[()[\]{}<>/%]|[ \t]+|\n|.', s_normalized
     )
 
     for part in parts:

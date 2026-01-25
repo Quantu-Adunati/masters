@@ -56,52 +56,51 @@ extern int yydebug;
     YYUNDEF = 257,                 /* "invalid token"  */
     ARRAYCLOSE = 258,              /* ARRAYCLOSE  */
     ARRAYOPEN = 259,               /* ARRAYOPEN  */
-    BASEFONT = 260,                /* BASEFONT  */
-    CATALOG = 261,                 /* CATALOG  */
-    CONTENTS = 262,                /* CONTENTS  */
-    COUNT = 263,                   /* COUNT  */
-    COURIER = 264,                 /* COURIER  */
-    CREATIONDATE = 265,            /* CREATIONDATE  */
-    DIFFERENCES = 266,             /* DIFFERENCES  */
-    ENCODING = 267,                /* ENCODING  */
-    ENDOBJ = 268,                  /* ENDOBJ  */
-    FONE = 269,                    /* FONE  */
-    FONT = 270,                    /* FONT  */
-    GREATERTHAN = 271,             /* GREATERTHAN  */
-    INFO = 272,                    /* INFO  */
-    KIDS = 273,                    /* KIDS  */
-    KIDSLOOP = 274,                /* KIDSLOOP  */
-    LENGTH = 275,                  /* LENGTH  */
-    LESSTHAN = 276,                /* LESSTHAN  */
-    MEDIABOX = 277,                /* MEDIABOX  */
-    NAME = 278,                    /* NAME  */
-    NEWLINE = 279,                 /* NEWLINE  */
-    NUM = 280,                     /* NUM  */
-    NUMBERLOOP = 281,              /* NUMBERLOOP  */
-    OBJ = 282,                     /* OBJ  */
-    OBJREF = 283,                  /* OBJREF  */
-    PAGES = 284,                   /* PAGES  */
-    PARENT = 285,                  /* PARENT  */
-    PDFDECLARATION = 286,          /* PDFDECLARATION  */
-    PDFSTRING = 287,               /* PDFSTRING  */
-    PROCSET = 288,                 /* PROCSET  */
-    PRODUCER = 289,                /* PRODUCER  */
-    RESOURCES = 290,               /* RESOURCES  */
-    ROOT = 291,                    /* ROOT  */
-    SIZE = 292,                    /* SIZE  */
-    SLASHWORD = 293,               /* SLASHWORD  */
-    SPACE = 294,                   /* SPACE  */
-    STARTXREF = 295,               /* STARTXREF  */
-    STREAMENDSTREAM = 296,         /* STREAMENDSTREAM  */
-    STRING = 297,                  /* STRING  */
-    SUBTYPE = 298,                 /* SUBTYPE  */
-    TEXTSTRING = 299,              /* TEXTSTRING  */
-    TITLE = 300,                   /* TITLE  */
-    TRAILER = 301,                 /* TRAILER  */
-    TYPE = 302,                    /* TYPE  */
-    TYPEONE = 303,                 /* TYPEONE  */
-    TYPEPAGE = 304,                /* TYPEPAGE  */
-    XREF = 305                     /* XREF  */
+    CATALOG = 260,                 /* CATALOG  */
+    CONTENTS = 261,                /* CONTENTS  */
+    COUNT = 262,                   /* COUNT  */
+    CREATIONDATE = 263,            /* CREATIONDATE  */
+    DIFFERENCES = 264,             /* DIFFERENCES  */
+    ENCODING = 265,                /* ENCODING  */
+    ENDOBJ = 266,                  /* ENDOBJ  */
+    FONE = 267,                    /* FONE  */
+    FONT = 268,                    /* FONT  */
+    GREATERTHAN = 269,             /* GREATERTHAN  */
+    INFO = 270,                    /* INFO  */
+    KIDS = 271,                    /* KIDS  */
+    KIDSLOOP = 272,                /* KIDSLOOP  */
+    LENGTH = 273,                  /* LENGTH  */
+    LESSTHAN = 274,                /* LESSTHAN  */
+    MEDIABOX = 275,                /* MEDIABOX  */
+    NAME = 276,                    /* NAME  */
+    NEWLINE = 277,                 /* NEWLINE  */
+    NUM = 278,                     /* NUM  */
+    NUMBERLOOP = 279,              /* NUMBERLOOP  */
+    OBJ = 280,                     /* OBJ  */
+    OBJREF = 281,                  /* OBJREF  */
+    PAGES = 282,                   /* PAGES  */
+    PARENT = 283,                  /* PARENT  */
+    PDFDECLARATION = 284,          /* PDFDECLARATION  */
+    PDFSTRING = 285,               /* PDFSTRING  */
+    PROCSET = 286,                 /* PROCSET  */
+    PRODUCER = 287,                /* PRODUCER  */
+    RESOURCES = 288,               /* RESOURCES  */
+    ROOT = 289,                    /* ROOT  */
+    SIZE = 290,                    /* SIZE  */
+    SLASHWORD = 291,               /* SLASHWORD  */
+    SLASHWORDTWO = 292,            /* SLASHWORDTWO  */
+    SPACE = 293,                   /* SPACE  */
+    STARTXREF = 294,               /* STARTXREF  */
+    STREAMENDSTREAM = 295,         /* STREAMENDSTREAM  */
+    STRING = 296,                  /* STRING  */
+    SUBTYPE = 297,                 /* SUBTYPE  */
+    TEXTSTRING = 298,              /* TEXTSTRING  */
+    TITLE = 299,                   /* TITLE  */
+    TRAILER = 300,                 /* TRAILER  */
+    TYPE = 301,                    /* TYPE  */
+    TYPEONE = 302,                 /* TYPEONE  */
+    TYPEPAGE = 303,                /* TYPEPAGE  */
+    XREF = 304                     /* XREF  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -115,7 +114,7 @@ union YYSTYPE
     int ival;
     char* str;
 
-#line 119 "generated.tab.h"
+#line 118 "generated.tab.h"
 
 };
 typedef union YYSTYPE YYSTYPE;

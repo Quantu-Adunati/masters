@@ -39,7 +39,7 @@
 "/Courier"           { return COURIER; }
 "/ProcSet"	         { return PROCSET; }
 "/PDF"	            { return PDFSTRING; }
-"\["	               { return ARRAYOPEN; }
+"\[" { return ARRAYOPEN; }
 "\]"	               { return ARRAYCLOSE; }
 "/Text"	            { return TEXTSTRING; }
 "[0-9]+[ \t]+[0-9]+[ \t]+R"    { return OBJREF; }
@@ -49,12 +49,11 @@
 ">>"                 { return GREATERTHAN; }
 [1-9][0-9]*    { return NUM; }
 0              { return NUM; }
-\([^()]*\([^()]*\)[^()]*\)    { return PDFSTRING; }
-\([^()]*\)                    { return PDFSTRING; }
 "%%EOF"              { return STRING; }
 "'"                  { return STRING; }
 "\\\\"               { return STRING; }
 "%%"                 { return STRING; }
+\(([^()]*(\([^)]*\)[^()]*)*)\)   { return STRING; }
 "/[a-zA-Z]+"         { return SLASHWORD; }
 "[a-zA-Z]+"          { return STRING; }
 "."                  { return STRING; }

@@ -15,9 +15,12 @@ def extractWriteStrMethodParam(methodCall):
 
 
 def getMethodCallLine(line):
-    regexPattern = r" (?:[a-zA-Z]+)\("
-    regexMatch = getattr(re.search(regexPattern, line), 'group', lambda:'')()
-    return cleanStringUp(regexMatch, '( ')
+    # Only match function calls at the start of the line, not inside strings or comments
+    regexPattern = r'^\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\('
+    match = re.match(regexPattern, line)
+    if match:
+        return match.group(1)
+    return None
             
 def regexFindAll(tokenRegex, character):
     regexPattern = re.escape(tokenRegex) if len(

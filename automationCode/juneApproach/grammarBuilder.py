@@ -18,8 +18,8 @@ class GrammarBuilder:
         self.visited_methods = set()
         self.grammar_rules = {}  # method/non-terminal name -> rule string
         self.non_terminals = set()
-        self.loop_counter = {}
-        self.cond_counter = {}
+        # Removed: loop_counter and cond_counter are now LOCAL to _process_lines
+        # to properly handle nested scopes and sibling constructs
         self.random_token_counter = 0
         self.tokens = set()
 
@@ -87,7 +87,15 @@ class GrammarBuilder:
         if not method_body:
             return
         body = self._extract_body(method_body)
-        rule, _ = self._process_lines(body, parent=method_name)
+        # Pass fresh local counters for this method's scope
+        rule, _ = self._process_lines(
+            body, 
+            parent=method_name,
+            path=None,
+            depth=0,
+            local_loop_counter=[0],
+            local_cond_counter=[0]
+        )
         # Use mapped section name if available
         section_name = FUNCTION_TO_SECTION.get(method_name.lower(), method_name)
         self.grammar_rules[section_name] = rule
@@ -108,32 +116,61 @@ class GrammarBuilder:
                 break
         return lines[start:end]
 
-    def _process_lines(self, lines, parent, path=None, depth=0):
+    def _process_lines(self, lines, parent, path=None, depth=0, local_loop_counter=None, local_cond_counter=None):
         """
         Processes lines of a method or block, building grammar rules.
         Maintains a path stack to encode nesting in non-terminal names.
+        Uses local counters (as mutable lists) that track per scope to properly handle sibling constructs.
         """
         if path is None:
             path = [parent]
+        # Use lists as mutable counters so increments persist
+        if local_loop_counter is None:
+            local_loop_counter = [0]
+        if local_cond_counter is None:
+            local_cond_counter = [0]
         if depth > 100:
             print(f"Max recursion depth reached at {parent} with path {path}")
             return '', 0
-        if parent not in self.loop_counter:
-            self.loop_counter[parent] = 0
-        if parent not in self.cond_counter:
-            self.cond_counter[parent] = 0
+        
         rule_parts = []
         i = 0
+        
         while i < len(lines):
             line = lines[i].strip()
             if not line or line == '}':
                 i += 1
                 continue
+            
+            # --- Check for inline conditional with writestr (BEFORE grouping) ---
+            inline_cond_match = re.match(r'(if|else if)\s*\((.*?)\)\s*(writestr|sprintf)\s*\((.*?)\);', line)
+            if inline_cond_match:
+                cond_nt = '_'.join(path + [f"C{local_cond_counter[0]}"])
+                local_cond_counter[0] += 1
+                self.non_terminals.add(cond_nt)
+                
+                # Extract tokens from the writestr/sprintf call
+                params = inline_cond_match.group(4)
+                tokens = findTokenValue(params).strip().split()
+                if tokens:
+                    for token in tokens:
+                        self.tokens.add(token)
+                    cond_rule = ' '.join(tokens)
+                    # Inline conditional: can be skipped or executed
+                    self.grammar_rules[cond_nt] = f"{cond_rule} | /*empty*/"
+                    rule_parts.append(cond_nt)
+                i += 1
+                continue
+            
             # --- Group consecutive writestr/sprintf tokens ---
             token_group = []
             while i < len(lines):
                 line = lines[i].strip()
                 if 'writestr' in line or 'sprintf' in line:
+                    # Skip if this line matches inline conditional pattern (already handled)
+                    if re.match(r'(if|else if)\s*\((.*?)\)\s*(writestr|sprintf)', line):
+                        break
+                    
                     params = getMethodParamsFromLine(line)
                     if not params or (params.strip() == 'buf' and 'writestr' in line):
                         i += 1
@@ -143,13 +180,14 @@ class GrammarBuilder:
                         print(f"[WARNING] No token found for string: '{params}' in line: {line}")
                         i += 1
                         continue
-                    # Instead of grouping, append each token in order
+                    # Append each token in order
                     for token in tokens:
                         self.tokens.add(token)
                         token_group.append(token)
                     i += 1
                 else:
                     break
+            
             if token_group:
                 # Do not group into _LIST if SPACE or NEWLINE is present
                 j = 0
@@ -181,8 +219,8 @@ class GrammarBuilder:
             loop_match = re.match(r'(while|for)\s*\((.*?)\)\s*(.*)', line)
             if loop_match:
                 loop_type = loop_match.group(1)
-                loop_id = self.loop_counter[parent]
-                self.loop_counter[parent] += 1
+                loop_id = local_loop_counter[0]
+                local_loop_counter[0] += 1
                 loop_nt = '_'.join(path + [f"L{loop_id}"])
                 self.non_terminals.add(loop_nt)
                 after_paren = loop_match.group(3).strip()
@@ -192,9 +230,17 @@ class GrammarBuilder:
                     consumed = 1
                 else:
                     block_lines, consumed = self._extract_block(lines, i)
-                # Recurse with updated path
+                # Recurse with fresh local counters for nested scope
                 if block_lines:
-                    loop_rule, _ = self._process_lines(block_lines, parent=parent, path=path + [f"L{loop_id}"])
+                    loop_rule, _ = self._process_lines(
+                        block_lines, 
+                        parent=parent, 
+                        path=path + [f"L{loop_id}"],
+                        depth=depth+1,
+                        local_loop_counter=[0],  # Reset for nested scope
+                        local_cond_counter=[0]   # Reset for nested scope
+                    )
+                    # Loop is optional (can iterate 0 times)
                     self.grammar_rules[loop_nt] = f"{loop_rule} | /*empty*/"
                     rule_parts.append(loop_nt)
                 i += max(consumed, 1)
@@ -204,8 +250,8 @@ class GrammarBuilder:
             cond_match = re.match(r'(if|else if|else)\s*(\(.*?\))?\s*(.*)', line)
             if cond_match:
                 cond_type = cond_match.group(1).replace(' ', '')
-                cond_id = self.cond_counter[parent]
-                self.cond_counter[parent] += 1
+                cond_id = local_cond_counter[0]
+                local_cond_counter[0] += 1
                 cond_nt = '_'.join(path + [f"C{cond_id}"])
                 self.non_terminals.add(cond_nt)
                 after_paren = cond_match.group(3).strip()
@@ -214,7 +260,17 @@ class GrammarBuilder:
                     consumed = 1
                 else:
                     block_lines, consumed = self._extract_block(lines, i)
-                cond_rule, _ = self._process_lines(block_lines, parent=parent, path=path + [f"C{cond_id}"])
+                
+                # Recurse with fresh counters for nested scope
+                cond_rule, _ = self._process_lines(
+                    block_lines, 
+                    parent=parent, 
+                    path=path + [f"C{cond_id}"],
+                    depth=depth+1,
+                    local_loop_counter=[0],   # Reset for nested scope
+                    local_cond_counter=[0]    # Reset for nested scope
+                )
+                
                 # Check for 'else' after this block
                 alt_rule = None
                 next_line_idx = i + consumed
@@ -222,32 +278,43 @@ class GrammarBuilder:
                     next_line = lines[next_line_idx].strip()
                     if next_line.startswith('else'):
                         else_block_lines, else_consumed = self._extract_block(lines, next_line_idx)
-                        else_rule, _ = self._process_lines(else_block_lines, parent=parent, path=path + [f"C{cond_id}_ELSE"])
+                        else_rule, _ = self._process_lines(
+                            else_block_lines, 
+                            parent=parent, 
+                            path=path + [f"C{cond_id}_ELSE"],
+                            depth=depth+1,
+                            local_loop_counter=[0],   # Reset for nested scope
+                            local_cond_counter=[0]    # Reset for nested scope
+                        )
                         alt_rule = else_rule or "/*empty*/"
                         consumed += else_consumed
+                
+                # CRITICAL FIX: Skip completely empty conditionals
+                # If the conditional body produces no tokens, don't add it to the grammar
+                # This prevents empty productions that break grammar validity
+                if not cond_rule or cond_rule.strip() == "":
+                    # Empty conditional body - skip it entirely
+                    # Don't create a rule, don't add to rule_parts
+                    print(f"[INFO] Skipping empty conditional {cond_nt} at line {i}")
+                    i += max(consumed, 1)
+                    continue
+                
+                # Only add empty alternative if conditional is truly optional
+                # (i.e., if without else means execution can be skipped)
                 if alt_rule:
                     self.grammar_rules[cond_nt] = f"{cond_rule} | {alt_rule}"
                 else:
-                    # Optional (if without else)
+                    # Optional (if without else means body MAY or MAY NOT execute)
                     self.grammar_rules[cond_nt] = f"{cond_rule} | /*empty*/"
+                
                 rule_parts.append(cond_nt)
                 i += max(consumed, 1)
                 continue
     
-            # --- Handle writestr/sprintf ---
+            # --- Handle writestr/sprintf (already handled by grouping above, skip here) ---
             if 'writestr' in line or 'sprintf' in line:
-                params = getMethodParamsFromLine(line)
-                # Skip writestr(buf) and empty params
-                if not params or (params.strip() == 'buf' and 'writestr' in line):
-                    i += 1
-                    continue
-                tokens = findTokenValue(params).strip().split()
-                if not tokens:
-                    i += 1
-                    continue
-                for token in tokens:
-                    rule_parts.append(token)
-                    self.tokens.add(token)
+                # These should have been handled by the token grouping section
+                # If we reach here, it means they weren't grouped (edge case)
                 i += 1
                 continue
     
@@ -264,13 +331,21 @@ class GrammarBuilder:
                 block_lines, consumed = self._extract_block(lines, i)
                 # Prevent infinite recursion on empty or unchanged blocks
                 if block_lines and block_lines != lines[i:i+len(block_lines)]:
-                    block_rule, _ = self._process_lines(block_lines, parent=parent, path=path + [f"B{i}"], depth=depth+1)
+                    block_rule, _ = self._process_lines(
+                        block_lines, 
+                        parent=parent, 
+                        path=path,  # Don't add to path for unnamed blocks
+                        depth=depth+1,
+                        local_loop_counter=local_loop_counter,  # Continue numbering
+                        local_cond_counter=local_cond_counter   # Continue numbering
+                    )
                     if block_rule:
                         rule_parts.append(block_rule)
                 i += max(consumed, 1)
                 continue
     
             i += 1
+        
         return ' '.join(rule_parts), i
 
     def extract_inside_curly_brackets(self, line):
@@ -341,6 +416,19 @@ class GrammarBuilder:
         def is_valid_token(token):
             reserved = {'for', 'if', 'else', 'while', 'switch', 'case', 'break', 'continue', 'return', 'goto', 'default', 'do', 'int', 'char', 'float', 'double', 'void', 'struct', 'union', 'enum', 'typedef', 'const', 'static', 'extern', 'register', 'volatile', 'signed', 'unsigned', 'short', 'long', 'auto', 'sizeof'}
             return re.match(r'^[A-Za-z_][A-Za-z0-9_]*$', token) and token not in reserved
+        
+        # Helper to identify rule source
+        def get_rule_source(nt_name):
+            """Determine which C function a non-terminal came from"""
+            if 'Header' in nt_name or 'WriteHeader' in nt_name:
+                return 'WriteHeader()'
+            elif 'Pages' in nt_name:
+                return 'WritePages()'
+            elif 'Trailer' in nt_name or 'WriteRest' in nt_name:
+                return 'WriteRest()'
+            elif 'StartPage' in nt_name:
+                return 'StartPage()'
+            return None
     
         with open("generated.y", "w") as f:
             f.write("%defines\n%locations\n%define parse.error verbose\n\n")
@@ -418,14 +506,51 @@ class GrammarBuilder:
             for non_terminal in sorted(self.non_terminals):
                 if non_terminal in non_empty_rules:
                     f.write(f"%type <str> {non_terminal}\n")
+            # Add helper non-terminal types
+            f.write("%type <str> string_value\n")
+            f.write("%type <str> metadata_value\n")
             f.write("\n%%\n")
     
             # Write main rule at the top of the rules section
             f.write(main_rule + "\n")
+            
+            # Write helper rules for flexible token handling
+            f.write("\n/* --- Helper Rules for Flexible Token Handling --- */\n")
+            f.write("/* Accept STRING_LIST or NUM values */\n")
+            f.write("string_value: STRING_LIST | NUM;\n\n")
+            f.write("/* Optional SPACE before value */\n")
+            f.write("metadata_value: string_value | SPACE string_value;\n\n")
     
+            # Track last source to add separators
+            last_source = None
+            
             # Only emit reachable and non-empty rules (plus any required empty ones)
             for nt in sorted(non_empty_rules):
-                f.write(f"{nt}: {non_empty_rules[nt]};\n")
+                source = get_rule_source(nt)
+                
+                # Add section comment when source changes
+                if source and source != last_source:
+                    f.write(f"\n/* --- {source} --- */\n")
+                    last_source = source
+                
+                rule = non_empty_rules[nt]
+                
+                # Post-processing: Replace token sequences after metadata keywords
+                # This handles metadata fields that should be single tokens (SECTION) but are tokenized as multiple
+                metadata_keywords = [
+                    'CREATIONDATE', 'PRODUCER', 'TITLE', 'BASEFONT', 'NAME', 'INFO'
+                ]
+                for kw in metadata_keywords:
+                    # Pattern: KEYWORD SPACE ... up to NEWLINE (capturing everything between)
+                    # This regex captures: KEYWORD SPACE ... up to first NEWLINE
+                    # Then we replace the middle tokens with just metadata_value
+                    pattern = f"({kw} SPACE)([^N]*?)(NEWLINE)"
+                    def replace_with_metadata(match):
+                        # Keep KEYWORD SPACE, add metadata_value, keep NEWLINE
+                        return f"{match.group(1)}metadata_value {match.group(3)}"
+                    rule = re.sub(pattern, replace_with_metadata, rule)
+                
+                f.write(f"{nt}: {rule};\n")
             f.write("\n%%\n")
             f.write('''
     int main(int argc, char ** argv) {

@@ -9,6 +9,46 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Upcoming]
 - Moving dictionaryHandler regex code to regexQueries file
 
+## 2 June 2025
+- Starting from scratch again
+- Strengths of Your Current Implementation
+1. Call Graph and Reachability
+The call graph ensures all methods called (directly or indirectly) from main are included.
+This prevents missing any relevant function in the grammar.
+2. Nesting and Non-terminal Naming
+The use of a path stack in _process_lines encodes nesting, so each block/loop/conditional gets a unique, hierarchical non-terminal.
+This mirrors the structure of nested rules in a hand-written grammar.
+3. Loop and Conditional Handling
+Both inline and block forms of loops and conditionals are handled.
+The code recurses into blocks, and generates alternatives for if/else and optionality for loops/conditionals.
+4. Token Grouping
+Consecutive writestr/sprintf calls are grouped, so the grammar reflects the actual output sequence.
+5. Rule Output
+All generated non-terminals and tokens are written to the .y file, ensuring completeness.
+What It Will Do Well
+Traverse all relevant code paths in text2pdf.c, including nested and sequential function calls.
+Reflect the order of tokens as they appear in the code, preserving the sequence of PDF structure.
+Handle all forms of control flow (loops, if/else, etc.), including both inline and block forms.
+Generate a grammar that is readable and maintainable, with unique non-terminals for each nested structure.
+Potential Limitations / Final Recommendations
+Complex Expressions in Conditionals/Loops:
+If your code has very complex or multi-line conditions, ensure your regexes in _process_lines and _extract_block are robust enough to handle them.
+
+Function Calls in Expressions:
+If function calls are embedded in expressions (not on their own line), you may need to enhance getMethodCallLine to detect them.
+
+Manual vs. Generated Grammar Differences:
+
+The generated grammar may have more granular non-terminals (due to unique naming for each block).
+Manual grammars sometimes group similar constructs; your generated grammar will be more literal, but this is usually fine for correctness.
+Token Extraction:
+
+Ensure findTokenValue and getMethodParamsFromLine are robust and match your actual writestr/sprintf usage.
+Testing:
+
+Compare the generated .y file with manualFLexBison.y for a few runs.
+If you see extra or missing tokens/non-terminals, check the relevant extraction logic.
+
 ## 18 February 2025
 - Starting from scratch.
 - Decided that a state machine might be the best option to handle the complex nested structure of the C code.

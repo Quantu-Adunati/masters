@@ -9,240 +9,724 @@ Shifting token PDFDECLARATION (1.1: )
 Entering state 1
 Stack now 0 1
 Reading a token
---accepting rule at line 62 ("
+--accepting rule at line 61 ("
 ")
 Next token is token NEWLINE (1.1: )
 Shifting token NEWLINE (1.1: )
 Entering state 4
 Stack now 0 1 4
 Reading a token
---accepting rule at line 51 ("1")
+--accepting rule at line 49 ("1")
 Next token is token NUM (1.1: )
 Shifting token NUM (1.1: )
-Entering state 11
-Stack now 0 1 4 11
+Entering state 10
+Stack now 0 1 4 10
 Reading a token
---accepting rule at line 63 (" ")
+--accepting rule at line 62 (" ")
 Next token is token SPACE (1.1: )
-Error: syntax error, unexpected SPACE, expecting STRING
+Shifting token SPACE (1.1: )
+Entering state 17
+Stack now 0 1 4 10 17
+Reading a token
+--accepting rule at line 50 ("0")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 25
+Stack now 0 1 4 10 17 25
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 32
+Stack now 0 1 4 10 17 25 32
+Reading a token
+--accepting rule at line 45 ("obj")
+Next token is token OBJ (1.1: )
+Shifting token OBJ (1.1: )
+Entering state 40
+Stack now 0 1 4 10 17 25 32 40
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 46
+Stack now 0 1 4 10 17 25 32 40 46
+Reading a token
+--accepting rule at line 47 ("<<")
+Next token is token LESSTHAN (1.1: )
+Shifting token LESSTHAN (1.1: )
+Entering state 50
+Stack now 0 1 4 10 17 25 32 40 46 50
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 54
+Stack now 0 1 4 10 17 25 32 40 46 50 54
+Reading a token
+--accepting rule at line 12 ("/CreationDate")
+Next token is token CREATIONDATE (1.1: )
+Shifting token CREATIONDATE (1.1: )
+Entering state 58
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 62
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62
+Reading a token
+--accepting rule at line 58 ("(D:20250218123653)")
+Next token is token STRING (1.1: )
+Shifting token STRING (1.1: )
+Entering state 66
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 70
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70
+Reading a token
+--accepting rule at line 13 ("/Producer")
+Next token is token PRODUCER (1.1: )
+Shifting token PRODUCER (1.1: )
+Entering state 74
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 78
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78
+Reading a token
+--accepting rule at line 58 ("(text2pdf v1.1 (\251 Phil Smith, 1996))")
+Next token is token STRING (1.1: )
+Shifting token STRING (1.1: )
+Entering state 82
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 86
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86
+Reading a token
+--accepting rule at line 14 ("/Title")
+Next token is token TITLE (1.1: )
+Shifting token TITLE (1.1: )
+Entering state 89
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 92
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92
+Reading a token
+--accepting rule at line 58 ("(random_text_0.txt)")
+Next token is token STRING (1.1: )
+Shifting token STRING (1.1: )
+Entering state 95
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 98
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98
+Reading a token
+--accepting rule at line 48 (">>")
+Next token is token GREATERTHAN (1.1: )
+Shifting token GREATERTHAN (1.1: )
+Entering state 101
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 104
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104
+Reading a token
+--accepting rule at line 46 ("endobj")
+Next token is token ENDOBJ (1.1: )
+Shifting token ENDOBJ (1.1: )
+Entering state 107
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 110
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110
+Reading a token
+--accepting rule at line 49 ("2")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 113
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 116
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116
+Reading a token
+--accepting rule at line 50 ("0")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 119
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 122
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122
+Reading a token
+--accepting rule at line 45 ("obj")
+Next token is token OBJ (1.1: )
+Shifting token OBJ (1.1: )
+Entering state 125
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 128
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128
+Reading a token
+--accepting rule at line 47 ("<<")
+Next token is token LESSTHAN (1.1: )
+Shifting token LESSTHAN (1.1: )
+Entering state 131
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 134
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134
+Reading a token
+--accepting rule at line 15 ("/Type")
+Next token is token TYPE (1.1: )
+Shifting token TYPE (1.1: )
+Entering state 137
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 140
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140
+Reading a token
+--accepting rule at line 16 ("/Catalog")
+Next token is token CATALOG (1.1: )
+Shifting token CATALOG (1.1: )
+Entering state 143
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 146
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146
+Reading a token
+--accepting rule at line 19 ("/Pages")
+Next token is token PAGES (1.1: )
+Shifting token PAGES (1.1: )
+Entering state 149
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 152
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152
+Reading a token
+--accepting rule at line 49 ("3")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 155
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 158
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158
+Reading a token
+--accepting rule at line 50 ("0")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 161
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 164
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164
+Reading a token
+--accepting rule at line 68 ("R")
+Next token is token STRING (1.1: )
+Shifting token STRING (1.1: )
+Entering state 167
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 170
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170
+Reading a token
+--accepting rule at line 48 (">>")
+Next token is token GREATERTHAN (1.1: )
+Shifting token GREATERTHAN (1.1: )
+Entering state 173
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 176
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176
+Reading a token
+--accepting rule at line 46 ("endobj")
+Next token is token ENDOBJ (1.1: )
+Shifting token ENDOBJ (1.1: )
+Entering state 179
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 182
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182
+Reading a token
+--accepting rule at line 49 ("4")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 185
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 188
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188
+Reading a token
+--accepting rule at line 50 ("0")
+Next token is token NUM (1.1: )
+Shifting token NUM (1.1: )
+Entering state 191
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 194
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194
+Reading a token
+--accepting rule at line 45 ("obj")
+Next token is token OBJ (1.1: )
+Shifting token OBJ (1.1: )
+Entering state 197
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 200
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200
+Reading a token
+--accepting rule at line 47 ("<<")
+Next token is token LESSTHAN (1.1: )
+Shifting token LESSTHAN (1.1: )
+Entering state 203
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 206
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206
+Reading a token
+--accepting rule at line 15 ("/Type")
+Next token is token TYPE (1.1: )
+Shifting token TYPE (1.1: )
+Entering state 209
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 212
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212
+Reading a token
+--accepting rule at line 20 ("/Font")
+Next token is token FONT (1.1: )
+Shifting token FONT (1.1: )
+Entering state 215
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 218
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218
+Reading a token
+--accepting rule at line 22 ("/Subtype")
+Next token is token SUBTYPE (1.1: )
+Shifting token SUBTYPE (1.1: )
+Entering state 222
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 226
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226
+Reading a token
+--accepting rule at line 21 ("/Type1")
+Next token is token TYPEONE (1.1: )
+Shifting token TYPEONE (1.1: )
+Entering state 230
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 234
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234
+Reading a token
+--accepting rule at line 33 ("/Name")
+Next token is token NAME (1.1: )
+Shifting token NAME (1.1: )
+Entering state 238
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238
+Reading a token
+--accepting rule at line 62 (" ")
+Next token is token SPACE (1.1: )
+Shifting token SPACE (1.1: )
+Entering state 242
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238 242
+Reading a token
+--accepting rule at line 38 ("/F1")
+Next token is token FONE (1.1: )
+Shifting token FONE (1.1: )
+Entering state 246
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238 242 246
+Reading a token
+--accepting rule at line 61 ("
+")
+Next token is token NEWLINE (1.1: )
+Shifting token NEWLINE (1.1: )
+Entering state 249
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238 242 246 249
+Reading a token
+--accepting rule at line 68 ("/")
+Next token is token STRING (1.1: )
+Error: syntax error, unexpected STRING, expecting SLASHWORD
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238 242 246
+Error: popping token FONE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238 242
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234 238
+Error: popping token NAME (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230 234
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226 230
+Error: popping token TYPEONE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222 226
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218 222
+Error: popping token SUBTYPE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215 218
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212 215
+Error: popping token FONT (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209 212
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206 209
+Error: popping token TYPE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203 206
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200 203
+Error: popping token LESSTHAN (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197 200
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194 197
+Error: popping token OBJ (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191 194
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188 191
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185 188
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182 185
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179 182
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176 179
+Error: popping token ENDOBJ (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173 176
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170 173
+Error: popping token GREATERTHAN (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167 170
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164 167
+Error: popping token STRING (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161 164
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158 161
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155 158
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152 155
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149 152
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146 149
+Error: popping token PAGES (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143 146
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140 143
+Error: popping token CATALOG (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137 140
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134 137
+Error: popping token TYPE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131 134
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128 131
+Error: popping token LESSTHAN (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125 128
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122 125
+Error: popping token OBJ (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119 122
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116 119
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113 116
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110 113
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107 110
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104 107
+Error: popping token ENDOBJ (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101 104
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98 101
+Error: popping token GREATERTHAN (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95 98
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92 95
+Error: popping token STRING (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89 92
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86 89
+Error: popping token TITLE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82 86
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78 82
+Error: popping token STRING (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74 78
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70 74
+Error: popping token PRODUCER (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66 70
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62 66
+Error: popping token STRING (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58 62
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54 58
+Error: popping token CREATIONDATE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50 54
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46 50
+Error: popping token LESSTHAN (1.1: )
+Stack now 0 1 4 10 17 25 32 40 46
+Error: popping token NEWLINE (1.1: )
+Stack now 0 1 4 10 17 25 32 40
+Error: popping token OBJ (1.1: )
+Stack now 0 1 4 10 17 25 32
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10 17 25
+Error: popping token NUM (1.1: )
+Stack now 0 1 4 10 17
+Error: popping token SPACE (1.1: )
+Stack now 0 1 4 10
 Error: popping token NUM (1.1: )
 Stack now 0 1 4
 Error: popping token NEWLINE (1.1: )
 Stack now 0 1
 Error: popping token PDFDECLARATION (1.1: )
 Stack now 0
-Cleanup: discarding lookahead token SPACE (1.1: )
+Cleanup: discarding lookahead token STRING (1.1: )
 Stack now 0
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
+--accepting rule at line 68 ("B")
+--accepting rule at line 68 ("a")
+--accepting rule at line 68 ("s")
+--accepting rule at line 68 ("e")
+--accepting rule at line 68 ("F")
+--accepting rule at line 68 ("o")
+--accepting rule at line 68 ("n")
+--accepting rule at line 68 ("t")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("/")
+--accepting rule at line 68 ("C")
+--accepting rule at line 68 ("o")
+--accepting rule at line 68 ("u")
+--accepting rule at line 68 ("r")
+--accepting rule at line 68 ("i")
+--accepting rule at line 68 ("e")
+--accepting rule at line 68 ("r")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 12 ("/CreationDate")
---accepting rule at line 63 (" ")
---accepting rule at line 54 ("(D:20250218123653)")
---accepting rule at line 62 ("
+--accepting rule at line 46 ("endobj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 13 ("/Producer")
---accepting rule at line 63 (" ")
---accepting rule at line 53 ("(text2pdf v1.1 (\251 Phil Smith, 1996))")
---accepting rule at line 62 ("
+--accepting rule at line 49 ("5")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 45 ("obj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 14 ("/Title")
---accepting rule at line 63 (" ")
---accepting rule at line 54 ("(random_text_0.txt)")
---accepting rule at line 62 ("
+--accepting rule at line 47 ("<<")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
-")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
-")
---accepting rule at line 51 ("2")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
-")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
-")
---accepting rule at line 15 ("/Type")
---accepting rule at line 63 (" ")
---accepting rule at line 16 ("/Catalog")
---accepting rule at line 62 ("
-")
---accepting rule at line 19 ("/Pages")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("3")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
-")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
-")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
-")
---accepting rule at line 51 ("4")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
-")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
-")
---accepting rule at line 15 ("/Type")
---accepting rule at line 63 (" ")
+--accepting rule at line 62 (" ")
+--accepting rule at line 62 (" ")
 --accepting rule at line 20 ("/Font")
---accepting rule at line 62 ("
-")
---accepting rule at line 22 ("/Subtype")
---accepting rule at line 63 (" ")
---accepting rule at line 21 ("/Type1")
---accepting rule at line 62 ("
-")
---accepting rule at line 33 ("/Name")
---accepting rule at line 63 (" ")
+--accepting rule at line 62 (" ")
+--accepting rule at line 47 ("<<")
+--accepting rule at line 62 (" ")
 --accepting rule at line 38 ("/F1")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("4")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 62 (" ")
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 39 ("/BaseFont")
---accepting rule at line 63 (" ")
---accepting rule at line 40 ("/Courier")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 62 (" ")
+--accepting rule at line 39 ("/ProcSet")
+--accepting rule at line 62 (" ")
+--accepting rule at line 41 ("[")
+--accepting rule at line 62 (" ")
+--accepting rule at line 40 ("/PDF")
+--accepting rule at line 62 (" ")
+--accepting rule at line 43 ("/Text")
+--accepting rule at line 62 (" ")
+--accepting rule at line 42 ("]")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
+--accepting rule at line 46 ("endobj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 51 ("5")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
+--accepting rule at line 49 ("6")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 45 ("obj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
-")
---accepting rule at line 63 (" ")
---accepting rule at line 63 (" ")
---accepting rule at line 20 ("/Font")
---accepting rule at line 63 (" ")
---accepting rule at line 49 ("<<")
---accepting rule at line 63 (" ")
---accepting rule at line 38 ("/F1")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("4")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 63 (" ")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
-")
---accepting rule at line 63 (" ")
---accepting rule at line 63 (" ")
---accepting rule at line 41 ("/ProcSet")
---accepting rule at line 63 (" ")
---accepting rule at line 43 ("[")
---accepting rule at line 63 (" ")
---accepting rule at line 42 ("/PDF")
---accepting rule at line 63 (" ")
---accepting rule at line 45 ("/Text")
---accepting rule at line 63 (" ")
---accepting rule at line 44 ("]")
---accepting rule at line 62 ("
-")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
-")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
-")
---accepting rule at line 51 ("6")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
-")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
+--accepting rule at line 47 ("<<")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 15 ("/Type")
---accepting rule at line 63 (" ")
+--accepting rule at line 62 (" ")
 --accepting rule at line 23 ("/Page")
---accepting rule at line 62 ("
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 24 ("/Parent")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("3")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("3")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 25 ("/Resources")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("5")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("5")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 26 ("/Contents")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("7")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("7")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
+--accepting rule at line 46 ("endobj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 51 ("7")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
+--accepting rule at line 49 ("7")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 45 ("obj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
+--accepting rule at line 47 ("<<")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 27 ("/Length")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("8")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("8")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
 --(end of buffer or a NUL)
---accepting rule at line 67 (">>
+--accepting rule at line 66 (">>
 stream
 BT
 /F1 10 Tf
@@ -269,225 +753,215 @@ BT
 ET
 endstream
 endobj")
---accepting rule at line 62 ("
+--accepting rule at line 61 ("
 ")
---accepting rule at line 51 ("8")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
+--accepting rule at line 49 ("8")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 45 ("obj")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 51 ("1134")
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
+--accepting rule at line 49 ("1134")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 46 ("endobj")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 49 ("3")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 45 ("obj")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 47 ("<<")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 15 ("/Type")
+--accepting rule at line 62 (" ")
+--accepting rule at line 19 ("/Pages")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 28 ("/Count")
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("1")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 29 ("/MediaBox")
+--accepting rule at line 62 (" ")
+--accepting rule at line 41 ("[")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("612")
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("792")
+--accepting rule at line 62 (" ")
+--accepting rule at line 42 ("]")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 30 ("/Kids")
+--accepting rule at line 62 (" ")
+--accepting rule at line 65 ("[ 6 0 R ]")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 46 ("endobj")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 31 ("xref")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("9")
+--accepting rule at line 61 ("
+")
+--accepting rule at line 64 ("0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 0000001604 00000 n ")
+Token: 296 (B)
+Token: 296 (a)
+Token: 296 (s)
+Token: 296 (e)
+Token: 296 (F)
+Token: 296 (o)
+Token: 296 (n)
+Token: 296 (t)
+Token: 293 ( )
+Token: 296 (/)
+Token: 296 (C)
+Token: 296 (o)
+Token: 296 (u)
+Token: 296 (r)
+Token: 296 (i)
+Token: 296 (e)
+Token: 296 (r)
+Token: 277 (
 )
-Token: 276 (<<)
-Token: 279 (
+Token: 269 (>>)
+Token: 277 (
 )
-Token: 265 (/CreationDate)
-Token: 294 ( )
-Token: 287 ((D:20250218123653))
-Token: 279 (
+Token: 266 (endobj)
+Token: 277 (
 )
-Token: 289 (/Producer)
-Token: 294 ( )
-Token: 287 ((text2pdf v1.1 (\251 Phil Smith, 1996)))
-Token: 279 (
+Token: 278 (5)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 280 (obj)
+Token: 277 (
 )
-Token: 300 (/Title)
-Token: 294 ( )
-Token: 287 ((random_text_0.txt))
-Token: 279 (
+Token: 274 (<<)
+Token: 277 (
 )
-Token: 271 (>>)
-Token: 279 (
+Token: 293 ( )
+Token: 293 ( )
+Token: 268 (/Font)
+Token: 293 ( )
+Token: 274 (<<)
+Token: 293 ( )
+Token: 267 (/F1)
+Token: 293 ( )
+Token: 278 (4)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 293 ( )
+Token: 269 (>>)
+Token: 277 (
 )
-Token: 268 (endobj)
-Token: 279 (
-)
-Token: 280 (2)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
-)
-Token: 276 (<<)
-Token: 279 (
-)
-Token: 302 (/Type)
-Token: 294 ( )
-Token: 261 (/Catalog)
-Token: 279 (
-)
-Token: 284 (/Pages)
-Token: 294 ( )
-Token: 280 (3)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
-)
-Token: 271 (>>)
-Token: 279 (
-)
-Token: 268 (endobj)
-Token: 279 (
-)
-Token: 280 (4)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
-)
-Token: 276 (<<)
-Token: 279 (
-)
-Token: 302 (/Type)
-Token: 294 ( )
-Token: 270 (/Font)
-Token: 279 (
-)
-Token: 298 (/Subtype)
-Token: 294 ( )
-Token: 303 (/Type1)
-Token: 279 (
-)
-Token: 278 (/Name)
-Token: 294 ( )
-Token: 269 (/F1)
-Token: 279 (
-)
-Token: 260 (/BaseFont)
-Token: 294 ( )
-Token: 264 (/Courier)
-Token: 279 (
-)
-Token: 271 (>>)
-Token: 279 (
-)
-Token: 268 (endobj)
-Token: 279 (
-)
-Token: 280 (5)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
-)
-Token: 276 (<<)
-Token: 279 (
-)
-Token: 294 ( )
-Token: 294 ( )
-Token: 270 (/Font)
-Token: 294 ( )
-Token: 276 (<<)
-Token: 294 ( )
-Token: 269 (/F1)
-Token: 294 ( )
-Token: 280 (4)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 294 ( )
-Token: 271 (>>)
-Token: 279 (
-)
-Token: 294 ( )
-Token: 294 ( )
-Token: 288 (/ProcSet)
-Token: 294 ( )
+Token: 293 ( )
+Token: 293 ( )
+Token: 286 (/ProcSet)
+Token: 293 ( )
 Token: 259 ([)
-Token: 294 ( )
-Token: 287 (/PDF)
-Token: 294 ( )
-Token: 299 (/Text)
-Token: 294 ( )
+Token: 293 ( )
+Token: 285 (/PDF)
+Token: 293 ( )
+Token: 298 (/Text)
+Token: 293 ( )
 Token: 258 (])
-Token: 279 (
+Token: 277 (
 )
-Token: 271 (>>)
-Token: 279 (
+Token: 269 (>>)
+Token: 277 (
 )
-Token: 268 (endobj)
-Token: 279 (
+Token: 266 (endobj)
+Token: 277 (
 )
-Token: 280 (6)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
+Token: 278 (6)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 280 (obj)
+Token: 277 (
 )
-Token: 276 (<<)
-Token: 279 (
+Token: 274 (<<)
+Token: 277 (
 )
-Token: 302 (/Type)
-Token: 294 ( )
-Token: 304 (/Page)
-Token: 279 (
+Token: 301 (/Type)
+Token: 293 ( )
+Token: 303 (/Page)
+Token: 277 (
 )
-Token: 285 (/Parent)
-Token: 294 ( )
-Token: 280 (3)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
+Token: 283 (/Parent)
+Token: 293 ( )
+Token: 278 (3)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 290 (/Resources)
-Token: 294 ( )
-Token: 280 (5)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
+Token: 288 (/Resources)
+Token: 293 ( )
+Token: 278 (5)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 262 (/Contents)
-Token: 294 ( )
-Token: 280 (7)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
+Token: 261 (/Contents)
+Token: 293 ( )
+Token: 278 (7)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 271 (>>)
-Token: 279 (
+Token: 269 (>>)
+Token: 277 (
 )
-Token: 268 (endobj)
-Token: 279 (
+Token: 266 (endobj)
+Token: 277 (
 )
-Token: 280 (7)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
+Token: 278 (7)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 280 (obj)
+Token: 277 (
 )
-Token: 276 (<<)
-Token: 279 (
+Token: 274 (<<)
+Token: 277 (
 )
-Token: 275 (/Length)
-Token: 294 ( )
-Token: 280 (8)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
+Token: 273 (/Length)
+Token: 293 ( )
+Token: 278 (8)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 296 (>>
+Token: 295 (>>
 stream
 BT
 /F1 10 Tf
@@ -514,217 +988,157 @@ BT
 ET
 endstream
 endobj)
-Token: 279 (
+Token: 277 (
 )
-Token: 280 (8)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
+Token: 278 (8)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 280 (obj)
+Token: 277 (
 )
-Tok--accepting rule at line 62 ("
+Token: 278 (1134)
+Token: 277 (
+)
+Token: 266 (endobj)
+Token: 277 (
+)
+Token: 278 (3)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 280 (obj)
+Token: 277 (
+)
+Token: 274 (<<)
+Token: 277 (
+)
+Token: 301 (/Type)
+Token: 293 ( )
+Token: 282 (/Pages)
+Token: 277 (
+)
+Token: 262 (/Count)
+Token: 293 ( )
+Token: 278 (1)
+Token: 277 (
+)
+Token: 275 (/MediaBox)
+Token: 293 ( )
+Token: 259 ([)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 278 (612)
+Token: 293 ( )
+Token: 278 (792)
+Token: 293 ( )
+Token: 258 (])
+Token: 277 (
+)
+Token: 271 (/Kids)
+Token: 293 ( )
+Token: 272 ([ 6 0 R ])
+Token: 277 (
+)
+Token: 269 (>>)
+Token: 277 (
+)
+Token: 266 (endobj)
+Token: 277 (
+)
+Token: 304 (xref)
+Token: 277 (
+)
+Token: 278 (0)
+Token: 293 ( )
+Token: 278 (9)
+Token: 277 (
+)
+Token: 279 (0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 000000160--accepting rule at line 32 ("trailer")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
-")
---accepting rule at line 51 ("3")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 47 ("obj")
---accepting rule at line 62 ("
-")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
-")
---accepting rule at line 15 ("/Type")
---accepting rule at line 63 (" ")
---accepting rule at line 19 ("/Pages")
---accepting rule at line 62 ("
-")
---accepting rule at line 28 ("/Count")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("1")
---accepting rule at line 62 ("
-")
---accepting rule at line 29 ("/MediaBox")
---accepting rule at line 63 (" ")
---accepting rule at line 43 ("[")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("612")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("792")
---accepting rule at line 63 (" ")
---accepting rule at line 44 ("]")
---accepting rule at line 62 ("
-")
---accepting rule at line 30 ("/Kids")
---accepting rule at line 63 (" ")
---accepting rule at line 66 ("[ 6 0 R ]")
---accepting rule at line 62 ("
-")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
-")
---accepting rule at line 48 ("endobj")
---accepting rule at line 62 ("
-")
---accepting rule at line 31 ("xref")
---accepting rule at line 62 ("
-")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("9")
---accepting rule at line 62 ("
-")
---accepting rule at line 65 ("0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 0000001604 00000 n ")
---accepting rule at line 32 ("trailer")
---accepting rule at line 62 ("
-")
---accepting rule at line 49 ("<<")
---accepting rule at line 62 ("
+--accepting rule at line 47 ("<<")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 34 ("/Size")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("9")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("9")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 35 ("/Root")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("2")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("2")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 36 ("/Info")
---accepting rule at line 63 (" ")
---accepting rule at line 51 ("1")
---accepting rule at line 63 (" ")
---accepting rule at line 52 ("0")
---accepting rule at line 63 (" ")
---accepting rule at line 69 ("R")
---accepting rule at line 62 ("
+--accepting rule at line 62 (" ")
+--accepting rule at line 49 ("1")
+--accepting rule at line 62 (" ")
+--accepting rule at line 50 ("0")
+--accepting rule at line 62 (" ")
+--accepting rule at line 68 ("R")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 50 (">>")
---accepting rule at line 62 ("
+--accepting rule at line 48 (">>")
+--accepting rule at line 61 ("
 ")
 --accepting rule at line 37 ("startxref")
---accepting rule at line 62 ("
+--accepting rule at line 61 ("
 ")
---accepting rule at line 51 ("1709")
---accepting rule at line 62 ("
+--accepting rule at line 49 ("1709")
+--accepting rule at line 61 ("
 ")
---accepting rule at line 55 ("%%EOF")
---accepting rule at line 62 ("
+--accepting rule at line 54 ("%%EOF")
+--accepting rule at line 61 ("
 ")
 --(end of buffer or a NUL)
 --EOF (start condition 0)
-en: 280 (1134)
-Token: 279 (
+4 00000 n )
+Token: 300 (trailer)
+Token: 277 (
 )
-Token: 268 (endobj)
-Token: 279 (
+Token: 274 (<<)
+Token: 277 (
 )
-Token: 280 (3)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 282 (obj)
-Token: 279 (
+Token: 290 (/Size)
+Token: 293 ( )
+Token: 278 (9)
+Token: 277 (
 )
-Token: 276 (<<)
-Token: 279 (
+Token: 289 (/Root)
+Token: 293 ( )
+Token: 278 (2)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 302 (/Type)
-Token: 294 ( )
-Token: 284 (/Pages)
-Token: 279 (
+Token: 270 (/Info)
+Token: 293 ( )
+Token: 278 (1)
+Token: 293 ( )
+Token: 278 (0)
+Token: 293 ( )
+Token: 296 (R)
+Token: 277 (
 )
-Token: 263 (/Count)
-Token: 294 ( )
-Token: 280 (1)
-Token: 279 (
+Token: 269 (>>)
+Token: 277 (
 )
-Token: 277 (/MediaBox)
-Token: 294 ( )
-Token: 259 ([)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 280 (612)
-Token: 294 ( )
-Token: 280 (792)
-Token: 294 ( )
-Token: 258 (])
-Token: 279 (
+Token: 294 (startxref)
+Token: 277 (
 )
-Token: 273 (/Kids)
-Token: 294 ( )
-Token: 274 ([ 6 0 R ])
-Token: 279 (
+Token: 278 (1709)
+Token: 277 (
 )
-Token: 271 (>>)
-Token: 279 (
-)
-Token: 268 (endobj)
-Token: 279 (
-)
-Token: 305 (xref)
-Token: 279 (
-)
-Token: 280 (0)
-Token: 294 ( )
-Token: 280 (9)
-Token: 279 (
-)
-Token: 281 (0000000000 65535 f 0000000009 00000 n 0000000140 00000 n 0000001624 00000 n 0000000189 00000 n 0000000267 00000 n 0000000338 00000 n 0000000418 00000 n 0000001604 00000 n )
-Token: 301 (trailer)
-Token: 279 (
-)
-Token: 276 (<<)
-Token: 279 (
-)
-Token: 292 (/Size)
-Token: 294 ( )
-Token: 280 (9)
-Token: 279 (
-)
-Token: 291 (/Root)
-Token: 294 ( )
-Token: 280 (2)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
-)
-Token: 272 (/Info)
-Token: 294 ( )
-Token: 280 (1)
-Token: 294 ( )
-Token: 280 (0)
-Token: 294 ( )
-Token: 297 (R)
-Token: 279 (
-)
-Token: 271 (>>)
-Token: 279 (
-)
-Token: 295 (startxref)
-Token: 279 (
-)
-Token: 280 (1709)
-Token: 279 (
-)
-Token: 297 (%%EOF)
-Token: 279 (
+Token: 296 (%%EOF)
+Token: 277 (
 )
